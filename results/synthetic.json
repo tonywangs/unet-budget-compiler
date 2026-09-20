@@ -1,0 +1,255 @@
+{
+  "config": {
+    "batch_size": 8,
+    "device": "cpu",
+    "dtype": "float32",
+    "epochs": 24,
+    "evaluation_samples": 16,
+    "evaluation_seed": 202,
+    "height": 33,
+    "learning_rate": 0.01,
+    "model_seed": 303,
+    "noise_std": 0.2,
+    "optimizer": "Adam",
+    "shuffle_seed": 404,
+    "threads": 1,
+    "train_samples": 48,
+    "train_seed": 101,
+    "width": 41
+  },
+  "constant_baseline": {
+    "class_probabilities": [
+      0.8932002782821655,
+      0.10679970681667328
+    ],
+    "description": "Training-set class frequencies, same probabilities at every pixel",
+    "held_out": {
+      "cross_entropy": 0.3264288008213043,
+      "foreground_dice": 0.0,
+      "foreground_iou": 0.0,
+      "pixel_accuracy": 0.8994826078414917
+    }
+  },
+  "data": {
+    "description": "Synthetic filled circles plus Gaussian pixel noise; no real images",
+    "disjoint_sample_hashes": true,
+    "evaluation_sample_sha256": [
+      "679b4f267276863bfb02dabe3e4113fe3f356478d385a81d7ef6676cbed97b9b",
+      "8502480aaf417c03a269875d1cb94e880e98bac562dd1b520e314610604b3dae",
+      "57858cd4759af141a27da7c987e1bb19d22e1f4bb261620b5a782c64a3087c0e",
+      "8e7a19528dbff3f6792e382ad923bd5ad9236935a4f4a1fcf2bc6ce35eb28481",
+      "cd92e61811dc3a38d79815a9d6fc41fdd9c8326d24f669ac584c2c23c8f612f8",
+      "58c948212fad4e5513fec275032b1b5eaff3643f4d6b1f971c9f87b2ceec13f7",
+      "5776a0a65947016ba7f663505b83c02170642e62307c015aeb2d8d5d9e21df6d",
+      "ddc61470a0cc08c3495edae12e9ed8e099360b67466cd954ac458db054cf0325",
+      "95bc4e3746bc82d0453142c6d73161205ba2d23d7ac303f401c876468087d680",
+      "16cac8815e4a9b30a211e9523f5d5dad728ceb681ab78fc0c625559b811e410b",
+      "a00974d28182b09381157b111c51bab0eae6d3ed14017bb4823ba71fd260ac65",
+      "9fcbb43f6d6abb9eedab2495897b01a6d125d6938bf63e36e078700b6d300e55",
+      "bc4b5b09d40f5da312498f5c5b3896057ca2e223be34558ca08443ef549d9ad7",
+      "f572885ea284f9a3ed1d3ec9ee0342bb42c48707a649253dd0ce735e8851ec73",
+      "058a3c0ebb323466394306813a761bb78d94c904c82f4e5ee6cd4341aad364c1",
+      "cb6d2752701a79e5d146fc1a3735e57222407f2e6f08c49d4efeae9367233655"
+    ],
+    "evaluation_sha256": "6ee7156ea61b838fde5f18e68b66e9681d98d1859a06c407166007e9b80f9a44",
+    "hash_format": "SHA256 of dtype string + JSON shape + C-order raw bytes, for each tensor",
+    "train_sample_sha256": [
+      "c00e46b6a08b712cef83e7901e606ebf328d0eead52cd670414b48f2f5148aad",
+      "43d1cdd479908a37531f2b04a99df039933e0b619c91d8ecf6e909dbb4ebeffa",
+      "d55edb203ed85691861c4d2a07b616cb1a1c26cc7c401573309f95b7a3c349e9",
+      "6143cfbcbeb63b400fef8f12ff2ec5824bdc602caab33da208894d9902449d74",
+      "59d083702030724fd31ef022b06491aceece5ff373bc0a148e8c5e85c0728a0c",
+      "bb6c8863b10e1b047a9f4819639ac97436167e9dc0f7e1033d3eb29a5cf2ea94",
+      "bbfa4e52dc076e7b3c50b6a760026b4566df36e435cd697328cb5fb05603e565",
+      "d2d5d1ca80f77f61bfc6df0268301d33cd7b3f074e1249de988d8fbb81c617ad",
+      "acc79ad434cd136d2cafa5b059ee784db4c31a5cc83139afb538645d3de600fc",
+      "48ec5359684b4d70730d0f670264a91e1043b46fa5f6bdfea08b39826cc9c6b7",
+      "ecb078513c0ad7577eb54fee684b1bf289a22c5fb5074eb6a3234e4ba8790883",
+      "e45527dfc10d2e5354752d9955e39ae5c49043d70ba945504b1b12924e8db382",
+      "04f2b8306dba117340ebe7de8cb76a36eb78fa163e342d54e6ee3cc0557b9bd5",
+      "b5cb2e86f3d03935f4392d144b6552d5ce708f5e970d0e0eada2fe910e13d4cf",
+      "83787eac1d86d45fc1b69c90e40b1962326f67d324ce7d48f43feb7620a2ce6e",
+      "11d2cacecf1ac9caf01b18be60f96aac7a2174e65133debced7f30b17bef7158",
+      "05b521657a7133fffbb50fb684d8ba598e1922e44188f7b37468656a762b3838",
+      "7943e33b3edb8b1661b14c2397959c2c7dd4386a742fe7e32e46a02c0d424035",
+      "4e16b68c26053059efafebd5d8632159a8ac64dfbda4f20d4b5819b6feac2744",
+      "91dd42f0ac877bde781959640c128f783003882400634ccce4d88888bb7722c5",
+      "be6de8f551188057b5a2c1d6eb71668cad1ef688f3696e2c2ad6353377db1d07",
+      "19542106da7e5c7c166100217d9d473ead2f985e03ab1c267b971c1e4a3f52a0",
+      "aceabfdf410642b32e6be2cc995354775d7614046042e1db5dd76599ae6a101d",
+      "df149b212f78db176bc449454e1b93a17830670d4be419cd0ce335a174de7377",
+      "fe339e6f3fd9634e900c9971eaf0d90b1fd7b4452d8e7419d7aca4af07890196",
+      "4843c87f7ed0ae55979a4ee2cc8ec3faa75bef4be009076b1a972b0e243c0081",
+      "204f0df32bef41926685a80677d0817f31b0ee179f70b1df8261e4933a895c9e",
+      "b94e7fb199800c0eae5e074317ba661074c6af315199ea3856a3eccfc3f1b742",
+      "13c09b92add3a0a38c9ced3a6c18535a28eb759e3658bd794e53cf6d23a90ddc",
+      "4f0337b31c73021f7c0275a753bab6b36544c02d69b7e2cbeade442b7d43903b",
+      "1282186df89ab0d7f858e4456c092467f67ec5fb5272a2314b4cc05af0712ce9",
+      "3f945898db6e6f14e746ebacf060921333441af382624046825a5c8ceca916f7",
+      "de359df5e99b5bb3ad430695de05040a77bc2e264f807fc2eda5133f34b34d75",
+      "83d81cf131ad652f538dfb2e236a4914a0e731453b2857f4f9be2337534ba10d",
+      "40058d79e7dbc2ae351e0da5a89dc354a777bbeeb12b08e6984b986a27f7af30",
+      "833eb9d7f7299931332658d08988d6b724a9ce3233c9b1839165d153a0a1642c",
+      "fe6acc7f166b34606d624c04b5c5ae8a5478ebf86b5f0df4b757857d31903d83",
+      "44eeb08b48d5de2ebae6e3a4751d5a69d5e145d7d0194e77a88dd664559ff0bc",
+      "d8361c5616dccdc1553ee699859bea2d3872d7e1eb5f1264c0e40e15d3eca6dc",
+      "d12b5df223b03e40aaad6c0cfab2345d2c5e041a78f5103233d11e50923a07e8",
+      "15e0156b7332933524642aa552d7fd104cf28ec5edb3665160669b473d560168",
+      "7b6ef5af4e6b2b534862a4e702679a72093b898cde0c09c127782360fed475e8",
+      "a8608f31b761aca33cf9684d7effdb39a66f893e9a1745d8f415d964eb5aacf7",
+      "cad09699d2ab51317faec168607de482bf6a6135650779a78b515d40925a2a83",
+      "cbbf91510a03fb2bc0f1c9f2f0f6340a391f704011ce6d0251165675bc015eab",
+      "eaf5bfa7b3c6a7aeb8d001efc805f5cd83c108f2fb77f3566fb1d188054e001b",
+      "246caf5288fb70b4621fee8fa3330d67c6a7d1b7a4bd43bc720d891942d3bba9",
+      "b9cd69b185a727aeffb56d9026860768e86644694f796933048d0ed1445fdb40"
+    ],
+    "train_sha256": "85d960631070e44385e01311205d545980ae2ee402d1afff92b08857fcfc8bba"
+  },
+  "final_held_out": {
+    "cross_entropy": 0.013708069920539856,
+    "foreground_dice": 0.9755083179297597,
+    "foreground_iou": 0.9521876409562472,
+    "pixel_accuracy": 0.9951034784317017
+  },
+  "final_weights_sha256": "bd1a23fb71cee25ea5ec6ce92135ea49c44f465edea2bcf8a881151c15c68137",
+  "generated_code_sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0",
+  "held_out_logits_sha256": "05262ea0765af3dd7999f31d12251810fdbe6eb91ff6df66676d0f3b06c95aa3",
+  "initial_held_out": {
+    "cross_entropy": 0.6126619577407837,
+    "foreground_dice": 0.0,
+    "foreground_iou": 0.0,
+    "pixel_accuracy": 0.8994826078414917
+  },
+  "limitations": [
+    "Single seed and easy synthetic data; no claim about real-world accuracy.",
+    "CPU only; reproducibility across PyTorch versions and platforms is not guaranteed.",
+    "Width maximizes a parameter-budget criterion, not accuracy or compute efficiency."
+  ],
+  "loss_curve": [
+    {
+      "epoch": 1,
+      "mean_training_cross_entropy": 0.5340479761362076
+    },
+    {
+      "epoch": 2,
+      "mean_training_cross_entropy": 0.35030805071194965
+    },
+    {
+      "epoch": 3,
+      "mean_training_cross_entropy": 0.2885669693350792
+    },
+    {
+      "epoch": 4,
+      "mean_training_cross_entropy": 0.22480386992295584
+    },
+    {
+      "epoch": 5,
+      "mean_training_cross_entropy": 0.16869435956080756
+    },
+    {
+      "epoch": 6,
+      "mean_training_cross_entropy": 0.1397388018667698
+    },
+    {
+      "epoch": 7,
+      "mean_training_cross_entropy": 0.1261181446413199
+    },
+    {
+      "epoch": 8,
+      "mean_training_cross_entropy": 0.11507179960608482
+    },
+    {
+      "epoch": 9,
+      "mean_training_cross_entropy": 0.10600931073228519
+    },
+    {
+      "epoch": 10,
+      "mean_training_cross_entropy": 0.0980549231171608
+    },
+    {
+      "epoch": 11,
+      "mean_training_cross_entropy": 0.09177755067745845
+    },
+    {
+      "epoch": 12,
+      "mean_training_cross_entropy": 0.08638197307785352
+    },
+    {
+      "epoch": 13,
+      "mean_training_cross_entropy": 0.07986303108433883
+    },
+    {
+      "epoch": 14,
+      "mean_training_cross_entropy": 0.0717478593190511
+    },
+    {
+      "epoch": 15,
+      "mean_training_cross_entropy": 0.06237544057269891
+    },
+    {
+      "epoch": 16,
+      "mean_training_cross_entropy": 0.050537108133236565
+    },
+    {
+      "epoch": 17,
+      "mean_training_cross_entropy": 0.036816041295727096
+    },
+    {
+      "epoch": 18,
+      "mean_training_cross_entropy": 0.025488912748793762
+    },
+    {
+      "epoch": 19,
+      "mean_training_cross_entropy": 0.018375858664512634
+    },
+    {
+      "epoch": 20,
+      "mean_training_cross_entropy": 0.017934694265325863
+    },
+    {
+      "epoch": 21,
+      "mean_training_cross_entropy": 0.01654082505653302
+    },
+    {
+      "epoch": 22,
+      "mean_training_cross_entropy": 0.01708523727332552
+    },
+    {
+      "epoch": 23,
+      "mean_training_cross_entropy": 0.014235804478327433
+    },
+    {
+      "epoch": 24,
+      "mean_training_cross_entropy": 0.013023851749797663
+    }
+  ],
+  "machine": "x86_64",
+  "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+  "python": "3.12.3",
+  "selection": {
+    "base_width": 4,
+    "parameters": 7470
+  },
+  "specification": {
+    "depth": 2,
+    "input_channels": 1,
+    "input_height": 33,
+    "input_width": 41,
+    "max_parameters": 8000,
+    "output_classes": 2,
+    "width_candidates": [
+      2,
+      4,
+      6,
+      8,
+      12,
+      16
+    ]
+  },
+  "specification_sha256": "de34da55ea3a9de87d972c339e5a1e41134a995d032dc2e84691cb49246f0660",
+  "versions": {
+    "numpy": "2.2.6",
+    "torch": "2.6.0+cpu",
+    "unet-budget-compiler": "0.1.0"
+  }
+}

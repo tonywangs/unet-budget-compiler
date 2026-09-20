@@ -1,0 +1,9 @@
+{
+  "input_channels": 1,
+  "output_classes": 2,
+  "depth": 2,
+  "max_parameters": 8000,
+  "width_candidates": [2, 4, 6, 8, 12, 16],
+  "input_height": 33,
+  "input_width": 41
+}

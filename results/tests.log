@@ -1,0 +1,28 @@
+$ python -m unittest discover -s tests -v
+test_cli (test_compiler.CompilerTests.test_cli) ... ok
+test_committed_example (test_compiler.CompilerTests.test_committed_example) ... ok
+test_determinism_and_hashes (test_compiler.CompilerTests.test_determinism_and_hashes) ... ok
+test_exhaustive_small_budgets (test_compiler.CompilerTests.test_exhaustive_small_budgets) ... ok
+test_forward_input_and_parameter_gradients (test_compiler.CompilerTests.test_forward_input_and_parameter_gradients) ... [W920 20:11:19.459986014 NNPACK.cpp:62] Could not initialize NNPACK! Reason: Unsupported hardware.
+ok
+test_invalid_specs (test_compiler.CompilerTests.test_invalid_specs) ... ok
+test_maximum_depth_and_single_output (test_compiler.CompilerTests.test_maximum_depth_and_single_output) ... ok
+test_shapes_counts_and_runtime_validation (test_compiler.CompilerTests.test_shapes_counts_and_runtime_validation) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 1.999s
+
+OK
+Exit status: 0
+
+$ python scripts/verify_isolated.py
+Selected width 4: 7470 parameters
+{"compiler_importable": false, "parameters": 7470, "standalone_forward_backward_optimizer": "passed", "torch": "2.6.0+cpu"}
+Offline wheel installation and isolated execution passed.
+Exit status: 0
+
+$ python experiments/train_synthetic.py --check results/synthetic.json
+[W920 20:11:35.891285574 NNPACK.cpp:62] Could not initialize NNPACK! Reason: Unsupported hardware.
+Synthetic experiment reproduced exactly (losses, metrics, data, weights, logits).
+{"constant_baseline": {"cross_entropy": 0.3264288008213043, "foreground_dice": 0.0, "foreground_iou": 0.0, "pixel_accuracy": 0.8994826078414917}, "final_held_out": {"cross_entropy": 0.013708069920539856, "foreground_dice": 0.9755083179297597, "foreground_iou": 0.9521876409562472, "pixel_accuracy": 0.9951034784317017}}
+Exit status: 0

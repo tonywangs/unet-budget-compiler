@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "unet-budget-compiler"
+version = "0.1.0"
+description = "Offline parameter-budget compiler for a small 2D U-Net family"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+unet-budget = "unet_budget.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
