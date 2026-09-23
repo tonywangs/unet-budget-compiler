@@ -62,7 +62,7 @@ def metrics(logits, target):
                 foreground_dice=2 * intersection / total if total else 1.0)
 
 
-def experiment():
+def experiment(*, return_model=False):
     torch.set_num_threads(CONFIG['threads'])
     torch.use_deterministic_algorithms(True)
     torch.manual_seed(CONFIG['model_seed'])
@@ -102,7 +102,7 @@ def experiment():
         baseline = metrics(constant_logits, eval_y)
     versions = {name: importlib.metadata.version(name) for name in
                 ('torch', 'numpy', 'unet-budget-compiler')}
-    return dict(config=CONFIG, versions=versions, python=platform.python_version(),
+    result = dict(config=CONFIG, versions=versions, python=platform.python_version(),
                 platform=platform.platform(), machine=platform.machine(),
                 specification=raw, selection=architecture['selection'],
                 specification_sha256=architecture['specification_sha256'],
@@ -120,6 +120,7 @@ def experiment():
                 limitations=['Single seed and easy synthetic data; no claim about real-world accuracy.',
                              'CPU only; reproducibility across PyTorch versions and platforms is not guaranteed.',
                              'Width maximizes a parameter-budget criterion, not accuracy or compute efficiency.'])
+    return (result, model, eval_x, eval_y) if return_model else result
 
 
 def main():

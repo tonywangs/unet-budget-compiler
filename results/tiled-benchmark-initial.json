@@ -1,0 +1,1365 @@
+{
+  "config": {
+    "device": "cpu",
+    "dtype": "float32",
+    "input_seed": 2902,
+    "interop_threads": 1,
+    "methods": [
+      "full",
+      "nonoverlapping",
+      "overlap_constant",
+      "overlap_gaussian"
+    ],
+    "model_seed": 2901,
+    "process_repetitions": 3,
+    "threads": 1,
+    "tile_batch_size": 1,
+    "timed_calls_per_process": 3,
+    "warmups": 1,
+    "workloads": [
+      {
+        "depth": 2,
+        "name": "small",
+        "shape": [
+          1,
+          1,
+          65,
+          81
+        ],
+        "tile": [
+          32,
+          40
+        ],
+        "width": 4
+      },
+      {
+        "depth": 3,
+        "name": "large",
+        "shape": [
+          1,
+          1,
+          513,
+          641
+        ],
+        "tile": [
+          128,
+          160
+        ],
+        "width": 12
+      }
+    ]
+  },
+  "environment": {
+    "affinity": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "cpu_models": [
+      "DO-Regular"
+    ],
+    "logical_cpu_count": 4,
+    "machine": "x86_64",
+    "numpy": "2.2.6",
+    "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "thread_environment": {
+      "MKL_NUM_THREADS": null,
+      "OMP_NUM_THREADS": null,
+      "OPENBLAS_NUM_THREADS": null
+    },
+    "torch": "2.6.0+cpu",
+    "torch_build": "PyTorch built with:\n  - GCC 9.3\n  - C++ Version: 201703\n  - Intel(R) oneAPI Math Kernel Library Version 2024.2-Product Build 20240605 for Intel(R) 64 architecture applications\n  - Intel(R) MKL-DNN v3.5.3 (Git Hash 66f0cb9eb66affd2da3bf5f8d897376f04aae6af)\n  - OpenMP 201511 (a.k.a. OpenMP 4.5)\n  - LAPACK is enabled (usually provided by MKL)\n  - NNPACK is enabled\n  - CPU capability usage: AVX2\n  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, COMMIT_SHA=2236df1770800ffea5697b11b0bb0d910b2e59e1, CXX_COMPILER=/opt/rh/devtoolset-9/root/usr/bin/c++, CXX_FLAGS= -D_GLIBCXX_USE_CXX11_ABI=0 -fabi-version=11 -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOCUPTI -DLIBKINETO_NOROCTRACER -DLIBKINETO_NOXPUPTI=ON -DUSE_FBGEMM -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wsuggest-override -Wno-psabi -Wno-error=old-style-cast -Wno-missing-braces -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, TORCH_VERSION=2.6.0, USE_CUDA=0, USE_CUDNN=OFF, USE_CUSPARSELT=OFF, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=OFF, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, \n"
+  },
+  "helper_sha256": "e91fae724d483b3e96eb8ffbf7c7b0de1e57dcfb6605b4722d3eec7177728f58",
+  "limitations": [
+    "RSS includes allocator caches, Python, PyTorch and workspaces; tensor sizes are not peak-memory estimates.",
+    "Shared host wall times and RSS vary; no inference of statistical significance from three processes.",
+    "No GPU, real-world images, process-memory cap, or guarantee that tiling saves memory."
+  ],
+  "measurement": "Linux ru_maxrss * 1024; whole fresh process including import/setup/warmup/timed calls/checks; perf_counter_ns for calls only",
+  "samples": [
+    {
+      "generated_code_sha256": "b5c159beb7fec56619676a34941d85f16976633608f9d830a162fc1cfa9333cf",
+      "input_sha256": "3f9ff1822dfd97797c8c73dbc15cc85eb413baa9060915378efbf655d046ebfc",
+      "method": "full",
+      "output_sha256": "5a3e6be5923205461f501c91d23b15ed58707dd065b2ad2d6aa5376f49655b73",
+      "output_shape": [
+        1,
+        2,
+        65,
+        81
+      ],
+      "peak_rss_bytes": 226050048,
+      "repetition": 0,
+      "seconds": [
+        0.006123492,
+        0.006308494,
+        0.005987118
+      ],
+      "settings": null,
+      "setup_peak_rss_bytes": 211636224,
+      "specification": {
+        "depth": 2,
+        "input_channels": 1,
+        "input_height": 65,
+        "input_width": 81,
+        "max_parameters": 1000000000,
+        "output_classes": 2,
+        "width_candidates": [
+          4
+        ]
+      },
+      "theoretical_tensor_sizes": {
+        "blending_weights_bytes": 0,
+        "input_bytes": 21060,
+        "normalization_bytes": 0,
+        "output_bytes": 42120,
+        "tile_input_bytes": 0,
+        "tile_output_bytes": 0
+      },
+      "tile_count": 0,
+      "workload": "small"
+    },
+    {
+      "generated_code_sha256": "b5c159beb7fec56619676a34941d85f16976633608f9d830a162fc1cfa9333cf",
+      "input_sha256": "3f9ff1822dfd97797c8c73dbc15cc85eb413baa9060915378efbf655d046ebfc",
+      "method": "nonoverlapping",
+      "output_sha256": "d709a7e1a3eae151195226672a4dc6f6817ce08cf46bd1acc0a94839f27a1ec4",
+      "output_shape": [
+        1,
+        2,
+        65,
+        81
+      ],
+      "peak_rss_bytes": 220913664,
+      "repetition": 0,
+      "seconds": [
+        0.022365026,
+        0.022733355,
+        0.025712904
+      ],
+      "settings": {
+        "blend": "constant",
+        "overlap": [
+          0,
+          0
+        ],
+        "tile_batch_size": 1,
+        "tile_size": [
+          32,
+          40
+        ]
+      },
+      "setup_peak_rss_bytes": 211759104,
+      "specification": {
+        "depth": 2,
+        "input_channels": 1,
+        "input_height": 65,
+        "input_width": 81,
+        "max_parameters": 1000000000,
+        "output_classes": 2,
+        "width_candidates": [
+          4
+        ]
+      },
+      "theoretical_tensor_sizes": {
+        "blending_weights_bytes": 5120,
+        "input_bytes": 21060,
+        "normalization_bytes": 21060,
+        "output_bytes": 42120,
+        "tile_input_bytes": 5120,
+        "tile_output_bytes": 10240
+      },
+      "tile_count": 9,
+      "workload": "small"
+    },
+    {
+      "generated_code_sha256": "b5c159beb7fec56619676a34941d85f16976633608f9d830a162fc1cfa9333cf",
+      "input_sha256": "3f9ff1822dfd97797c8c73dbc15cc85eb413baa9060915378efbf655d046ebfc",
+      "method": "overlap_constant",
+      "output_sha256": "303e274fd36c75f9a4b524af02e3ce0a98cc459fd24e47c76c86625426cc5689",
+      "output_shape": [
+        1,
+        2,
+        65,
+        81
+      ],
+      "peak_rss_bytes": 220921856,
+      "repetition": 0,
+      "seconds": [
+        0.043928251,
+        0.055733821,
+        0.038998452
+      ],
+      "settings": {
+        "blend": "constant",
+        "overlap": [
+          16,
+          20
+        ],
+        "tile_batch_size": 1,
+        "tile_size": [
+          32,
+          40
+        ]
+      },
+      "setup_peak_rss_bytes": 211640320,
+      "specification": {
+        "depth": 2,
+        "input_channels": 1,
+        "input_height": 65,
+        "input_width": 81,
+        "max_parameters": 1000000000,
+        "output_classes": 2,
+        "width_candidates": [
+          4
+        ]
+      },
+      "theoretical_tensor_sizes": {
+        "blending_weights_bytes": 5120,
+        "input_bytes": 21060,
+        "normalization_bytes": 21060,
+        "output_bytes": 42120,
+        "tile_input_bytes": 5120,
+        "tile_output_bytes": 10240
+      },
+      "tile_count": 16,
+      "workload": "small"
+    },
+    {
+      "generated_code_sha256": "b5c159beb7fec56619676a34941d85f16976633608f9d830a162fc1cfa9333cf",
+      "input_sha256": "3f9ff1822dfd97797c8c73dbc15cc85eb413baa9060915378efbf655d046ebfc",
+      "method": "overlap_gaussian",
+      "output_sha256": "a080f3d047eb9256f6c3a97b0f184993b24f605d00618f1f5976c2e5ab5a64d4",
+      "output_shape": [
+        1,
+        2,
+        65,
+        81
+      ],
+      "peak_rss_bytes": 222007296,
+      "repetition": 0,
+      "seconds": [
+        0.038980138,
+        0.042148744,
+        0.04032733
+      ],
+      "settings": {
+        "blend": "gaussian",
+        "overlap": [
+          16,
+          20
+        ],
+        "tile_batch_size": 1,
+        "tile_size": [
+          32,
+          40
+        ]
+      },
+      "setup_peak_rss_bytes": 211632128,
+      "specification": {
+        "depth": 2,
+        "input_channels": 1,
+        "input_height": 65,
+        "input_width": 81,
+        "max_parameters": 1000000000,
+        "output_classes": 2,
+        "width_candidates": [
+          4
+        ]
+      },
+      "theoretical_tensor_sizes": {
+        "blending_weights_bytes": 5120,
+        "input_bytes": 21060,
+        "normalization_bytes": 21060,
+        "output_bytes": 42120,
+        "tile_input_bytes": 5120,
+        "tile_output_bytes": 10240
+      },
+      "tile_count": 16,
+      "workload": "small"
+    },
+    {
+      "generated_code_sha256": "b5c159beb7fec56619676a34941d85f16976633608f9d830a162fc1cfa9333cf",
+      "input_sha256": "3f9ff1822dfd97797c8c73dbc15cc85eb413baa9060915378efbf655d046ebfc",
+      "method": "nonoverlapping",
+      "output_sha256": "d709a7e1a3eae151195226672a4dc6f6817ce08cf46bd1acc0a94839f27a1ec4",
+      "output_shape": [
+        1,
+        2,
+        65,
+        81
+      ],
+      "peak_rss_bytes": 220798976,
+      "repetition": 1,
+      "seconds": [
+        0.020892521,
+        0.021095074,
+        0.020541616
+      ],
+      "settings": {
+        "blend": "constant",
+        "overlap": [
+          0,
+          0
+        ],
+        "tile_batch_size": 1,
+        "tile_size": [
+          32,
+          40
+        ]
+      },
+      "setup_peak_rss_bytes": 211623936,
+      "specification": {
+        "depth": 2,
+        "input_channels": 1,
+        "input_height": 65,
+        "input_width": 81,
+        "max_parameters": 1000000000,
+        "output_classes": 2,
+        "width_candidates": [
+          4
+        ]
+      },
+      "theoretical_tensor_sizes": {
+        "blending_weights_bytes": 5120,
+        "input_bytes": 21060,
+        "normalization_bytes": 21060,
+        "output_bytes": 42120,
+        "tile_input_bytes": 5120,
+        "tile_output_bytes": 10240
+      },
+      "tile_count": 9,
+      "workload": "small"
+    },
+    {
+      "generated_code_sha256": "b5c159beb7fec56619676a34941d85f16976633608f9d830a162fc1cfa9333cf",
+      "input_sha256": "3f9ff1822dfd97797c8c73dbc15cc85eb413baa9060915378efbf655d046ebfc",
+      "method": "overlap_constant",
+      "output_sha256": "303e274fd36c75f9a4b524af02e3ce0a98cc459fd24e47c76c86625426cc5689",
+      "output_shape": [
+        1,
+        2,
+        65,
+        81
+      ],
+      "peak_rss_bytes": 220942336,
+      "repetition": 1,
+      "seconds": [
+        0.042485676,
+        0.035369413,
+        0.036634021
+      ],
+      "settings": {
+        "blend": "constant",
+        "overlap": [
+          16,
+          20
+        ],
+        "tile_batch_size": 1,
+        "tile_size": [
+          32,
+          40
+        ]
+      },
+      "setup_peak_rss_bytes": 211640320,
+      "specification": {
+        "depth": 2,
+        "input_channels": 1,
+        "input_height": 65,
+        "input_width": 81,
+        "max_parameters": 1000000000,
+        "output_classes": 2,
+        "width_candidates": [
+          4
+        ]
+      },
+      "theoretical_tensor_sizes": {
+        "blending_weights_bytes": 5120,
+        "input_bytes": 21060,
+        "normalization_bytes": 21060,
+        "output_bytes": 42120,
+        "tile_input_bytes": 5120,
+        "tile_output_bytes": 10240
+      },
+      "tile_count": 16,
+      "workload": "small"
+    },
+    {
+      "generated_code_sha256": "b5c159beb7fec56619676a34941d85f16976633608f9d830a162fc1cfa9333cf",
+      "input_sha256": "3f9ff1822dfd97797c8c73dbc15cc85eb413baa9060915378efbf655d046ebfc",
+      "method": "overlap_gaussian",
+      "output_sha256": "a080f3d047eb9256f6c3a97b0f184993b24f605d00618f1f5976c2e5ab5a64d4",
+      "output_shape": [
+        1,
+        2,
+        65,
+        81
+      ],
+      "peak_rss_bytes": 222007296,
+      "repetition": 1,
+      "seconds": [
+        0.107879044,
+        0.115220321,
+        0.107127037
+      ],
+      "settings": {
+        "blend": "gaussian",
+        "overlap": [
+          16,
+          20
+        ],
+        "tile_batch_size": 1,
+        "tile_size": [
+          32,
+          40
+        ]
+      },
+      "setup_peak_rss_bytes": 211632128,
+      "specification": {
+        "depth": 2,
+        "input_channels": 1,
+        "input_height": 65,
+        "input_width": 81,
+        "max_parameters": 1000000000,
+        "output_classes": 2,
+        "width_candidates": [
+          4
+        ]
+      },
+      "theoretical_tensor_sizes": {
+        "blending_weights_bytes": 5120,
+        "input_bytes": 21060,
+        "normalization_bytes": 21060,
+        "output_bytes": 42120,
+        "tile_input_bytes": 5120,
+        "tile_output_bytes": 10240
+      },
+      "tile_count": 16,
+      "workload": "small"
+    },
+    {
+      "generated_code_sha256": "b5c159beb7fec56619676a34941d85f16976633608f9d830a162fc1cfa9333cf",
+      "input_sha256": "3f9ff1822dfd97797c8c73dbc15cc85eb413baa9060915378efbf655d046ebfc",
+      "method": "full",
+      "output_sha256": "5a3e6be5923205461f501c91d23b15ed58707dd065b2ad2d6aa5376f49655b73",
+      "output_shape": [
+        1,
+        2,
+        65,
+        81
+      ],
+      "peak_rss_bytes": 225751040,
+      "repetition": 1,
+      "seconds": [
+        0.005007428,
+        0.004918949,
+        0.005426451
+      ],
+      "settings": null,
+      "setup_peak_rss_bytes": 211501056,
+      "specification": {
+        "depth": 2,
+        "input_channels": 1,
+        "input_height": 65,
+        "input_width": 81,
+        "max_parameters": 1000000000,
+        "output_classes": 2,
+        "width_candidates": [
+          4
+        ]
+      },
+      "theoretical_tensor_sizes": {
+        "blending_weights_bytes": 0,
+        "input_bytes": 21060,
+        "normalization_bytes": 0,
+        "output_bytes": 42120,
+        "tile_input_bytes": 0,
+        "tile_output_bytes": 0
+      },
+      "tile_count": 0,
+      "workload": "small"
+    },
+    {
+      "generated_code_sha256": "b5c159beb7fec56619676a34941d85f16976633608f9d830a162fc1cfa9333cf",
+      "input_sha256": "3f9ff1822dfd97797c8c73dbc15cc85eb413baa9060915378efbf655d046ebfc",
+      "method": "overlap_constant",
+      "output_sha256": "303e274fd36c75f9a4b524af02e3ce0a98cc459fd24e47c76c86625426cc5689",
+      "output_shape": [
+        1,
+        2,
+        65,
+        81
+      ],
+      "peak_rss_bytes": 220700672,
+      "repetition": 2,
+      "seconds": [
+        0.094634327,
+        0.033542728,
+        0.089532095
+      ],
+      "settings": {
+        "blend": "constant",
+        "overlap": [
+          16,
+          20
+        ],
+        "tile_batch_size": 1,
+        "tile_size": [
+          32,
+          40
+        ]
+      },
+      "setup_peak_rss_bytes": 211509248,
+      "specification": {
+        "depth": 2,
+        "input_channels": 1,
+        "input_height": 65,
+        "input_width": 81,
+        "max_parameters": 1000000000,
+        "output_classes": 2,
+        "width_candidates": [
+          4
+        ]
+      },
+      "theoretical_tensor_sizes": {
+        "blending_weights_bytes": 5120,
+        "input_bytes": 21060,
+        "normalization_bytes": 21060,
+        "output_bytes": 42120,
+        "tile_input_bytes": 5120,
+        "tile_output_bytes": 10240
+      },
+      "tile_count": 16,
+      "workload": "small"
+    },
+    {
+      "generated_code_sha256": "b5c159beb7fec56619676a34941d85f16976633608f9d830a162fc1cfa9333cf",
+      "input_sha256": "3f9ff1822dfd97797c8c73dbc15cc85eb413baa9060915378efbf655d046ebfc",
+      "method": "overlap_gaussian",
+      "output_sha256": "a080f3d047eb9256f6c3a97b0f184993b24f605d00618f1f5976c2e5ab5a64d4",
+      "output_shape": [
+        1,
+        2,
+        65,
+        81
+      ],
+      "peak_rss_bytes": 222212096,
+      "repetition": 2,
+      "seconds": [
+        0.039798924,
+        0.038551977,
+        0.038451257
+      ],
+      "settings": {
+        "blend": "gaussian",
+        "overlap": [
+          16,
+          20
+        ],
+        "tile_batch_size": 1,
+        "tile_size": [
+          32,
+          40
+        ]
+      },
+      "setup_peak_rss_bytes": 211832832,
+      "specification": {
+        "depth": 2,
+        "input_channels": 1,
+        "input_height": 65,
+        "input_width": 81,
+        "max_parameters": 1000000000,
+        "output_classes": 2,
+        "width_candidates": [
+          4
+        ]
+      },
+      "theoretical_tensor_sizes": {
+        "blending_weights_bytes": 5120,
+        "input_bytes": 21060,
+        "normalization_bytes": 21060,
+        "output_bytes": 42120,
+        "tile_input_bytes": 5120,
+        "tile_output_bytes": 10240
+      },
+      "tile_count": 16,
+      "workload": "small"
+    },
+    {
+      "generated_code_sha256": "b5c159beb7fec56619676a34941d85f16976633608f9d830a162fc1cfa9333cf",
+      "input_sha256": "3f9ff1822dfd97797c8c73dbc15cc85eb413baa9060915378efbf655d046ebfc",
+      "method": "full",
+      "output_sha256": "5a3e6be5923205461f501c91d23b15ed58707dd065b2ad2d6aa5376f49655b73",
+      "output_shape": [
+        1,
+        2,
+        65,
+        81
+      ],
+      "peak_rss_bytes": 225955840,
+      "repetition": 2,
+      "seconds": [
+        0.006129412,
+        0.005955453,
+        0.005512077
+      ],
+      "settings": null,
+      "setup_peak_rss_bytes": 211632128,
+      "specification": {
+        "depth": 2,
+        "input_channels": 1,
+        "input_height": 65,
+        "input_width": 81,
+        "max_parameters": 1000000000,
+        "output_classes": 2,
+        "width_candidates": [
+          4
+        ]
+      },
+      "theoretical_tensor_sizes": {
+        "blending_weights_bytes": 0,
+        "input_bytes": 21060,
+        "normalization_bytes": 0,
+        "output_bytes": 42120,
+        "tile_input_bytes": 0,
+        "tile_output_bytes": 0
+      },
+      "tile_count": 0,
+      "workload": "small"
+    },
+    {
+      "generated_code_sha256": "b5c159beb7fec56619676a34941d85f16976633608f9d830a162fc1cfa9333cf",
+      "input_sha256": "3f9ff1822dfd97797c8c73dbc15cc85eb413baa9060915378efbf655d046ebfc",
+      "method": "nonoverlapping",
+      "output_sha256": "d709a7e1a3eae151195226672a4dc6f6817ce08cf46bd1acc0a94839f27a1ec4",
+      "output_shape": [
+        1,
+        2,
+        65,
+        81
+      ],
+      "peak_rss_bytes": 220798976,
+      "repetition": 2,
+      "seconds": [
+        0.026353475,
+        0.023154229,
+        0.022590133
+      ],
+      "settings": {
+        "blend": "constant",
+        "overlap": [
+          0,
+          0
+        ],
+        "tile_batch_size": 1,
+        "tile_size": [
+          32,
+          40
+        ]
+      },
+      "setup_peak_rss_bytes": 211632128,
+      "specification": {
+        "depth": 2,
+        "input_channels": 1,
+        "input_height": 65,
+        "input_width": 81,
+        "max_parameters": 1000000000,
+        "output_classes": 2,
+        "width_candidates": [
+          4
+        ]
+      },
+      "theoretical_tensor_sizes": {
+        "blending_weights_bytes": 5120,
+        "input_bytes": 21060,
+        "normalization_bytes": 21060,
+        "output_bytes": 42120,
+        "tile_input_bytes": 5120,
+        "tile_output_bytes": 10240
+      },
+      "tile_count": 9,
+      "workload": "small"
+    },
+    {
+      "generated_code_sha256": "b6b738568702fa826cc75c24d114d1c7a796ffb29dee9a261d9bec45f0d2f083",
+      "input_sha256": "cd33107d5a165fe8c444ab60fc51dab95b96cfbd9656320d9e8921c0489bf71b",
+      "method": "full",
+      "output_sha256": "f20bc1ab1362e41659ad85fd84090ab0f48b5c0b0d367c666bb122efb7a26375",
+      "output_shape": [
+        1,
+        2,
+        513,
+        641
+      ],
+      "peak_rss_bytes": 442900480,
+      "repetition": 0,
+      "seconds": [
+        0.752611792,
+        0.966292361,
+        0.774543789
+      ],
+      "settings": null,
+      "setup_peak_rss_bytes": 214110208,
+      "specification": {
+        "depth": 3,
+        "input_channels": 1,
+        "input_height": 513,
+        "input_width": 641,
+        "max_parameters": 1000000000,
+        "output_classes": 2,
+        "width_candidates": [
+          12
+        ]
+      },
+      "theoretical_tensor_sizes": {
+        "blending_weights_bytes": 0,
+        "input_bytes": 1315332,
+        "normalization_bytes": 0,
+        "output_bytes": 2630664,
+        "tile_input_bytes": 0,
+        "tile_output_bytes": 0
+      },
+      "tile_count": 0,
+      "workload": "large"
+    },
+    {
+      "generated_code_sha256": "b6b738568702fa826cc75c24d114d1c7a796ffb29dee9a261d9bec45f0d2f083",
+      "input_sha256": "cd33107d5a165fe8c444ab60fc51dab95b96cfbd9656320d9e8921c0489bf71b",
+      "method": "nonoverlapping",
+      "output_sha256": "1796821a1712975b463f1026eed9d746e1427f1ac000eaf6a06905d73114c91b",
+      "output_shape": [
+        1,
+        2,
+        513,
+        641
+      ],
+      "peak_rss_bytes": 248770560,
+      "repetition": 0,
+      "seconds": [
+        1.381069728,
+        1.279249407,
+        1.359867847
+      ],
+      "settings": {
+        "blend": "constant",
+        "overlap": [
+          0,
+          0
+        ],
+        "tile_batch_size": 1,
+        "tile_size": [
+          128,
+          160
+        ]
+      },
+      "setup_peak_rss_bytes": 213987328,
+      "specification": {
+        "depth": 3,
+        "input_channels": 1,
+        "input_height": 513,
+        "input_width": 641,
+        "max_parameters": 1000000000,
+        "output_classes": 2,
+        "width_candidates": [
+          12
+        ]
+      },
+      "theoretical_tensor_sizes": {
+        "blending_weights_bytes": 81920,
+        "input_bytes": 1315332,
+        "normalization_bytes": 1315332,
+        "output_bytes": 2630664,
+        "tile_input_bytes": 81920,
+        "tile_output_bytes": 163840
+      },
+      "tile_count": 25,
+      "workload": "large"
+    },
+    {
+      "generated_code_sha256": "b6b738568702fa826cc75c24d114d1c7a796ffb29dee9a261d9bec45f0d2f083",
+      "input_sha256": "cd33107d5a165fe8c444ab60fc51dab95b96cfbd9656320d9e8921c0489bf71b",
+      "method": "overlap_constant",
+      "output_sha256": "10bfe0ee705ced9ad2ce1434370330c553bd4320774cb69051206e5721a89d9c",
+      "output_shape": [
+        1,
+        2,
+        513,
+        641
+      ],
+      "peak_rss_bytes": 248520704,
+      "repetition": 0,
+      "seconds": [
+        3.721541548,
+        3.548521989,
+        3.662456048
+      ],
+      "settings": {
+        "blend": "constant",
+        "overlap": [
+          64,
+          80
+        ],
+        "tile_batch_size": 1,
+        "tile_size": [
+          128,
+          160
+        ]
+      },
+      "setup_peak_rss_bytes": 214073344,
+      "specification": {
+        "depth": 3,
+        "input_channels": 1,
+        "input_height": 513,
+        "input_width": 641,
+        "max_parameters": 1000000000,
+        "output_classes": 2,
+        "width_candidates": [
+          12
+        ]
+      },
+      "theoretical_tensor_sizes": {
+        "blending_weights_bytes": 81920,
+        "input_bytes": 1315332,
+        "normalization_bytes": 1315332,
+        "output_bytes": 2630664,
+        "tile_input_bytes": 81920,
+        "tile_output_bytes": 163840
+      },
+      "tile_count": 64,
+      "workload": "large"
+    },
+    {
+      "generated_code_sha256": "b6b738568702fa826cc75c24d114d1c7a796ffb29dee9a261d9bec45f0d2f083",
+      "input_sha256": "cd33107d5a165fe8c444ab60fc51dab95b96cfbd9656320d9e8921c0489bf71b",
+      "method": "overlap_gaussian",
+      "output_sha256": "361affdb8e9aeb5da33ab29dfb0bcf3b617d12c3ee780437279b4b4ab11cbf42",
+      "output_shape": [
+        1,
+        2,
+        513,
+        641
+      ],
+      "peak_rss_bytes": 249004032,
+      "repetition": 0,
+      "seconds": [
+        3.657708997,
+        2.960311474,
+        3.5516843
+      ],
+      "settings": {
+        "blend": "gaussian",
+        "overlap": [
+          64,
+          80
+        ],
+        "tile_batch_size": 1,
+        "tile_size": [
+          128,
+          160
+        ]
+      },
+      "setup_peak_rss_bytes": 214081536,
+      "specification": {
+        "depth": 3,
+        "input_channels": 1,
+        "input_height": 513,
+        "input_width": 641,
+        "max_parameters": 1000000000,
+        "output_classes": 2,
+        "width_candidates": [
+          12
+        ]
+      },
+      "theoretical_tensor_sizes": {
+        "blending_weights_bytes": 81920,
+        "input_bytes": 1315332,
+        "normalization_bytes": 1315332,
+        "output_bytes": 2630664,
+        "tile_input_bytes": 81920,
+        "tile_output_bytes": 163840
+      },
+      "tile_count": 64,
+      "workload": "large"
+    },
+    {
+      "generated_code_sha256": "b6b738568702fa826cc75c24d114d1c7a796ffb29dee9a261d9bec45f0d2f083",
+      "input_sha256": "cd33107d5a165fe8c444ab60fc51dab95b96cfbd9656320d9e8921c0489bf71b",
+      "method": "nonoverlapping",
+      "output_sha256": "1796821a1712975b463f1026eed9d746e1427f1ac000eaf6a06905d73114c91b",
+      "output_shape": [
+        1,
+        2,
+        513,
+        641
+      ],
+      "peak_rss_bytes": 248070144,
+      "repetition": 1,
+      "seconds": [
+        1.323455956,
+        1.44357728,
+        1.431641652
+      ],
+      "settings": {
+        "blend": "constant",
+        "overlap": [
+          0,
+          0
+        ],
+        "tile_batch_size": 1,
+        "tile_size": [
+          128,
+          160
+        ]
+      },
+      "setup_peak_rss_bytes": 214114304,
+      "specification": {
+        "depth": 3,
+        "input_channels": 1,
+        "input_height": 513,
+        "input_width": 641,
+        "max_parameters": 1000000000,
+        "output_classes": 2,
+        "width_candidates": [
+          12
+        ]
+      },
+      "theoretical_tensor_sizes": {
+        "blending_weights_bytes": 81920,
+        "input_bytes": 1315332,
+        "normalization_bytes": 1315332,
+        "output_bytes": 2630664,
+        "tile_input_bytes": 81920,
+        "tile_output_bytes": 163840
+      },
+      "tile_count": 25,
+      "workload": "large"
+    },
+    {
+      "generated_code_sha256": "b6b738568702fa826cc75c24d114d1c7a796ffb29dee9a261d9bec45f0d2f083",
+      "input_sha256": "cd33107d5a165fe8c444ab60fc51dab95b96cfbd9656320d9e8921c0489bf71b",
+      "method": "overlap_constant",
+      "output_sha256": "10bfe0ee705ced9ad2ce1434370330c553bd4320774cb69051206e5721a89d9c",
+      "output_shape": [
+        1,
+        2,
+        513,
+        641
+      ],
+      "peak_rss_bytes": 249667584,
+      "repetition": 1,
+      "seconds": [
+        3.145274266,
+        3.208869803,
+        3.453579211
+      ],
+      "settings": {
+        "blend": "constant",
+        "overlap": [
+          64,
+          80
+        ],
+        "tile_batch_size": 1,
+        "tile_size": [
+          128,
+          160
+        ]
+      },
+      "setup_peak_rss_bytes": 214245376,
+      "specification": {
+        "depth": 3,
+        "input_channels": 1,
+        "input_height": 513,
+        "input_width": 641,
+        "max_parameters": 1000000000,
+        "output_classes": 2,
+        "width_candidates": [
+          12
+        ]
+      },
+      "theoretical_tensor_sizes": {
+        "blending_weights_bytes": 81920,
+        "input_bytes": 1315332,
+        "normalization_bytes": 1315332,
+        "output_bytes": 2630664,
+        "tile_input_bytes": 81920,
+        "tile_output_bytes": 163840
+      },
+      "tile_count": 64,
+      "workload": "large"
+    },
+    {
+      "generated_code_sha256": "b6b738568702fa826cc75c24d114d1c7a796ffb29dee9a261d9bec45f0d2f083",
+      "input_sha256": "cd33107d5a165fe8c444ab60fc51dab95b96cfbd9656320d9e8921c0489bf71b",
+      "method": "overlap_gaussian",
+      "output_sha256": "361affdb8e9aeb5da33ab29dfb0bcf3b617d12c3ee780437279b4b4ab11cbf42",
+      "output_shape": [
+        1,
+        2,
+        513,
+        641
+      ],
+      "peak_rss_bytes": 249733120,
+      "repetition": 1,
+      "seconds": [
+        4.055000409,
+        4.202824363,
+        3.631442586
+      ],
+      "settings": {
+        "blend": "gaussian",
+        "overlap": [
+          64,
+          80
+        ],
+        "tile_batch_size": 1,
+        "tile_size": [
+          128,
+          160
+        ]
+      },
+      "setup_peak_rss_bytes": 214118400,
+      "specification": {
+        "depth": 3,
+        "input_channels": 1,
+        "input_height": 513,
+        "input_width": 641,
+        "max_parameters": 1000000000,
+        "output_classes": 2,
+        "width_candidates": [
+          12
+        ]
+      },
+      "theoretical_tensor_sizes": {
+        "blending_weights_bytes": 81920,
+        "input_bytes": 1315332,
+        "normalization_bytes": 1315332,
+        "output_bytes": 2630664,
+        "tile_input_bytes": 81920,
+        "tile_output_bytes": 163840
+      },
+      "tile_count": 64,
+      "workload": "large"
+    },
+    {
+      "generated_code_sha256": "b6b738568702fa826cc75c24d114d1c7a796ffb29dee9a261d9bec45f0d2f083",
+      "input_sha256": "cd33107d5a165fe8c444ab60fc51dab95b96cfbd9656320d9e8921c0489bf71b",
+      "method": "full",
+      "output_sha256": "f20bc1ab1362e41659ad85fd84090ab0f48b5c0b0d367c666bb122efb7a26375",
+      "output_shape": [
+        1,
+        2,
+        513,
+        641
+      ],
+      "peak_rss_bytes": 447811584,
+      "repetition": 1,
+      "seconds": [
+        0.791806915,
+        0.756732064,
+        0.755164971
+      ],
+      "settings": null,
+      "setup_peak_rss_bytes": 213868544,
+      "specification": {
+        "depth": 3,
+        "input_channels": 1,
+        "input_height": 513,
+        "input_width": 641,
+        "max_parameters": 1000000000,
+        "output_classes": 2,
+        "width_candidates": [
+          12
+        ]
+      },
+      "theoretical_tensor_sizes": {
+        "blending_weights_bytes": 0,
+        "input_bytes": 1315332,
+        "normalization_bytes": 0,
+        "output_bytes": 2630664,
+        "tile_input_bytes": 0,
+        "tile_output_bytes": 0
+      },
+      "tile_count": 0,
+      "workload": "large"
+    },
+    {
+      "generated_code_sha256": "b6b738568702fa826cc75c24d114d1c7a796ffb29dee9a261d9bec45f0d2f083",
+      "input_sha256": "cd33107d5a165fe8c444ab60fc51dab95b96cfbd9656320d9e8921c0489bf71b",
+      "method": "overlap_constant",
+      "output_sha256": "10bfe0ee705ced9ad2ce1434370330c553bd4320774cb69051206e5721a89d9c",
+      "output_shape": [
+        1,
+        2,
+        513,
+        641
+      ],
+      "peak_rss_bytes": 247783424,
+      "repetition": 2,
+      "seconds": [
+        3.580420792,
+        3.515120894,
+        3.700725486
+      ],
+      "settings": {
+        "blend": "constant",
+        "overlap": [
+          64,
+          80
+        ],
+        "tile_batch_size": 1,
+        "tile_size": [
+          128,
+          160
+        ]
+      },
+      "setup_peak_rss_bytes": 213995520,
+      "specification": {
+        "depth": 3,
+        "input_channels": 1,
+        "input_height": 513,
+        "input_width": 641,
+        "max_parameters": 1000000000,
+        "output_classes": 2,
+        "width_candidates": [
+          12
+        ]
+      },
+      "theoretical_tensor_sizes": {
+        "blending_weights_bytes": 81920,
+        "input_bytes": 1315332,
+        "normalization_bytes": 1315332,
+        "output_bytes": 2630664,
+        "tile_input_bytes": 81920,
+        "tile_output_bytes": 163840
+      },
+      "tile_count": 64,
+      "workload": "large"
+    },
+    {
+      "generated_code_sha256": "b6b738568702fa826cc75c24d114d1c7a796ffb29dee9a261d9bec45f0d2f083",
+      "input_sha256": "cd33107d5a165fe8c444ab60fc51dab95b96cfbd9656320d9e8921c0489bf71b",
+      "method": "overlap_gaussian",
+      "output_sha256": "361affdb8e9aeb5da33ab29dfb0bcf3b617d12c3ee780437279b4b4ab11cbf42",
+      "output_shape": [
+        1,
+        2,
+        513,
+        641
+      ],
+      "peak_rss_bytes": 249507840,
+      "repetition": 2,
+      "seconds": [
+        3.649942486,
+        3.573790034,
+        3.549321638
+      ],
+      "settings": {
+        "blend": "gaussian",
+        "overlap": [
+          64,
+          80
+        ],
+        "tile_batch_size": 1,
+        "tile_size": [
+          128,
+          160
+        ]
+      },
+      "setup_peak_rss_bytes": 214118400,
+      "specification": {
+        "depth": 3,
+        "input_channels": 1,
+        "input_height": 513,
+        "input_width": 641,
+        "max_parameters": 1000000000,
+        "output_classes": 2,
+        "width_candidates": [
+          12
+        ]
+      },
+      "theoretical_tensor_sizes": {
+        "blending_weights_bytes": 81920,
+        "input_bytes": 1315332,
+        "normalization_bytes": 1315332,
+        "output_bytes": 2630664,
+        "tile_input_bytes": 81920,
+        "tile_output_bytes": 163840
+      },
+      "tile_count": 64,
+      "workload": "large"
+    },
+    {
+      "generated_code_sha256": "b6b738568702fa826cc75c24d114d1c7a796ffb29dee9a261d9bec45f0d2f083",
+      "input_sha256": "cd33107d5a165fe8c444ab60fc51dab95b96cfbd9656320d9e8921c0489bf71b",
+      "method": "full",
+      "output_sha256": "f20bc1ab1362e41659ad85fd84090ab0f48b5c0b0d367c666bb122efb7a26375",
+      "output_shape": [
+        1,
+        2,
+        513,
+        641
+      ],
+      "peak_rss_bytes": 458280960,
+      "repetition": 2,
+      "seconds": [
+        0.855116467,
+        0.931918186,
+        0.963409141
+      ],
+      "settings": null,
+      "setup_peak_rss_bytes": 213876736,
+      "specification": {
+        "depth": 3,
+        "input_channels": 1,
+        "input_height": 513,
+        "input_width": 641,
+        "max_parameters": 1000000000,
+        "output_classes": 2,
+        "width_candidates": [
+          12
+        ]
+      },
+      "theoretical_tensor_sizes": {
+        "blending_weights_bytes": 0,
+        "input_bytes": 1315332,
+        "normalization_bytes": 0,
+        "output_bytes": 2630664,
+        "tile_input_bytes": 0,
+        "tile_output_bytes": 0
+      },
+      "tile_count": 0,
+      "workload": "large"
+    },
+    {
+      "generated_code_sha256": "b6b738568702fa826cc75c24d114d1c7a796ffb29dee9a261d9bec45f0d2f083",
+      "input_sha256": "cd33107d5a165fe8c444ab60fc51dab95b96cfbd9656320d9e8921c0489bf71b",
+      "method": "nonoverlapping",
+      "output_sha256": "1796821a1712975b463f1026eed9d746e1427f1ac000eaf6a06905d73114c91b",
+      "output_shape": [
+        1,
+        2,
+        513,
+        641
+      ],
+      "peak_rss_bytes": 248397824,
+      "repetition": 2,
+      "seconds": [
+        1.657751508,
+        1.552273796,
+        2.553212286
+      ],
+      "settings": {
+        "blend": "constant",
+        "overlap": [
+          0,
+          0
+        ],
+        "tile_batch_size": 1,
+        "tile_size": [
+          128,
+          160
+        ]
+      },
+      "setup_peak_rss_bytes": 214122496,
+      "specification": {
+        "depth": 3,
+        "input_channels": 1,
+        "input_height": 513,
+        "input_width": 641,
+        "max_parameters": 1000000000,
+        "output_classes": 2,
+        "width_candidates": [
+          12
+        ]
+      },
+      "theoretical_tensor_sizes": {
+        "blending_weights_bytes": 81920,
+        "input_bytes": 1315332,
+        "normalization_bytes": 1315332,
+        "output_bytes": 2630664,
+        "tile_input_bytes": 81920,
+        "tile_output_bytes": 163840
+      },
+      "tile_count": 25,
+      "workload": "large"
+    }
+  ],
+  "schema_version": 1,
+  "summary": [
+    {
+      "median_peak_rss_bytes": 225955840,
+      "median_seconds": 0.005955453,
+      "method": "full",
+      "reduced_median_process_rss": false,
+      "rss_ratio_to_full": 1.0,
+      "runtime_ratio_to_full": 1.0,
+      "workload": "small"
+    },
+    {
+      "median_peak_rss_bytes": 220798976,
+      "median_seconds": 0.022590133,
+      "method": "nonoverlapping",
+      "reduced_median_process_rss": true,
+      "rss_ratio_to_full": 0.9771775582343878,
+      "runtime_ratio_to_full": 3.7931846662210242,
+      "workload": "small"
+    },
+    {
+      "median_peak_rss_bytes": 220921856,
+      "median_seconds": 0.042485676,
+      "method": "overlap_constant",
+      "reduced_median_process_rss": true,
+      "rss_ratio_to_full": 0.9777213813106136,
+      "runtime_ratio_to_full": 7.133911727621727,
+      "workload": "small"
+    },
+    {
+      "median_peak_rss_bytes": 222007296,
+      "median_seconds": 0.04032733,
+      "method": "overlap_gaussian",
+      "reduced_median_process_rss": true,
+      "rss_ratio_to_full": 0.9825251518172754,
+      "runtime_ratio_to_full": 6.771496643496305,
+      "workload": "small"
+    },
+    {
+      "median_peak_rss_bytes": 447811584,
+      "median_seconds": 0.791806915,
+      "method": "full",
+      "reduced_median_process_rss": false,
+      "rss_ratio_to_full": 1.0,
+      "runtime_ratio_to_full": 1.0,
+      "workload": "large"
+    },
+    {
+      "median_peak_rss_bytes": 248397824,
+      "median_seconds": 1.431641652,
+      "method": "nonoverlapping",
+      "reduced_median_process_rss": true,
+      "rss_ratio_to_full": 0.5546927164796166,
+      "runtime_ratio_to_full": 1.8080691452410464,
+      "workload": "large"
+    },
+    {
+      "median_peak_rss_bytes": 248520704,
+      "median_seconds": 3.548521989,
+      "method": "overlap_constant",
+      "reduced_median_process_rss": true,
+      "rss_ratio_to_full": 0.5549671175991732,
+      "runtime_ratio_to_full": 4.481549632589405,
+      "workload": "large"
+    },
+    {
+      "median_peak_rss_bytes": 249507840,
+      "median_seconds": 3.631442586,
+      "method": "overlap_gaussian",
+      "reduced_median_process_rss": true,
+      "rss_ratio_to_full": 0.5571714732596109,
+      "runtime_ratio_to_full": 4.586272886995436,
+      "workload": "large"
+    }
+  ]
+}

@@ -31,6 +31,13 @@ parameter budget. The output directory must be new or empty. It contains:
   width, primitive layer shapes/counts, compiler version, and SHA-256 hashes of
   the normalized specification and generated source.
 
+Add `--with-inference` to also emit a standalone CPU `inference.py` helper with
+constant or Gaussian logit blending, rectangular tiles, integer pixel overlap,
+tile batching, and explicit workload limits. See the [tiled inference guide](docs/tiled.md)
+for a runnable full-image/tiled example and [measured tradeoffs](docs/tiled-results.md).
+Tiling bounds per-call image dimensions; it does not impose a process-memory cap
+or guarantee full-image-equivalent predictions.
+
 Install PyTorch separately to run the model; CPU validation here uses 2.6.0:
 
 ```sh
@@ -137,9 +144,7 @@ the checks, compilation and experiment need no network or GPU.
 .venv/bin/python -m pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
 .venv/bin/python -m pip install -r requirements-validation.txt
 .venv/bin/python -m pip install --no-deps --no-build-isolation -e .
-.venv/bin/python -m unittest discover -s tests -v
-.venv/bin/python scripts/verify_isolated.py
-.venv/bin/python experiments/train_synthetic.py --check results/synthetic.json
+.venv/bin/python scripts/verify_all.py --log results/tests.log
 ```
 
 `requirements-validation.txt` records the installed dependencies; Python 3.12.3 on
@@ -166,7 +171,10 @@ into a fresh environment without PyTorch, and compiles there. A separate Python
 process runs the result with no compiler on its import path. Socket operations
 are rejected during compilation and execution. It checks output shape, finite
 gradients, and a real optimizer update. The script requires the recorded build
-and PyTorch dependencies to have been provisioned already.
+and PyTorch dependencies to have been provisioned already. It also generates the
+optional helper and executes full-image inference, both blending modes, exact
+single-tile agreement and padding for an image smaller than a tile. The tiled
+tests and experiment commands are described in the [inference guide](docs/tiled.md).
 
 ## Existing work and scope
 

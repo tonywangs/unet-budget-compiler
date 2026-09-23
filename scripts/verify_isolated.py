@@ -36,7 +36,7 @@ def main():
 import importlib.util, runpy, sys
 assert importlib.util.find_spec('torch') is None
 sys.addaudithook(lambda event, args: (_ for _ in ()).throw(RuntimeError('network forbidden')) if event.startswith('socket.') else None)
-sys.argv = ['unet-budget', sys.argv[1], '--out', sys.argv[2]]
+sys.argv = ['unet-budget', sys.argv[1], '--out', sys.argv[2], '--with-inference']
 runpy.run_module('unet_budget', run_name='__main__')
 '''
         print(run([python, '-I', '-c', compile_check, ROOT/'examples/circles.json', temp/'artifact'], temp))
@@ -74,10 +74,31 @@ assert x.grad is not None and torch.isfinite(x.grad).all()
 assert all(p.grad is not None and torch.isfinite(p.grad).all() for p in model.parameters())
 optimizer.step()
 assert not torch.equal(before, model.head.weight)
+helper_spec = importlib.util.spec_from_file_location('standalone_inference', sys.argv[3])
+helper = importlib.util.module_from_spec(helper_spec)
+helper_spec.loader.exec_module(helper)
+assert helper.MIN_TILE_SIZE == 4 and helper.INPUT_CHANNELS == 1 and helper.OUTPUT_CHANNELS == 2
+model.eval()
+image = torch.randn(1, 1, 65, 81)
+with torch.inference_mode():
+    full = model(image)
+    for blend in ('constant', 'gaussian'):
+        tiled = helper.tiled_logits(model, image, tile_size=(32, 40), overlap=(16, 20),
+                                    tile_batch_size=2, blend=blend)
+        labels = tiled.argmax(dim=1)
+        assert tuple(full.shape) == tuple(tiled.shape) == (1, 2, 65, 81)
+        assert tuple(labels.shape) == (1, 65, 81)
+        assert torch.isfinite(tiled).all()
+    single = helper.tiled_logits(model, image, tile_size=(65, 81), overlap=(0, 0))
+    torch.testing.assert_close(single, full, rtol=0, atol=0)
+    tiny = helper.tiled_logits(model, image[:, :, :1, :3], tile_size=(8, 12), overlap=(0, 0))
+    assert tuple(tiny.shape) == (1, 2, 1, 3)
+assert importlib.util.find_spec('unet_budget') is None
+print('Standalone full-image, both tiled blends, single-tile equality and small-image padding passed offline.')
 print(json.dumps({'standalone_forward_backward_optimizer': 'passed', 'compiler_importable': False, 'torch': torch.__version__, 'parameters': sum(p.numel() for p in model.parameters())}, sort_keys=True))
 '''
         print(run([sys.executable, '-I', '-S', '-c', runtime, dependencies,
-                   temp/'artifact/model.py'], temp))
+                   temp/'artifact/model.py', temp/'artifact/inference.py'], temp))
     print('Offline wheel installation and isolated execution passed.')
 
 

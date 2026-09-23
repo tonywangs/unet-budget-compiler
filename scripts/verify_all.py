@@ -16,6 +16,8 @@ def main():
         [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-v'],
         [sys.executable, 'scripts/verify_isolated.py'],
         [sys.executable, 'experiments/train_synthetic.py', '--check', 'results/synthetic.json'],
+        [sys.executable, 'experiments/compare_tiled.py', '--check', 'results/tiled-comparison.json'],
+        [sys.executable, 'experiments/benchmark_tiled.py', '--check', 'results/tiled-benchmark.json'],
     ]
     output = []
     failed = False

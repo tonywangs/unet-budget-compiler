@@ -9,7 +9,7 @@ used. The model and data were initialized from scratch without downloaded weight
 
 ## Compiler and numerical checks
 
-The unittest suite has eight test methods, with parameterized cases inside them:
+The original compiler suite has eight test methods, with parameterized cases inside them:
 
 - **Strict input handling:** missing and unknown keys, invalid types and ranges,
   repeated JSON keys, malformed JSON, infeasible budgets, dimensions too small
@@ -87,7 +87,17 @@ results path, preserving an unfavorable result as readily as a favorable one.
 These data directly encode the target in noisy pixel intensity. They are an easy
 integration exercise, with a small held-out set and one training seed, not evidence
 of useful accuracy on natural or medical images. There are no confidence
-intervals, real-data validation, latency benchmarks, or activation-memory claims.
+intervals or real-data validation. Separate tiled CPU latency and process-memory
+measurements are now recorded in [tiled results](tiled-results.md); the original
+training experiment makes no activation-memory claims.
 PyTorch emitted an NNPACK unsupported-hardware warning on this CPU and used its
 available CPU implementation; no GPU backend was tested. Exact numerical results
 may change with dependencies, CPU features, or platforms.
+
+## Tiled inference extension
+
+The original checks above remain in the one-command regression suite. See
+[tiled results](tiled-results.md) for the 256-geometry independent oracle,
+324 generated-model comparisons, same-weight held-out experiment, fresh-process
+CPU measurements and their unfavorable outcomes. See the [inference guide](tiled.md)
+for exact padding, blending, allocation and resource-limit semantics.

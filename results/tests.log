@@ -3,26 +3,81 @@ test_cli (test_compiler.CompilerTests.test_cli) ... ok
 test_committed_example (test_compiler.CompilerTests.test_committed_example) ... ok
 test_determinism_and_hashes (test_compiler.CompilerTests.test_determinism_and_hashes) ... ok
 test_exhaustive_small_budgets (test_compiler.CompilerTests.test_exhaustive_small_budgets) ... ok
-test_forward_input_and_parameter_gradients (test_compiler.CompilerTests.test_forward_input_and_parameter_gradients) ... [W920 20:11:19.459986014 NNPACK.cpp:62] Could not initialize NNPACK! Reason: Unsupported hardware.
+test_forward_input_and_parameter_gradients (test_compiler.CompilerTests.test_forward_input_and_parameter_gradients) ... [W923 18:52:29.101461225 NNPACK.cpp:62] Could not initialize NNPACK! Reason: Unsupported hardware.
 ok
 test_invalid_specs (test_compiler.CompilerTests.test_invalid_specs) ... ok
 test_maximum_depth_and_single_output (test_compiler.CompilerTests.test_maximum_depth_and_single_output) ... ok
 test_shapes_counts_and_runtime_validation (test_compiler.CompilerTests.test_shapes_counts_and_runtime_validation) ... ok
+test_256_seeded_geometries_independent_oracles (test_inference.InferenceTests.test_256_seeded_geometries_independent_oracles) ... ok
+test_cli_helper_determinism_and_specialization (test_inference.InferenceTests.test_cli_helper_determinism_and_specialization) ... ok
+test_invalid_settings_before_predictor (test_inference.InferenceTests.test_invalid_settings_before_predictor) ... ok
+test_logits_are_blended_before_classification (test_inference.InferenceTests.test_logits_are_blended_before_classification) ... ok
+test_padding_and_batch_order (test_inference.InferenceTests.test_padding_and_batch_order) ... ok
+test_predictor_contract_and_numerics (test_inference.InferenceTests.test_predictor_contract_and_numerics) ... ok
 
 ----------------------------------------------------------------------
-Ran 8 tests in 1.999s
+Ran 14 tests in 22.513s
 
 OK
+Verified 256 seeded geometries, both blends, four independent predictors.
 Exit status: 0
 
 $ python scripts/verify_isolated.py
 Selected width 4: 7470 parameters
+Standalone full-image, both tiled blends, single-tile equality and small-image padding passed offline.
 {"compiler_importable": false, "parameters": 7470, "standalone_forward_backward_optimizer": "passed", "torch": "2.6.0+cpu"}
 Offline wheel installation and isolated execution passed.
 Exit status: 0
 
 $ python experiments/train_synthetic.py --check results/synthetic.json
-[W920 20:11:35.891285574 NNPACK.cpp:62] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W923 18:53:06.472952113 NNPACK.cpp:62] Could not initialize NNPACK! Reason: Unsupported hardware.
 Synthetic experiment reproduced exactly (losses, metrics, data, weights, logits).
 {"constant_baseline": {"cross_entropy": 0.3264288008213043, "foreground_dice": 0.0, "foreground_iou": 0.0, "pixel_accuracy": 0.8994826078414917}, "final_held_out": {"cross_entropy": 0.013708069920539856, "foreground_dice": 0.9755083179297597, "foreground_iou": 0.9521876409562472, "pixel_accuracy": 0.9951034784317017}}
+Exit status: 0
+
+$ python experiments/compare_tiled.py --check results/tiled-comparison.json
+[W923 18:53:16.894501335 NNPACK.cpp:62] Could not initialize NNPACK! Reason: Unsupported hardware.
+Tiled comparisons reproduced exactly, including training, checkpoint tensors, metrics and logits.
+{"generated_cases": 324, "held_out": {"full": {"cross_entropy": 0.013708069920539856, "foreground_dice": 0.9755083179297597, "foreground_iou": 0.9521876409562472, "pixel_accuracy": 0.9951034784317017}, "nonoverlapping": {"cross_entropy": 0.04077659919857979, "foreground_dice": 0.9586238958623896, "foreground_iou": 0.9205357142857142, "pixel_accuracy": 0.9917775392532349}, "overlap_constant": {"cross_entropy": 0.025221427902579308, "foreground_dice": 0.9649204864359214, "foreground_iou": 0.9322187076366922, "pixel_accuracy": 0.9930709600448608}, "overlap_gaussian": {"cross_entropy": 0.012814476154744625, "foreground_dice": 0.9774785233341072, "foreground_iou": 0.9559491371480472, "pixel_accuracy": 0.99551922082901}}, "single_tile_exact": 27}
+Exit status: 0
+
+$ python experiments/benchmark_tiled.py --check results/tiled-benchmark.json
+Measured padded_small / full / process 1
+Measured padded_small / nonoverlapping / process 1
+Measured padded_small / overlap_constant / process 1
+Measured padded_small / overlap_gaussian / process 1
+Measured padded_small / nonoverlapping / process 2
+Measured padded_small / overlap_constant / process 2
+Measured padded_small / overlap_gaussian / process 2
+Measured padded_small / full / process 2
+Measured padded_small / overlap_constant / process 3
+Measured padded_small / overlap_gaussian / process 3
+Measured padded_small / full / process 3
+Measured padded_small / nonoverlapping / process 3
+Measured small / full / process 1
+Measured small / nonoverlapping / process 1
+Measured small / overlap_constant / process 1
+Measured small / overlap_gaussian / process 1
+Measured small / nonoverlapping / process 2
+Measured small / overlap_constant / process 2
+Measured small / overlap_gaussian / process 2
+Measured small / full / process 2
+Measured small / overlap_constant / process 3
+Measured small / overlap_gaussian / process 3
+Measured small / full / process 3
+Measured small / nonoverlapping / process 3
+Measured large / full / process 1
+Measured large / nonoverlapping / process 1
+Measured large / overlap_constant / process 1
+Measured large / overlap_gaussian / process 1
+Measured large / nonoverlapping / process 2
+Measured large / overlap_constant / process 2
+Measured large / overlap_gaussian / process 2
+Measured large / full / process 2
+Measured large / overlap_constant / process 3
+Measured large / overlap_gaussian / process 3
+Measured large / full / process 3
+Measured large / nonoverlapping / process 3
+Saved benchmark structure and numerical outputs verified in 36 fresh processes; timings/RSS may differ.
+[{"median_peak_rss_bytes": 219209728, "median_seconds": 0.001348682, "method": "full", "reduced_median_process_rss": false, "rss_ratio_to_full": 1.0, "runtime_ratio_to_full": 1.0, "workload": "padded_small"}, {"median_peak_rss_bytes": 227131392, "median_seconds": 0.005522123, "method": "nonoverlapping", "reduced_median_process_rss": false, "rss_ratio_to_full": 1.0361373743413431, "runtime_ratio_to_full": 4.094458886527736, "workload": "padded_small"}, {"median_peak_rss_bytes": 227160064, "median_seconds": 0.005601205, "method": "overlap_constant", "reduced_median_process_rss": false, "rss_ratio_to_full": 1.0362681714563324, "runtime_ratio_to_full": 4.1530953923904965, "workload": "padded_small"}, {"median_peak_rss_bytes": 228306944, "median_seconds": 0.005903817, "method": "overlap_gaussian", "reduced_median_process_rss": false, "rss_ratio_to_full": 1.0415000560559065, "runtime_ratio_to_full": 4.377471486977656, "workload": "padded_small"}, {"median_peak_rss_bytes": 226021376, "median_seconds": 0.005643348, "method": "full", "reduced_median_process_rss": false, "rss_ratio_to_full": 1.0, "runtime_ratio_to_full": 1.0, "workload": "small"}, {"median_peak_rss_bytes": 220930048, "median_seconds": 0.021928338, "method": "nonoverlapping", "reduced_median_process_rss": true, "rss_ratio_to_full": 0.9774741305884271, "runtime_ratio_to_full": 3.885696575862413, "workload": "small"}, {"median_peak_rss_bytes": 220884992, "median_seconds": 0.039304698, "method": "overlap_constant", "reduced_median_process_rss": true, "rss_ratio_to_full": 0.9772747866113336, "runtime_ratio_to_full": 6.964783670969785, "workload": "small"}, {"median_peak_rss_bytes": 222019584, "median_seconds": 0.043794705, "method": "overlap_gaussian", "reduced_median_process_rss": true, "rss_ratio_to_full": 0.9822946303981442, "runtime_ratio_to_full": 7.760411904422694, "workload": "small"}, {"median_peak_rss_bytes": 455774208, "median_seconds": 0.762260993, "method": "full", "reduced_median_process_rss": false, "rss_ratio_to_full": 1.0, "runtime_ratio_to_full": 1.0, "workload": "large"}, {"median_peak_rss_bytes": 248217600, "median_seconds": 1.407362082, "method": "nonoverlapping", "reduced_median_process_rss": true, "rss_ratio_to_full": 0.5446065083173816, "runtime_ratio_to_full": 1.8462994891829652, "workload": "large"}, {"median_peak_rss_bytes": 248643584, "median_seconds": 3.56984221, "method": "overlap_constant", "reduced_median_process_rss": true, "rss_ratio_to_full": 0.5455411465494774, "runtime_ratio_to_full": 4.683228241747377, "workload": "large"}, {"median_peak_rss_bytes": 248750080, "median_seconds": 3.635843768, "method": "overlap_gaussian", "reduced_median_process_rss": true, "rss_ratio_to_full": 0.5457748061075014, "runtime_ratio_to_full": 4.769814802788944, "workload": "large"}]
 Exit status: 0
