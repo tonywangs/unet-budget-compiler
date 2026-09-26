@@ -15,9 +15,14 @@ def main():
     commands = [
         [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-v'],
         [sys.executable, 'scripts/verify_isolated.py'],
+        [sys.executable, 'scripts/verify_onnx_isolated.py'],
+        [sys.executable, 'scripts/verify_onnx_example.py'],
         [sys.executable, 'experiments/train_synthetic.py', '--check', 'results/synthetic.json'],
         [sys.executable, 'experiments/compare_tiled.py', '--check', 'results/tiled-comparison.json'],
         [sys.executable, 'experiments/benchmark_tiled.py', '--check', 'results/tiled-benchmark.json'],
+        [sys.executable, 'experiments/compare_onnx.py', '--check', 'results/onnx-comparison.json'],
+        [sys.executable, 'experiments/investigate_onnx.py', '--check', 'results/onnx-numerical-investigation.json'],
+        [sys.executable, 'experiments/benchmark_onnx.py', '--check', 'results/onnx-benchmark.json'],
     ]
     output = []
     failed = False

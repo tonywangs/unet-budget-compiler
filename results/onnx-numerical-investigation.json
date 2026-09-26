@@ -1,0 +1,182 @@
+{
+  "checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633",
+  "comparisons_to_torch_float32": {
+    "onnx_default": {
+      "elementwise_close": false,
+      "elementwise_violation_count": 1,
+      "finite": true,
+      "label_disagreement_fraction": 0.0,
+      "maximum_absolute_error": 3.814697265625e-05,
+      "maximum_error_to_elementwise_bound": 1.2239670762561952,
+      "mean_absolute_error": 4.311402280017611e-06,
+      "onnx_logits_sha256": "6b0d43f826f552495da167cef5607ed62ff4ac4510a78f96e4bba017275fd02c",
+      "shape": [
+        1,
+        2,
+        129,
+        161
+      ],
+      "torch_logits_sha256": "e28eb417d6f0c01844ce714e44ddd7f6cbaa6cfda00f444f171d86527ed2b9af",
+      "within_tolerance": false,
+      "worst_scaled_error": {
+        "absolute_error": 1.3530254364013672e-05,
+        "allowed_error": 1.1054426729679109e-05,
+        "index": [
+          0,
+          1,
+          94,
+          51
+        ],
+        "onnx": -0.10545620322227478,
+        "torch": -0.10544267296791077
+      }
+    },
+    "onnx_graph_optimizations_disabled": {
+      "elementwise_close": false,
+      "elementwise_violation_count": 3,
+      "finite": true,
+      "label_disagreement_fraction": 0.0,
+      "maximum_absolute_error": 5.340576171875e-05,
+      "maximum_error_to_elementwise_bound": 1.3619179492013525,
+      "mean_absolute_error": 4.731290378894394e-06,
+      "onnx_logits_sha256": "9cd2d9da59e3c8d181310f549197a8999a6556feb2a548dae3f8c6c2a546020b",
+      "shape": [
+        1,
+        2,
+        129,
+        161
+      ],
+      "torch_logits_sha256": "e28eb417d6f0c01844ce714e44ddd7f6cbaa6cfda00f444f171d86527ed2b9af",
+      "within_tolerance": false,
+      "worst_scaled_error": {
+        "absolute_error": 1.3649463653564453e-05,
+        "allowed_error": 1.0022236406803132e-05,
+        "index": [
+          0,
+          1,
+          30,
+          24
+        ],
+        "onnx": 0.002209991216659546,
+        "torch": 0.0022236406803131104
+      }
+    },
+    "torch_default": {
+      "elementwise_close": true,
+      "elementwise_violation_count": 0,
+      "finite": true,
+      "label_disagreement_fraction": 0.0,
+      "maximum_absolute_error": 0.0,
+      "maximum_error_to_elementwise_bound": 0.0,
+      "mean_absolute_error": 0.0,
+      "onnx_logits_sha256": "e28eb417d6f0c01844ce714e44ddd7f6cbaa6cfda00f444f171d86527ed2b9af",
+      "shape": [
+        1,
+        2,
+        129,
+        161
+      ],
+      "torch_logits_sha256": "e28eb417d6f0c01844ce714e44ddd7f6cbaa6cfda00f444f171d86527ed2b9af",
+      "within_tolerance": true,
+      "worst_scaled_error": {
+        "absolute_error": 0.0,
+        "allowed_error": 0.00018104446411132814,
+        "index": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "onnx": 17.104446411132812,
+        "torch": 17.104446411132812
+      }
+    },
+    "torch_mkldnn_disabled": {
+      "elementwise_close": false,
+      "elementwise_violation_count": 2,
+      "finite": true,
+      "label_disagreement_fraction": 0.0,
+      "maximum_absolute_error": 5.340576171875e-05,
+      "maximum_error_to_elementwise_bound": 1.2293590017022578,
+      "mean_absolute_error": 4.586341941389376e-06,
+      "onnx_logits_sha256": "86d086412c15d59d43e0942df3fff259b2dd0b836f76e8d7845dc54fc084d0ea",
+      "shape": [
+        1,
+        2,
+        129,
+        161
+      ],
+      "torch_logits_sha256": "e28eb417d6f0c01844ce714e44ddd7f6cbaa6cfda00f444f171d86527ed2b9af",
+      "within_tolerance": false,
+      "worst_scaled_error": {
+        "absolute_error": 1.3589859008789062e-05,
+        "allowed_error": 1.1054426729679109e-05,
+        "index": [
+          0,
+          1,
+          94,
+          51
+        ],
+        "onnx": -0.10545626282691956,
+        "torch": -0.10544267296791077
+      }
+    }
+  },
+  "errors_to_torch_float64": {
+    "onnx_default": {
+      "logits_sha256": "6b0d43f826f552495da167cef5607ed62ff4ac4510a78f96e4bba017275fd02c",
+      "maximum_absolute_error": 2.3963313338981607e-05,
+      "mean_absolute_error": 3.1884797932694458e-06
+    },
+    "onnx_graph_optimizations_disabled": {
+      "logits_sha256": "9cd2d9da59e3c8d181310f549197a8999a6556feb2a548dae3f8c6c2a546020b",
+      "maximum_absolute_error": 3.3150480561516815e-05,
+      "mean_absolute_error": 3.826846153916207e-06
+    },
+    "torch_default": {
+      "logits_sha256": "e28eb417d6f0c01844ce714e44ddd7f6cbaa6cfda00f444f171d86527ed2b9af",
+      "maximum_absolute_error": 3.227614936918144e-05,
+      "mean_absolute_error": 3.799070076655127e-06
+    },
+    "torch_mkldnn_disabled": {
+      "logits_sha256": "86d086412c15d59d43e0942df3fff259b2dd0b836f76e8d7845dc54fc084d0ea",
+      "maximum_absolute_error": 3.0252656486595697e-05,
+      "mean_absolute_error": 3.7623716969767217e-06
+    }
+  },
+  "input_sha256": "8c7bef531dc7235c44da35f93e97c27f9061d54cb181b5861988166b48387b4f",
+  "limitations": [
+    "Float64 is a diagnostic reference, not a mathematical exact oracle.",
+    "Disabling optimizations changes computation paths; this alone does not identify a specific native kernel.",
+    "No weights, tolerances, inputs or default runtime settings were changed after the failure."
+  ],
+  "onnx_sha256": "e2180b526ef6e5635dd10376d6096145fbcf5139d46034a064d476c5998b774e",
+  "protocol_sha256": "c0978d6d94df967704e04188916215719a39139b45df3b16e4091650c793cca4",
+  "schema_version": 1,
+  "shape": [
+    1,
+    1,
+    129,
+    161
+  ],
+  "source_hashes": {
+    "experiments/compare_onnx.py": "44d06cf1c0e823c00336730fa13028ad3cffbe7ca97f27ffe1df670d25781df8",
+    "experiments/investigate_onnx.py": "8a693f788918a5451d6cc26d1366ed3b27a31c12b65dcef4e399fc6e58f1a441",
+    "src/unet_budget/export.py": "2e8e4a288c361bf4c64488251968941809d72d07004a91fde2d274895f191567",
+    "src/unet_budget/onnx_inference.py": "f30b2dfd615ed719399e64515467fad7f50db17425f9f61c1f506c42b8f5cc5e"
+  },
+  "tolerances": {
+    "atol": 1e-05,
+    "label_disagreement_fraction": 0.001,
+    "maximum_absolute_error": 0.0001,
+    "mean_absolute_error": 1e-05,
+    "rtol": 1e-05
+  },
+  "torch_float64_logits_sha256": "90f102b0408090839f290c0e106a085ab05acdc3aa49913b5e70283d06730820",
+  "versions": {
+    "numpy": "2.2.6",
+    "onnx": "1.17.0",
+    "onnxruntime": "1.20.1",
+    "torch": "2.6.0+cpu"
+  }
+}

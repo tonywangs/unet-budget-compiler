@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "precision": "float32",
+  "opset": 17,
+  "threads": 1,
+  "weight_seeds": [17, 29, 43],
+  "input_seed": 1701,
+  "tolerances": {"atol": 0.00001, "rtol": 0.00001, "maximum_absolute_error": 0.0001, "mean_absolute_error": 0.00001, "label_disagreement_fraction": 0.001},
+  "matrix": [
+    {"depth": 1, "width": 2, "shape": [1, 1, 8, 12], "classes": 1},
+    {"depth": 1, "width": 4, "shape": [2, 3, 9, 13], "classes": 2},
+    {"depth": 2, "width": 2, "shape": [1, 1, 16, 20], "classes": 1},
+    {"depth": 2, "width": 4, "shape": [2, 3, 17, 23], "classes": 2},
+    {"depth": 3, "width": 2, "shape": [1, 1, 24, 32], "classes": 1},
+    {"depth": 3, "width": 4, "shape": [2, 3, 25, 35], "classes": 2},
+    {"depth": 4, "width": 2, "shape": [1, 1, 32, 48], "classes": 1},
+    {"depth": 4, "width": 4, "shape": [2, 3, 33, 49], "classes": 2}
+  ],
+  "trained_case": {"spec": "examples/circles.json", "checkpoint": "results/synthetic-weights.pt", "shape": [16, 1, 33, 41], "evaluation_seed": 202},
+  "benchmark": {
+    "process_pairs": 6, "warmups": 3, "timed_calls": 7,
+    "order": "alternate torch/onnx then onnx/torch for each pair",
+    "input_seed": 9001,
+    "workloads": [
+      {"name": "tiny", "shape": [1, 1, 4, 5]},
+      {"name": "trained", "shape": [1, 1, 33, 41]},
+      {"name": "larger", "shape": [1, 1, 129, 161]}
+    ]
+  }
+}

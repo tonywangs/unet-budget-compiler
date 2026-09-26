@@ -1,0 +1,727 @@
+{
+  "architecture": {
+    "candidates": [
+      {
+        "base_width": 2,
+        "parameters": 1900
+      },
+      {
+        "base_width": 4,
+        "parameters": 7470
+      },
+      {
+        "base_width": 6,
+        "parameters": 16712
+      },
+      {
+        "base_width": 8,
+        "parameters": 29626
+      },
+      {
+        "base_width": 12,
+        "parameters": 66470
+      },
+      {
+        "base_width": 16,
+        "parameters": 118002
+      }
+    ],
+    "compiler_version": "0.1.0",
+    "family": "padded-nearest-unet-v1",
+    "generated_code_sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0",
+    "layers": [
+      {
+        "bias": true,
+        "in_channels": 1,
+        "inputs": [
+          [
+            "N",
+            1,
+            33,
+            41
+          ]
+        ],
+        "kernel_size": 3,
+        "kind": "conv2d",
+        "name": "enc_0_a",
+        "out_channels": 4,
+        "output": [
+          "N",
+          4,
+          33,
+          41
+        ],
+        "padding": 1,
+        "parameters": 40
+      },
+      {
+        "inputs": [
+          [
+            "N",
+            4,
+            33,
+            41
+          ]
+        ],
+        "kind": "relu",
+        "name": "enc_0_a_relu",
+        "output": [
+          "N",
+          4,
+          33,
+          41
+        ],
+        "parameters": 0
+      },
+      {
+        "bias": true,
+        "in_channels": 4,
+        "inputs": [
+          [
+            "N",
+            4,
+            33,
+            41
+          ]
+        ],
+        "kernel_size": 3,
+        "kind": "conv2d",
+        "name": "enc_0_b",
+        "out_channels": 4,
+        "output": [
+          "N",
+          4,
+          33,
+          41
+        ],
+        "padding": 1,
+        "parameters": 148
+      },
+      {
+        "inputs": [
+          [
+            "N",
+            4,
+            33,
+            41
+          ]
+        ],
+        "kind": "relu",
+        "name": "enc_0_b_relu",
+        "output": [
+          "N",
+          4,
+          33,
+          41
+        ],
+        "parameters": 0
+      },
+      {
+        "ceil_mode": false,
+        "inputs": [
+          [
+            "N",
+            4,
+            33,
+            41
+          ]
+        ],
+        "kernel_size": 2,
+        "kind": "max_pool2d",
+        "name": "pool_1",
+        "output": [
+          "N",
+          4,
+          16,
+          20
+        ],
+        "parameters": 0,
+        "stride": 2
+      },
+      {
+        "bias": true,
+        "in_channels": 4,
+        "inputs": [
+          [
+            "N",
+            4,
+            16,
+            20
+          ]
+        ],
+        "kernel_size": 3,
+        "kind": "conv2d",
+        "name": "enc_1_a",
+        "out_channels": 8,
+        "output": [
+          "N",
+          8,
+          16,
+          20
+        ],
+        "padding": 1,
+        "parameters": 296
+      },
+      {
+        "inputs": [
+          [
+            "N",
+            8,
+            16,
+            20
+          ]
+        ],
+        "kind": "relu",
+        "name": "enc_1_a_relu",
+        "output": [
+          "N",
+          8,
+          16,
+          20
+        ],
+        "parameters": 0
+      },
+      {
+        "bias": true,
+        "in_channels": 8,
+        "inputs": [
+          [
+            "N",
+            8,
+            16,
+            20
+          ]
+        ],
+        "kernel_size": 3,
+        "kind": "conv2d",
+        "name": "enc_1_b",
+        "out_channels": 8,
+        "output": [
+          "N",
+          8,
+          16,
+          20
+        ],
+        "padding": 1,
+        "parameters": 584
+      },
+      {
+        "inputs": [
+          [
+            "N",
+            8,
+            16,
+            20
+          ]
+        ],
+        "kind": "relu",
+        "name": "enc_1_b_relu",
+        "output": [
+          "N",
+          8,
+          16,
+          20
+        ],
+        "parameters": 0
+      },
+      {
+        "ceil_mode": false,
+        "inputs": [
+          [
+            "N",
+            8,
+            16,
+            20
+          ]
+        ],
+        "kernel_size": 2,
+        "kind": "max_pool2d",
+        "name": "pool_2",
+        "output": [
+          "N",
+          8,
+          8,
+          10
+        ],
+        "parameters": 0,
+        "stride": 2
+      },
+      {
+        "bias": true,
+        "in_channels": 8,
+        "inputs": [
+          [
+            "N",
+            8,
+            8,
+            10
+          ]
+        ],
+        "kernel_size": 3,
+        "kind": "conv2d",
+        "name": "enc_2_a",
+        "out_channels": 16,
+        "output": [
+          "N",
+          16,
+          8,
+          10
+        ],
+        "padding": 1,
+        "parameters": 1168
+      },
+      {
+        "inputs": [
+          [
+            "N",
+            16,
+            8,
+            10
+          ]
+        ],
+        "kind": "relu",
+        "name": "enc_2_a_relu",
+        "output": [
+          "N",
+          16,
+          8,
+          10
+        ],
+        "parameters": 0
+      },
+      {
+        "bias": true,
+        "in_channels": 16,
+        "inputs": [
+          [
+            "N",
+            16,
+            8,
+            10
+          ]
+        ],
+        "kernel_size": 3,
+        "kind": "conv2d",
+        "name": "enc_2_b",
+        "out_channels": 16,
+        "output": [
+          "N",
+          16,
+          8,
+          10
+        ],
+        "padding": 1,
+        "parameters": 2320
+      },
+      {
+        "inputs": [
+          [
+            "N",
+            16,
+            8,
+            10
+          ]
+        ],
+        "kind": "relu",
+        "name": "enc_2_b_relu",
+        "output": [
+          "N",
+          16,
+          8,
+          10
+        ],
+        "parameters": 0
+      },
+      {
+        "inputs": [
+          [
+            "N",
+            16,
+            8,
+            10
+          ]
+        ],
+        "kind": "interpolate",
+        "mode": "nearest",
+        "name": "resize_1",
+        "output": [
+          "N",
+          16,
+          16,
+          20
+        ],
+        "parameters": 0
+      },
+      {
+        "dim": 1,
+        "inputs": [
+          [
+            "N",
+            8,
+            16,
+            20
+          ],
+          [
+            "N",
+            16,
+            16,
+            20
+          ]
+        ],
+        "kind": "concatenate",
+        "name": "concat_1",
+        "output": [
+          "N",
+          24,
+          16,
+          20
+        ],
+        "parameters": 0
+      },
+      {
+        "bias": true,
+        "in_channels": 24,
+        "inputs": [
+          [
+            "N",
+            24,
+            16,
+            20
+          ]
+        ],
+        "kernel_size": 3,
+        "kind": "conv2d",
+        "name": "dec_1_a",
+        "out_channels": 8,
+        "output": [
+          "N",
+          8,
+          16,
+          20
+        ],
+        "padding": 1,
+        "parameters": 1736
+      },
+      {
+        "inputs": [
+          [
+            "N",
+            8,
+            16,
+            20
+          ]
+        ],
+        "kind": "relu",
+        "name": "dec_1_a_relu",
+        "output": [
+          "N",
+          8,
+          16,
+          20
+        ],
+        "parameters": 0
+      },
+      {
+        "bias": true,
+        "in_channels": 8,
+        "inputs": [
+          [
+            "N",
+            8,
+            16,
+            20
+          ]
+        ],
+        "kernel_size": 3,
+        "kind": "conv2d",
+        "name": "dec_1_b",
+        "out_channels": 8,
+        "output": [
+          "N",
+          8,
+          16,
+          20
+        ],
+        "padding": 1,
+        "parameters": 584
+      },
+      {
+        "inputs": [
+          [
+            "N",
+            8,
+            16,
+            20
+          ]
+        ],
+        "kind": "relu",
+        "name": "dec_1_b_relu",
+        "output": [
+          "N",
+          8,
+          16,
+          20
+        ],
+        "parameters": 0
+      },
+      {
+        "inputs": [
+          [
+            "N",
+            8,
+            16,
+            20
+          ]
+        ],
+        "kind": "interpolate",
+        "mode": "nearest",
+        "name": "resize_0",
+        "output": [
+          "N",
+          8,
+          33,
+          41
+        ],
+        "parameters": 0
+      },
+      {
+        "dim": 1,
+        "inputs": [
+          [
+            "N",
+            4,
+            33,
+            41
+          ],
+          [
+            "N",
+            8,
+            33,
+            41
+          ]
+        ],
+        "kind": "concatenate",
+        "name": "concat_0",
+        "output": [
+          "N",
+          12,
+          33,
+          41
+        ],
+        "parameters": 0
+      },
+      {
+        "bias": true,
+        "in_channels": 12,
+        "inputs": [
+          [
+            "N",
+            12,
+            33,
+            41
+          ]
+        ],
+        "kernel_size": 3,
+        "kind": "conv2d",
+        "name": "dec_0_a",
+        "out_channels": 4,
+        "output": [
+          "N",
+          4,
+          33,
+          41
+        ],
+        "padding": 1,
+        "parameters": 436
+      },
+      {
+        "inputs": [
+          [
+            "N",
+            4,
+            33,
+            41
+          ]
+        ],
+        "kind": "relu",
+        "name": "dec_0_a_relu",
+        "output": [
+          "N",
+          4,
+          33,
+          41
+        ],
+        "parameters": 0
+      },
+      {
+        "bias": true,
+        "in_channels": 4,
+        "inputs": [
+          [
+            "N",
+            4,
+            33,
+            41
+          ]
+        ],
+        "kernel_size": 3,
+        "kind": "conv2d",
+        "name": "dec_0_b",
+        "out_channels": 4,
+        "output": [
+          "N",
+          4,
+          33,
+          41
+        ],
+        "padding": 1,
+        "parameters": 148
+      },
+      {
+        "inputs": [
+          [
+            "N",
+            4,
+            33,
+            41
+          ]
+        ],
+        "kind": "relu",
+        "name": "dec_0_b_relu",
+        "output": [
+          "N",
+          4,
+          33,
+          41
+        ],
+        "parameters": 0
+      },
+      {
+        "bias": true,
+        "in_channels": 4,
+        "inputs": [
+          [
+            "N",
+            4,
+            33,
+            41
+          ]
+        ],
+        "kernel_size": 1,
+        "kind": "conv2d",
+        "name": "head",
+        "out_channels": 2,
+        "output": [
+          "N",
+          2,
+          33,
+          41
+        ],
+        "padding": 0,
+        "parameters": 10
+      }
+    ],
+    "output_semantics": "raw logits; no sigmoid or softmax",
+    "report_schema_version": 1,
+    "selection": {
+      "base_width": 4,
+      "parameters": 7470
+    },
+    "shape_convention": "NCHW; N is any positive batch size; shapes use specification height/width",
+    "specification": {
+      "depth": 2,
+      "input_channels": 1,
+      "input_height": 33,
+      "input_width": 41,
+      "max_parameters": 8000,
+      "output_classes": 2,
+      "width_candidates": [
+        2,
+        4,
+        6,
+        8,
+        12,
+        16
+      ]
+    },
+    "specification_sha256": "de34da55ea3a9de87d972c339e5a1e41134a995d032dc2e84691cb49246f0660"
+  },
+  "artifacts": {
+    "architecture.json": {
+      "bytes": 9906,
+      "sha256": "7d38ba7dabeb71cce7c50685b986336c7949d23f652e5319325b7555e8cbc786"
+    },
+    "inference.py": {
+      "bytes": 4929,
+      "sha256": "f30b2dfd615ed719399e64515467fad7f50db17425f9f61c1f506c42b8f5cc5e"
+    },
+    "model.onnx": {
+      "bytes": 35261,
+      "sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6"
+    },
+    "model.py": {
+      "bytes": 2347,
+      "sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0"
+    }
+  },
+  "checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633",
+  "exporter": "torch.onnx.export(dynamo=False)",
+  "format": "unet-budget-onnx",
+  "input": {
+    "dtype": "float32",
+    "layout": "NCHW",
+    "name": "image",
+    "shape": [
+      1,
+      1,
+      33,
+      41
+    ]
+  },
+  "onnx_ir_version": 8,
+  "opset": 17,
+  "output": {
+    "dtype": "float32",
+    "layout": "NCHW",
+    "name": "logits",
+    "semantics": "raw logits; no sigmoid or softmax",
+    "shape": [
+      1,
+      2,
+      33,
+      41
+    ]
+  },
+  "precision": "float32",
+  "provider": "CPUExecutionProvider",
+  "python": "3.12.3",
+  "resource_estimates": {
+    "multiply_accumulates": 2323932,
+    "primitive_output_elements": 114735
+  },
+  "resource_limits": {
+    "max_activation_elements": 16000000,
+    "max_axis": 1024,
+    "max_base_width": 32,
+    "max_batch": 16,
+    "max_channels": 16,
+    "max_depth": 4,
+    "max_file_bytes": 10485760,
+    "max_multiply_accumulates": 2000000000,
+    "max_parameters": 2000000
+  },
+  "schema_version": 1,
+  "source_hashes": {
+    "exporter": "2e8e4a288c361bf4c64488251968941809d72d07004a91fde2d274895f191567",
+    "generated_code": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0",
+    "inference": "f30b2dfd615ed719399e64515467fad7f50db17425f9f61c1f506c42b8f5cc5e",
+    "specification": "de34da55ea3a9de87d972c339e5a1e41134a995d032dc2e84691cb49246f0660"
+  },
+  "versions": {
+    "numpy": "2.2.6",
+    "onnx": "1.17.0",
+    "onnxruntime": "1.20.1",
+    "torch": "2.6.0+cpu",
+    "unet-budget-compiler": "0.1.0"
+  }
+}

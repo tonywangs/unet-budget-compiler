@@ -1,0 +1,8 @@
+{
+  "checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633",
+  "dataset_sample_sha256": "679b4f267276863bfb02dabe3e4113fe3f356478d385a81d7ef6676cbed97b9b",
+  "description": "First unchanged held-out synthetic sample; foreground class 1",
+  "input_file_sha256": "5edb0e4150358883a750c5a2efe74facb557bb962ac84d1800ba4a4c85b02afe",
+  "logits_bytes_sha256": "7747178a8c33fa9e859882a2c585b916f5992cfb18a75504736c16f0d027ee95",
+  "target_file_sha256": "28c1e45536a58bca321f6fd8f544fc397055ff94fdca3397f9d31b7693c25b5f"
+}

@@ -38,6 +38,15 @@ for a runnable full-image/tiled example and [measured tradeoffs](docs/tiled-resu
 Tiling bounds per-call image dimensions; it does not impose a process-memory cap
 or guarantee full-image-equivalent predictions.
 
+For trained deployment, `unet-budget export` accepts a matching tensor-only
+checkpoint and explicit fixed NCHW dimensions, and emits a checked float32 ONNX
+bundle with a versioned manifest and standalone NumPy/ONNX Runtime CPU inference.
+See the [export guide](docs/onnx.md), [ready-to-run example](examples/onnx), and
+[numerical/performance results](docs/onnx-results.md). The held-out synthetic replay
+preserves every predicted label. An additional larger benchmark input exceeds
+the frozen elementwise logit tolerance at one value; this negative result is
+preserved and investigated, not hidden by relaxing the threshold.
+
 Install PyTorch separately to run the model; CPU validation here uses 2.6.0:
 
 ```sh
@@ -196,5 +205,6 @@ PyTorch defines the underlying
 [MaxPool2d](https://docs.pytorch.org/docs/stable/generated/torch.nn.MaxPool2d.html),
 and [interpolate](https://docs.pytorch.org/docs/stable/generated/torch.nn.functional.interpolate.html)
 semantics. No claims are made about medical applicability, real-world accuracy,
-GPU behavior, export to ONNX, mixed precision, TorchScript, or `torch.compile`.
+GPU behavior, mixed precision, general TorchScript deployment, or `torch.compile`.
+ONNX support is limited to the fixed-shape CPU contract in the export guide.
 The synthetic experiment is a small CPU integration demonstration only.

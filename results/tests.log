@@ -3,20 +3,29 @@ test_cli (test_compiler.CompilerTests.test_cli) ... ok
 test_committed_example (test_compiler.CompilerTests.test_committed_example) ... ok
 test_determinism_and_hashes (test_compiler.CompilerTests.test_determinism_and_hashes) ... ok
 test_exhaustive_small_budgets (test_compiler.CompilerTests.test_exhaustive_small_budgets) ... ok
-test_forward_input_and_parameter_gradients (test_compiler.CompilerTests.test_forward_input_and_parameter_gradients) ... [W923 18:52:29.101461225 NNPACK.cpp:62] Could not initialize NNPACK! Reason: Unsupported hardware.
+test_forward_input_and_parameter_gradients (test_compiler.CompilerTests.test_forward_input_and_parameter_gradients) ... [W926 01:30:21.953396240 NNPACK.cpp:62] Could not initialize NNPACK! Reason: Unsupported hardware.
 ok
 test_invalid_specs (test_compiler.CompilerTests.test_invalid_specs) ... ok
 test_maximum_depth_and_single_output (test_compiler.CompilerTests.test_maximum_depth_and_single_output) ... ok
 test_shapes_counts_and_runtime_validation (test_compiler.CompilerTests.test_shapes_counts_and_runtime_validation) ... ok
+test_cli_and_output_failure_cleanup (test_export.ExportTests.test_cli_and_output_failure_cleanup) ... ok
+test_collisions_and_serialization_cleanup (test_export.ExportTests.test_collisions_and_serialization_cleanup) ... ok
+test_malformed_checkpoints (test_export.ExportTests.test_malformed_checkpoints) ... ok
+test_missing_optional_dependencies (test_export.ExportTests.test_missing_optional_dependencies) ... ok
+test_shape_and_resource_limits_before_dependencies (test_export.ExportTests.test_shape_and_resource_limits_before_dependencies) ... ok
+test_trained_export_manifest_and_standalone_contract (test_export.ExportTests.test_trained_export_manifest_and_standalone_contract) ... ok
 test_256_seeded_geometries_independent_oracles (test_inference.InferenceTests.test_256_seeded_geometries_independent_oracles) ... ok
 test_cli_helper_determinism_and_specialization (test_inference.InferenceTests.test_cli_helper_determinism_and_specialization) ... ok
 test_invalid_settings_before_predictor (test_inference.InferenceTests.test_invalid_settings_before_predictor) ... ok
 test_logits_are_blended_before_classification (test_inference.InferenceTests.test_logits_are_blended_before_classification) ... ok
 test_padding_and_batch_order (test_inference.InferenceTests.test_padding_and_batch_order) ... ok
 test_predictor_contract_and_numerics (test_inference.InferenceTests.test_predictor_contract_and_numerics) ... ok
+test_binary_and_multiclass_labels_and_finite_contract (test_onnx_evidence.EvidenceTests.test_binary_and_multiclass_labels_and_finite_contract) ... ok
+test_elementwise_failure_is_not_hidden_by_aggregate_limits (test_onnx_evidence.EvidenceTests.test_elementwise_failure_is_not_hidden_by_aggregate_limits) ... ok
+test_initial_measurements_and_source_are_preserved (test_onnx_evidence.EvidenceTests.test_initial_measurements_and_source_are_preserved) ... ok
 
 ----------------------------------------------------------------------
-Ran 14 tests in 22.513s
+Ran 23 tests in 24.965s
 
 OK
 Verified 256 seeded geometries, both blends, four independent predictors.
@@ -29,14 +38,27 @@ Standalone full-image, both tiled blends, single-tile equality and small-image p
 Offline wheel installation and isolated execution passed.
 Exit status: 0
 
+$ python scripts/verify_onnx_isolated.py
+Isolated compiler reports missing optional dependencies without creating output.
+Exported checked float32 ONNX [1, 1, 33, 41] -> [1, 2, 33, 41] to /tmp/unet-onnx-isolated-gmxez81x/bundle
+Saved float32 raw logits [1, 2, 33, 41] to output.npy
+{"offline": true, "compiler_importable": false, "torch_importable": false, "onnx_importable": false, "provider": ["CPUExecutionProvider"], "shape": [1, 2, 33, 41]}
+Offline installed-wheel export and separate NumPy/ORT-only runtime passed.
+Exit status: 0
+
+$ python scripts/verify_onnx_example.py
+[W926 01:31:10.362117627 NNPACK.cpp:62] Could not initialize NNPACK! Reason: Unsupported hardware.
+Trained ONNX example, standalone source, manifests and held-out input reproduced byte-for-byte.
+Exit status: 0
+
 $ python experiments/train_synthetic.py --check results/synthetic.json
-[W923 18:53:06.472952113 NNPACK.cpp:62] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W926 01:31:16.489930321 NNPACK.cpp:62] Could not initialize NNPACK! Reason: Unsupported hardware.
 Synthetic experiment reproduced exactly (losses, metrics, data, weights, logits).
 {"constant_baseline": {"cross_entropy": 0.3264288008213043, "foreground_dice": 0.0, "foreground_iou": 0.0, "pixel_accuracy": 0.8994826078414917}, "final_held_out": {"cross_entropy": 0.013708069920539856, "foreground_dice": 0.9755083179297597, "foreground_iou": 0.9521876409562472, "pixel_accuracy": 0.9951034784317017}}
 Exit status: 0
 
 $ python experiments/compare_tiled.py --check results/tiled-comparison.json
-[W923 18:53:16.894501335 NNPACK.cpp:62] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W926 01:31:26.759194605 NNPACK.cpp:62] Could not initialize NNPACK! Reason: Unsupported hardware.
 Tiled comparisons reproduced exactly, including training, checkpoint tensors, metrics and logits.
 {"generated_cases": 324, "held_out": {"full": {"cross_entropy": 0.013708069920539856, "foreground_dice": 0.9755083179297597, "foreground_iou": 0.9521876409562472, "pixel_accuracy": 0.9951034784317017}, "nonoverlapping": {"cross_entropy": 0.04077659919857979, "foreground_dice": 0.9586238958623896, "foreground_iou": 0.9205357142857142, "pixel_accuracy": 0.9917775392532349}, "overlap_constant": {"cross_entropy": 0.025221427902579308, "foreground_dice": 0.9649204864359214, "foreground_iou": 0.9322187076366922, "pixel_accuracy": 0.9930709600448608}, "overlap_gaussian": {"cross_entropy": 0.012814476154744625, "foreground_dice": 0.9774785233341072, "foreground_iou": 0.9559491371480472, "pixel_accuracy": 0.99551922082901}}, "single_tile_exact": 27}
 Exit status: 0
@@ -79,5 +101,92 @@ Measured large / overlap_gaussian / process 3
 Measured large / full / process 3
 Measured large / nonoverlapping / process 3
 Saved benchmark structure and numerical outputs verified in 36 fresh processes; timings/RSS may differ.
-[{"median_peak_rss_bytes": 219209728, "median_seconds": 0.001348682, "method": "full", "reduced_median_process_rss": false, "rss_ratio_to_full": 1.0, "runtime_ratio_to_full": 1.0, "workload": "padded_small"}, {"median_peak_rss_bytes": 227131392, "median_seconds": 0.005522123, "method": "nonoverlapping", "reduced_median_process_rss": false, "rss_ratio_to_full": 1.0361373743413431, "runtime_ratio_to_full": 4.094458886527736, "workload": "padded_small"}, {"median_peak_rss_bytes": 227160064, "median_seconds": 0.005601205, "method": "overlap_constant", "reduced_median_process_rss": false, "rss_ratio_to_full": 1.0362681714563324, "runtime_ratio_to_full": 4.1530953923904965, "workload": "padded_small"}, {"median_peak_rss_bytes": 228306944, "median_seconds": 0.005903817, "method": "overlap_gaussian", "reduced_median_process_rss": false, "rss_ratio_to_full": 1.0415000560559065, "runtime_ratio_to_full": 4.377471486977656, "workload": "padded_small"}, {"median_peak_rss_bytes": 226021376, "median_seconds": 0.005643348, "method": "full", "reduced_median_process_rss": false, "rss_ratio_to_full": 1.0, "runtime_ratio_to_full": 1.0, "workload": "small"}, {"median_peak_rss_bytes": 220930048, "median_seconds": 0.021928338, "method": "nonoverlapping", "reduced_median_process_rss": true, "rss_ratio_to_full": 0.9774741305884271, "runtime_ratio_to_full": 3.885696575862413, "workload": "small"}, {"median_peak_rss_bytes": 220884992, "median_seconds": 0.039304698, "method": "overlap_constant", "reduced_median_process_rss": true, "rss_ratio_to_full": 0.9772747866113336, "runtime_ratio_to_full": 6.964783670969785, "workload": "small"}, {"median_peak_rss_bytes": 222019584, "median_seconds": 0.043794705, "method": "overlap_gaussian", "reduced_median_process_rss": true, "rss_ratio_to_full": 0.9822946303981442, "runtime_ratio_to_full": 7.760411904422694, "workload": "small"}, {"median_peak_rss_bytes": 455774208, "median_seconds": 0.762260993, "method": "full", "reduced_median_process_rss": false, "rss_ratio_to_full": 1.0, "runtime_ratio_to_full": 1.0, "workload": "large"}, {"median_peak_rss_bytes": 248217600, "median_seconds": 1.407362082, "method": "nonoverlapping", "reduced_median_process_rss": true, "rss_ratio_to_full": 0.5446065083173816, "runtime_ratio_to_full": 1.8462994891829652, "workload": "large"}, {"median_peak_rss_bytes": 248643584, "median_seconds": 3.56984221, "method": "overlap_constant", "reduced_median_process_rss": true, "rss_ratio_to_full": 0.5455411465494774, "runtime_ratio_to_full": 4.683228241747377, "workload": "large"}, {"median_peak_rss_bytes": 248750080, "median_seconds": 3.635843768, "method": "overlap_gaussian", "reduced_median_process_rss": true, "rss_ratio_to_full": 0.5457748061075014, "runtime_ratio_to_full": 4.769814802788944, "workload": "large"}]
+[{"median_peak_rss_bytes": 219385856, "median_seconds": 0.001301742, "method": "full", "reduced_median_process_rss": false, "rss_ratio_to_full": 1.0, "runtime_ratio_to_full": 1.0, "workload": "padded_small"}, {"median_peak_rss_bytes": 227545088, "median_seconds": 0.005748618, "method": "nonoverlapping", "reduced_median_process_rss": false, "rss_ratio_to_full": 1.0371912398946994, "runtime_ratio_to_full": 4.416096277142475, "workload": "padded_small"}, {"median_peak_rss_bytes": 227823616, "median_seconds": 0.005704877, "method": "overlap_constant", "reduced_median_process_rss": false, "rss_ratio_to_full": 1.0384608203730326, "runtime_ratio_to_full": 4.382494380606909, "workload": "padded_small"}, {"median_peak_rss_bytes": 228896768, "median_seconds": 0.005248188, "method": "overlap_gaussian", "reduced_median_process_rss": false, "rss_ratio_to_full": 1.0433524392748454, "runtime_ratio_to_full": 4.0316652608581425, "workload": "padded_small"}, {"median_peak_rss_bytes": 226369536, "median_seconds": 0.006007437, "method": "full", "reduced_median_process_rss": false, "rss_ratio_to_full": 1.0, "runtime_ratio_to_full": 1.0, "workload": "small"}, {"median_peak_rss_bytes": 221106176, "median_seconds": 0.02235254, "method": "nonoverlapping", "reduced_median_process_rss": true, "rss_ratio_to_full": 0.9767488148228567, "runtime_ratio_to_full": 3.7208113876183804, "workload": "small"}, {"median_peak_rss_bytes": 221192192, "median_seconds": 0.037527217, "method": "overlap_constant", "reduced_median_process_rss": true, "rss_ratio_to_full": 0.9771287952810046, "runtime_ratio_to_full": 6.246793266412948, "workload": "small"}, {"median_peak_rss_bytes": 222318592, "median_seconds": 0.036465145, "method": "overlap_gaussian", "reduced_median_process_rss": true, "rss_ratio_to_full": 0.9821047298519886, "runtime_ratio_to_full": 6.070000401169417, "workload": "small"}, {"median_peak_rss_bytes": 456273920, "median_seconds": 0.73463714, "method": "full", "reduced_median_process_rss": false, "rss_ratio_to_full": 1.0, "runtime_ratio_to_full": 1.0, "workload": "large"}, {"median_peak_rss_bytes": 248639488, "median_seconds": 1.265476334, "method": "nonoverlapping", "reduced_median_process_rss": true, "rss_ratio_to_full": 0.5449346918622918, "runtime_ratio_to_full": 1.722586927745036, "workload": "large"}, {"median_peak_rss_bytes": 248524800, "median_seconds": 3.46865592, "method": "overlap_constant", "reduced_median_process_rss": true, "rss_ratio_to_full": 0.544683334081422, "runtime_ratio_to_full": 4.721590743424706, "workload": "large"}, {"median_peak_rss_bytes": 250142720, "median_seconds": 3.335280318, "method": "overlap_gaussian", "reduced_median_process_rss": true, "rss_ratio_to_full": 0.5482292742044077, "runtime_ratio_to_full": 4.540037708956561, "workload": "large"}]
+Exit status: 0
+
+$ python experiments/compare_onnx.py --check results/onnx-comparison.json
+[W926 01:35:56.329986058 NNPACK.cpp:62] Could not initialize NNPACK! Reason: Unsupported hardware.
+Passed depth=1 channels=1 shape=[1, 1, 8, 12] seed=17: max error 0
+Passed depth=1 channels=1 shape=[1, 1, 8, 12] seed=29: max error 0
+Passed depth=1 channels=1 shape=[1, 1, 8, 12] seed=43: max error 2.98e-08
+Passed depth=1 channels=3 shape=[2, 3, 9, 13] seed=17: max error 2.98e-08
+Passed depth=1 channels=3 shape=[2, 3, 9, 13] seed=29: max error 2.98e-08
+Passed depth=1 channels=3 shape=[2, 3, 9, 13] seed=43: max error 2.98e-08
+Passed depth=2 channels=1 shape=[1, 1, 16, 20] seed=17: max error 5.96e-08
+Passed depth=2 channels=1 shape=[1, 1, 16, 20] seed=29: max error 1.4e-08
+Passed depth=2 channels=1 shape=[1, 1, 16, 20] seed=43: max error 2.98e-08
+Passed depth=2 channels=3 shape=[2, 3, 17, 23] seed=17: max error 5.96e-08
+Passed depth=2 channels=3 shape=[2, 3, 17, 23] seed=29: max error 2.98e-08
+Passed depth=2 channels=3 shape=[2, 3, 17, 23] seed=43: max error 5.96e-08
+Passed depth=3 channels=1 shape=[1, 1, 24, 32] seed=17: max error 5.96e-08
+Passed depth=3 channels=1 shape=[1, 1, 24, 32] seed=29: max error 2.98e-08
+Passed depth=3 channels=1 shape=[1, 1, 24, 32] seed=43: max error 0
+Passed depth=3 channels=3 shape=[2, 3, 25, 35] seed=17: max error 5.96e-08
+Passed depth=3 channels=3 shape=[2, 3, 25, 35] seed=29: max error 5.96e-08
+Passed depth=3 channels=3 shape=[2, 3, 25, 35] seed=43: max error 2.98e-08
+Passed depth=4 channels=1 shape=[1, 1, 32, 48] seed=17: max error 2.98e-08
+Passed depth=4 channels=1 shape=[1, 1, 32, 48] seed=29: max error 2.98e-08
+Passed depth=4 channels=1 shape=[1, 1, 32, 48] seed=43: max error 0
+Passed depth=4 channels=3 shape=[2, 3, 33, 49] seed=17: max error 5.96e-08
+Passed depth=4 channels=3 shape=[2, 3, 33, 49] seed=29: max error 5.96e-08
+Passed depth=4 channels=3 shape=[2, 3, 33, 49] seed=43: max error 5.96e-08
+Trained held-out replay passed, with original input/weight/logit hashes and both task metrics.
+All 25 ONNX comparisons reproduced exactly.
+{"checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633", "elementwise_close": true, "elementwise_violation_count": 0, "evaluation_sha256": "6ee7156ea61b838fde5f18e68b66e9681d98d1859a06c407166007e9b80f9a44", "finite": true, "input_sha256": "6c6756b4e14f638f6a5f44b5a0d29eee468a61d37688b75041f789f80b31ba18", "label_disagreement_fraction": 0.0, "maximum_absolute_error": 1.9073486328125e-05, "maximum_error_to_elementwise_bound": 0.4685555457088316, "mean_absolute_error": 2.9000768157311405e-06, "metrics": {"onnx": {"cross_entropy": 0.01370807085186243, "foreground_dice": 0.9755083179297597, "foreground_iou": 0.9521876409562472, "pixel_accuracy": 0.9951034784317017}, "torch": {"cross_entropy": 0.013708069920539856, "foreground_dice": 0.9755083179297597, "foreground_iou": 0.9521876409562472, "pixel_accuracy": 0.9951034784317017}}, "model_sha256": "a37592ecc9ce301d9c8d7d2b17ed05ef6ded81baa67f79d7cc6910f685957367", "onnx_logits_sha256": "7b8c289289a89a3baad29cf9926c89a3361a05d63bd1f9486983ef744dab87a6", "sample_sha256": ["679b4f267276863bfb02dabe3e4113fe3f356478d385a81d7ef6676cbed97b9b", "8502480aaf417c03a269875d1cb94e880e98bac562dd1b520e314610604b3dae", "57858cd4759af141a27da7c987e1bb19d22e1f4bb261620b5a782c64a3087c0e", "8e7a19528dbff3f6792e382ad923bd5ad9236935a4f4a1fcf2bc6ce35eb28481", "cd92e61811dc3a38d79815a9d6fc41fdd9c8326d24f669ac584c2c23c8f612f8", "58c948212fad4e5513fec275032b1b5eaff3643f4d6b1f971c9f87b2ceec13f7", "5776a0a65947016ba7f663505b83c02170642e62307c015aeb2d8d5d9e21df6d", "ddc61470a0cc08c3495edae12e9ed8e099360b67466cd954ac458db054cf0325", "95bc4e3746bc82d0453142c6d73161205ba2d23d7ac303f401c876468087d680", "16cac8815e4a9b30a211e9523f5d5dad728ceb681ab78fc0c625559b811e410b", "a00974d28182b09381157b111c51bab0eae6d3ed14017bb4823ba71fd260ac65", "9fcbb43f6d6abb9eedab2495897b01a6d125d6938bf63e36e078700b6d300e55", "bc4b5b09d40f5da312498f5c5b3896057ca2e223be34558ca08443ef549d9ad7", "f572885ea284f9a3ed1d3ec9ee0342bb42c48707a649253dd0ce735e8851ec73", "058a3c0ebb323466394306813a761bb78d94c904c82f4e5ee6cd4341aad364c1", "cb6d2752701a79e5d146fc1a3735e57222407f2e6f08c49d4efeae9367233655"], "shape": [16, 2, 33, 41], "targets_sha256": "0b47cebe3f648f6f29673102259d3f6d4b9562548e62a9c6b899f58dff992b73", "torch_logits_sha256": "a10584314b1349dcd2d4ab9f68643f7e1a31ad283c3760237815e9fa0b75301d", "weights_sha256": "bd1a23fb71cee25ea5ec6ce92135ea49c44f465edea2bcf8a881151c15c68137", "within_tolerance": true, "worst_scaled_error": {"absolute_error": 4.740431904792786e-06, "allowed_error": 1.0117118339985609e-05, "index": [15, 1, 13, 20], "onnx": 0.011716574430465698, "torch": 0.011711833998560905}}
+Exit status: 0
+
+$ python experiments/investigate_onnx.py --check results/onnx-numerical-investigation.json
+[W926 01:36:06.095456840 NNPACK.cpp:62] Could not initialize NNPACK! Reason: Unsupported hardware.
+Known tolerance failure and higher-precision/optimization diagnostics reproduced exactly.
+{"onnx_default": {"max_error": 3.814697265625e-05, "violation_count": 1, "within_tolerance": false}, "onnx_graph_optimizations_disabled": {"max_error": 5.340576171875e-05, "violation_count": 3, "within_tolerance": false}, "torch_default": {"max_error": 0.0, "violation_count": 0, "within_tolerance": true}, "torch_mkldnn_disabled": {"max_error": 5.340576171875e-05, "violation_count": 2, "within_tolerance": false}}
+{"onnx_default": {"logits_sha256": "6b0d43f826f552495da167cef5607ed62ff4ac4510a78f96e4bba017275fd02c", "maximum_absolute_error": 2.3963313338981607e-05, "mean_absolute_error": 3.1884797932694458e-06}, "onnx_graph_optimizations_disabled": {"logits_sha256": "9cd2d9da59e3c8d181310f549197a8999a6556feb2a548dae3f8c6c2a546020b", "maximum_absolute_error": 3.3150480561516815e-05, "mean_absolute_error": 3.826846153916207e-06}, "torch_default": {"logits_sha256": "e28eb417d6f0c01844ce714e44ddd7f6cbaa6cfda00f444f171d86527ed2b9af", "maximum_absolute_error": 3.227614936918144e-05, "mean_absolute_error": 3.799070076655127e-06}, "torch_mkldnn_disabled": {"logits_sha256": "86d086412c15d59d43e0942df3fff259b2dd0b836f76e8d7845dc54fc084d0ea", "maximum_absolute_error": 3.0252656486595697e-05, "mean_absolute_error": 3.7623716969767217e-06}}
+Exit status: 0
+
+$ python experiments/benchmark_onnx.py --check results/onnx-benchmark.json
+[W926 01:36:12.699838179 NNPACK.cpp:62] Could not initialize NNPACK! Reason: Unsupported hardware.
+Measured tiny pair 1: torch
+Measured tiny pair 1: onnx
+Measured tiny pair 2: onnx
+Measured tiny pair 2: torch
+Measured tiny pair 3: torch
+Measured tiny pair 3: onnx
+Measured tiny pair 4: onnx
+Measured tiny pair 4: torch
+Measured tiny pair 5: torch
+Measured tiny pair 5: onnx
+Measured tiny pair 6: onnx
+Measured tiny pair 6: torch
+Measured trained pair 1: torch
+Measured trained pair 1: onnx
+Measured trained pair 2: onnx
+Measured trained pair 2: torch
+Measured trained pair 3: torch
+Measured trained pair 3: onnx
+Measured trained pair 4: onnx
+Measured trained pair 4: torch
+Measured trained pair 5: torch
+Measured trained pair 5: onnx
+Measured trained pair 6: onnx
+Measured trained pair 6: torch
+Measured larger pair 1: torch
+Measured larger pair 1: onnx
+Frozen numerical tolerance FAILED: larger pair 1; retained for investigation
+Measured larger pair 2: onnx
+Measured larger pair 2: torch
+Frozen numerical tolerance FAILED: larger pair 2; retained for investigation
+Measured larger pair 3: torch
+Measured larger pair 3: onnx
+Frozen numerical tolerance FAILED: larger pair 3; retained for investigation
+Measured larger pair 4: onnx
+Measured larger pair 4: torch
+Frozen numerical tolerance FAILED: larger pair 4; retained for investigation
+Measured larger pair 5: torch
+Measured larger pair 5: onnx
+Frozen numerical tolerance FAILED: larger pair 5; retained for investigation
+Measured larger pair 6: onnx
+Measured larger pair 6: torch
+Frozen numerical tolerance FAILED: larger pair 6; retained for investigation
+Saved measurements validated; numerical/configuration evidence (including known failures) reproduced in 36 fresh processes. No timing/RSS equality gate.
+[{"median_paired_latency_ratio": 0.07923368878202147, "median_paired_rss_ratio": 0.2196008751017154, "methods": {"onnx": {"max_seconds": 0.000318127, "median_import_seconds": 0.1437200715, "median_initialization_seconds": 0.1579259655, "median_model_input_setup_seconds": 0.0134347275, "median_peak_rss_bytes": 55244800.0, "median_process_median_seconds": 7.1076e-05, "median_process_wall_seconds": 0.6021259825, "median_seconds": 7.00115e-05, "min_seconds": 5.7317e-05}, "torch": {"max_seconds": 0.001161698, "median_import_seconds": 2.7732951110000004, "median_initialization_seconds": 3.3612537419999997, "median_model_input_setup_seconds": 0.5904258175, "median_peak_rss_bytes": 251533312.0, "median_process_median_seconds": 0.0009197685, "median_process_wall_seconds": 4.630197411999999, "median_seconds": 0.000912876, "min_seconds": 0.000418631}}, "paired_ratios": [{"onnx_to_torch_initialization": 0.049616164936307695, "onnx_to_torch_latency": 0.08425071411117833, "onnx_to_torch_peak_rss": 0.22000097756488587, "pair": 0}, {"onnx_to_torch_initialization": 0.040797829768349905, "onnx_to_torch_latency": 0.07152269341857277, "onnx_to_torch_peak_rss": 0.2195030549898167, "pair": 1}, {"onnx_to_torch_initialization": 0.051656178688683725, "onnx_to_torch_latency": 0.07421666345286461, "onnx_to_torch_peak_rss": 0.2199169448741959, "pair": 2}, {"onnx_to_torch_initialization": 0.0456654889743857, "onnx_to_torch_latency": 0.09109249455911042, "onnx_to_torch_peak_rss": 0.21936366300843455, "pair": 3}, {"onnx_to_torch_initialization": 0.04594306854725726, "onnx_to_torch_latency": 0.06536637461176076, "onnx_to_torch_peak_rss": 0.21969869521361404, "pair": 4}, {"onnx_to_torch_initialization": 0.05282283192332536, "onnx_to_torch_latency": 0.11559893657928584, "onnx_to_torch_peak_rss": 0.2191816480924103, "pair": 5}], "slower_onnx_pairs": 0, "workload": "tiny"}, {"median_paired_latency_ratio": 0.29336878930068033, "median_paired_rss_ratio": 0.21997237344600634, "methods": {"onnx": {"max_seconds": 0.000958989, "median_import_seconds": 0.1460199775, "median_initialization_seconds": 0.160655664, "median_model_input_setup_seconds": 0.013728301, "median_peak_rss_bytes": 55443456.0, "median_process_median_seconds": 0.000566053, "median_process_wall_seconds": 0.58675504, "median_seconds": 0.000566507, "min_seconds": 0.000476408}, "torch": {"max_seconds": 0.00268912, "median_import_seconds": 2.7520183449999998, "median_initialization_seconds": 3.3771084845, "median_model_input_setup_seconds": 0.5778970834999999, "median_peak_rss_bytes": 252364800.0, "median_process_median_seconds": 0.001928096, "median_process_wall_seconds": 4.641174561, "median_seconds": 0.001948934, "min_seconds": 0.001059365}}, "paired_ratios": [{"onnx_to_torch_initialization": 0.047954939818217905, "onnx_to_torch_latency": 0.32931470220536974, "onnx_to_torch_peak_rss": 0.22057869469313612, "pair": 0}, {"onnx_to_torch_initialization": 0.04517202780343065, "onnx_to_torch_latency": 0.29377595233323084, "onnx_to_torch_peak_rss": 0.21964398721339673, "pair": 1}, {"onnx_to_torch_initialization": 0.04672281808283059, "onnx_to_torch_latency": 0.2929616262681298, "onnx_to_torch_peak_rss": 0.21997237344600634, "pair": 2}, {"onnx_to_torch_initialization": 0.0497073702923444, "onnx_to_torch_latency": 0.3010125652850288, "onnx_to_torch_peak_rss": 0.2202668917822007, "pair": 3}, {"onnx_to_torch_initialization": 0.05074453614532369, "onnx_to_torch_latency": 0.26227998068801633, "onnx_to_torch_peak_rss": 0.21963329547298394, "pair": 4}, {"onnx_to_torch_initialization": 0.04623065411577964, "onnx_to_torch_latency": 0.2465279438318575, "onnx_to_torch_peak_rss": 0.21997237344600634, "pair": 5}], "slower_onnx_pairs": 0, "workload": "trained"}, {"median_paired_latency_ratio": 0.44715252779333076, "median_paired_rss_ratio": 0.23332527873873565, "methods": {"onnx": {"max_seconds": 0.008129914, "median_import_seconds": 0.1403916395, "median_initialization_seconds": 0.15558309599999998, "median_model_input_setup_seconds": 0.0141780425, "median_peak_rss_bytes": 61274112.0, "median_process_median_seconds": 0.0069599195, "median_process_wall_seconds": 0.653267678, "median_seconds": 0.0069453345, "min_seconds": 0.005142128}, "torch": {"max_seconds": 0.017433701, "median_import_seconds": 2.7610946465, "median_initialization_seconds": 3.3279367960000004, "median_model_input_setup_seconds": 0.578605483, "median_peak_rss_bytes": 262553600.0, "median_process_median_seconds": 0.015387399, "median_process_wall_seconds": 4.7137566045, "median_seconds": 0.015383512, "min_seconds": 0.011943302}}, "paired_ratios": [{"onnx_to_torch_initialization": 0.045105678747335023, "onnx_to_torch_latency": 0.5400636296964931, "onnx_to_torch_peak_rss": 0.23392954776224323, "pair": 0}, {"onnx_to_torch_initialization": 0.04537492909088889, "onnx_to_torch_latency": 0.44481336219552925, "onnx_to_torch_peak_rss": 0.23332864927319, "pair": 1}, {"onnx_to_torch_initialization": 0.04445672063009906, "onnx_to_torch_latency": 0.42573031295242814, "onnx_to_torch_peak_rss": 0.2333219082042813, "pair": 2}, {"onnx_to_torch_initialization": 0.04864709282092704, "onnx_to_torch_latency": 0.44949169339113226, "onnx_to_torch_peak_rss": 0.23397806455644785, "pair": 3}, {"onnx_to_torch_initialization": 0.03828021231758265, "onnx_to_torch_latency": 0.3647586210138676, "onnx_to_torch_peak_rss": 0.23265299768032008, "pair": 4}, {"onnx_to_torch_initialization": 0.05753800659851535, "onnx_to_torch_latency": 0.4695614490518335, "onnx_to_torch_peak_rss": 0.23294312035290635, "pair": 5}], "slower_onnx_pairs": 0, "workload": "larger"}]
+Frozen-tolerance failures: [{"workload": "larger", "pair": 0}, {"workload": "larger", "pair": 1}, {"workload": "larger", "pair": 2}, {"workload": "larger", "pair": 3}, {"workload": "larger", "pair": 4}, {"workload": "larger", "pair": 5}]
 Exit status: 0

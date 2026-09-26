@@ -17,7 +17,12 @@ def unique_object(pairs):
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(description="Compile a bounded 2D U-Net specification offline.")
+    argv = list(sys.argv[1:] if argv is None else argv)
+    if argv and argv[0] == 'export':
+        from .export import main as export_main
+        return export_main(argv[1:])
+    parser = argparse.ArgumentParser(description="Compile a bounded 2D U-Net specification offline.",
+                                     epilog="For trained fixed-shape ONNX export: unet-budget export --help")
     parser.add_argument("--version", action="version", version=__version__)
     parser.add_argument("spec", type=Path, help="JSON specification")
     parser.add_argument("--out", type=Path, required=True, help="new or empty artifact directory")
