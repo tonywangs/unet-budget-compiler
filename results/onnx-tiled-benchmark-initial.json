@@ -1,0 +1,3436 @@
+{
+  "artifacts": {
+    "large": {
+      "bundle/architecture.json": {
+        "bytes": 9906,
+        "sha256": "7d38ba7dabeb71cce7c50685b986336c7949d23f652e5319325b7555e8cbc786"
+      },
+      "bundle/inference.py": {
+        "bytes": 4929,
+        "sha256": "f30b2dfd615ed719399e64515467fad7f50db17425f9f61c1f506c42b8f5cc5e"
+      },
+      "bundle/manifest.json": {
+        "bytes": 13360,
+        "sha256": "a786e5fc6cf4a7bf90139e62e0b981527e96f983cf270e42d1219db1c52ad54b"
+      },
+      "bundle/model.onnx": {
+        "bytes": 35261,
+        "sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6"
+      },
+      "bundle/model.py": {
+        "bytes": 2347,
+        "sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0"
+      },
+      "input.npy": {
+        "bytes": 83204,
+        "sha256": "87663ca7fae2e87063028041182021fe8b7712330df7572aa5249c40668a292c"
+      },
+      "onnx_tiled.py": {
+        "bytes": 11966,
+        "sha256": "025a86d50ca88dbb20bb1432d7d2d12b0abda2fef0123f8af11a77e939cd6395"
+      },
+      "torch_tiled.py": {
+        "bytes": 8208,
+        "sha256": "e91fae724d483b3e96eb8ffbf7c7b0de1e57dcfb6605b4722d3eec7177728f58"
+      },
+      "weights.pt": {
+        "bytes": 36500,
+        "sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633"
+      }
+    },
+    "medium": {
+      "bundle/architecture.json": {
+        "bytes": 9906,
+        "sha256": "7d38ba7dabeb71cce7c50685b986336c7949d23f652e5319325b7555e8cbc786"
+      },
+      "bundle/inference.py": {
+        "bytes": 4929,
+        "sha256": "f30b2dfd615ed719399e64515467fad7f50db17425f9f61c1f506c42b8f5cc5e"
+      },
+      "bundle/manifest.json": {
+        "bytes": 13360,
+        "sha256": "a786e5fc6cf4a7bf90139e62e0b981527e96f983cf270e42d1219db1c52ad54b"
+      },
+      "bundle/model.onnx": {
+        "bytes": 35261,
+        "sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6"
+      },
+      "bundle/model.py": {
+        "bytes": 2347,
+        "sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0"
+      },
+      "input.npy": {
+        "bytes": 21188,
+        "sha256": "ed0fb9460cc63771ce347dcc6215c06b3a7ed67e80e94079d39bc2ff91fcdc1d"
+      },
+      "onnx_tiled.py": {
+        "bytes": 11912,
+        "sha256": "f05d70f4848da1669ecb79e2d3739fb09b162ffaa4ec73bf78f4a51bc237bdbd"
+      },
+      "torch_tiled.py": {
+        "bytes": 8208,
+        "sha256": "e91fae724d483b3e96eb8ffbf7c7b0de1e57dcfb6605b4722d3eec7177728f58"
+      },
+      "weights.pt": {
+        "bytes": 36500,
+        "sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633"
+      }
+    },
+    "small": {
+      "bundle/architecture.json": {
+        "bytes": 9906,
+        "sha256": "7d38ba7dabeb71cce7c50685b986336c7949d23f652e5319325b7555e8cbc786"
+      },
+      "bundle/inference.py": {
+        "bytes": 4929,
+        "sha256": "f30b2dfd615ed719399e64515467fad7f50db17425f9f61c1f506c42b8f5cc5e"
+      },
+      "bundle/manifest.json": {
+        "bytes": 13360,
+        "sha256": "a786e5fc6cf4a7bf90139e62e0b981527e96f983cf270e42d1219db1c52ad54b"
+      },
+      "bundle/model.onnx": {
+        "bytes": 35261,
+        "sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6"
+      },
+      "bundle/model.py": {
+        "bytes": 2347,
+        "sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0"
+      },
+      "input.npy": {
+        "bytes": 1692,
+        "sha256": "7cdfb4987d664aec842df285ea7b043c1baf7913b351c038d495058434be7bef"
+      },
+      "onnx_tiled.py": {
+        "bytes": 11912,
+        "sha256": "f05d70f4848da1669ecb79e2d3739fb09b162ffaa4ec73bf78f4a51bc237bdbd"
+      },
+      "torch_tiled.py": {
+        "bytes": 8208,
+        "sha256": "e91fae724d483b3e96eb8ffbf7c7b0de1e57dcfb6605b4722d3eec7177728f58"
+      },
+      "weights.pt": {
+        "bytes": 36500,
+        "sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633"
+      }
+    }
+  },
+  "comparisons": [
+    {
+      "elementwise_close": true,
+      "elementwise_violation_count": 0,
+      "finite": true,
+      "label_disagreement_fraction": 0.0,
+      "maximum_absolute_error": 2.288818359375e-05,
+      "maximum_error_to_elementwise_bound": 0.35721275535306807,
+      "mean_absolute_error": 3.6479452686846408e-06,
+      "onnx_logits_sha256": "ddfd733a58ccfee1f1a488251ca34c69b4603eeba3d383abe90853c216474df2",
+      "pair": 0,
+      "shape": [
+        1,
+        2,
+        17,
+        23
+      ],
+      "torch_logits_sha256": "9d9569d07b1cc259aea0a89a8eee5eb1ca15fecd5657f9e818bde4279ad79f51",
+      "within_tolerance": true,
+      "workload": "small",
+      "worst_scaled_error": {
+        "absolute_error": 6.794929504394531e-06,
+        "allowed_error": 1.902207970619202e-05,
+        "index": [
+          0,
+          1,
+          14,
+          20
+        ],
+        "onnx": -0.9022011756896973,
+        "torch": -0.9022079706192017
+      }
+    },
+    {
+      "elementwise_close": true,
+      "elementwise_violation_count": 0,
+      "finite": true,
+      "label_disagreement_fraction": 0.0,
+      "maximum_absolute_error": 2.288818359375e-05,
+      "maximum_error_to_elementwise_bound": 0.35721275535306807,
+      "mean_absolute_error": 3.6479452686846408e-06,
+      "onnx_logits_sha256": "ddfd733a58ccfee1f1a488251ca34c69b4603eeba3d383abe90853c216474df2",
+      "pair": 1,
+      "shape": [
+        1,
+        2,
+        17,
+        23
+      ],
+      "torch_logits_sha256": "9d9569d07b1cc259aea0a89a8eee5eb1ca15fecd5657f9e818bde4279ad79f51",
+      "within_tolerance": true,
+      "workload": "small",
+      "worst_scaled_error": {
+        "absolute_error": 6.794929504394531e-06,
+        "allowed_error": 1.902207970619202e-05,
+        "index": [
+          0,
+          1,
+          14,
+          20
+        ],
+        "onnx": -0.9022011756896973,
+        "torch": -0.9022079706192017
+      }
+    },
+    {
+      "elementwise_close": true,
+      "elementwise_violation_count": 0,
+      "finite": true,
+      "label_disagreement_fraction": 0.0,
+      "maximum_absolute_error": 2.288818359375e-05,
+      "maximum_error_to_elementwise_bound": 0.35721275535306807,
+      "mean_absolute_error": 3.6479452686846408e-06,
+      "onnx_logits_sha256": "ddfd733a58ccfee1f1a488251ca34c69b4603eeba3d383abe90853c216474df2",
+      "pair": 2,
+      "shape": [
+        1,
+        2,
+        17,
+        23
+      ],
+      "torch_logits_sha256": "9d9569d07b1cc259aea0a89a8eee5eb1ca15fecd5657f9e818bde4279ad79f51",
+      "within_tolerance": true,
+      "workload": "small",
+      "worst_scaled_error": {
+        "absolute_error": 6.794929504394531e-06,
+        "allowed_error": 1.902207970619202e-05,
+        "index": [
+          0,
+          1,
+          14,
+          20
+        ],
+        "onnx": -0.9022011756896973,
+        "torch": -0.9022079706192017
+      }
+    },
+    {
+      "elementwise_close": true,
+      "elementwise_violation_count": 0,
+      "finite": true,
+      "label_disagreement_fraction": 0.0,
+      "maximum_absolute_error": 2.288818359375e-05,
+      "maximum_error_to_elementwise_bound": 0.35721275535306807,
+      "mean_absolute_error": 3.6479452686846408e-06,
+      "onnx_logits_sha256": "ddfd733a58ccfee1f1a488251ca34c69b4603eeba3d383abe90853c216474df2",
+      "pair": 3,
+      "shape": [
+        1,
+        2,
+        17,
+        23
+      ],
+      "torch_logits_sha256": "9d9569d07b1cc259aea0a89a8eee5eb1ca15fecd5657f9e818bde4279ad79f51",
+      "within_tolerance": true,
+      "workload": "small",
+      "worst_scaled_error": {
+        "absolute_error": 6.794929504394531e-06,
+        "allowed_error": 1.902207970619202e-05,
+        "index": [
+          0,
+          1,
+          14,
+          20
+        ],
+        "onnx": -0.9022011756896973,
+        "torch": -0.9022079706192017
+      }
+    },
+    {
+      "elementwise_close": true,
+      "elementwise_violation_count": 0,
+      "finite": true,
+      "label_disagreement_fraction": 0.0,
+      "maximum_absolute_error": 2.288818359375e-05,
+      "maximum_error_to_elementwise_bound": 0.35721275535306807,
+      "mean_absolute_error": 3.6479452686846408e-06,
+      "onnx_logits_sha256": "ddfd733a58ccfee1f1a488251ca34c69b4603eeba3d383abe90853c216474df2",
+      "pair": 4,
+      "shape": [
+        1,
+        2,
+        17,
+        23
+      ],
+      "torch_logits_sha256": "9d9569d07b1cc259aea0a89a8eee5eb1ca15fecd5657f9e818bde4279ad79f51",
+      "within_tolerance": true,
+      "workload": "small",
+      "worst_scaled_error": {
+        "absolute_error": 6.794929504394531e-06,
+        "allowed_error": 1.902207970619202e-05,
+        "index": [
+          0,
+          1,
+          14,
+          20
+        ],
+        "onnx": -0.9022011756896973,
+        "torch": -0.9022079706192017
+      }
+    },
+    {
+      "elementwise_close": true,
+      "elementwise_violation_count": 0,
+      "finite": true,
+      "label_disagreement_fraction": 0.0,
+      "maximum_absolute_error": 2.288818359375e-05,
+      "maximum_error_to_elementwise_bound": 0.35721275535306807,
+      "mean_absolute_error": 3.6479452686846408e-06,
+      "onnx_logits_sha256": "ddfd733a58ccfee1f1a488251ca34c69b4603eeba3d383abe90853c216474df2",
+      "pair": 5,
+      "shape": [
+        1,
+        2,
+        17,
+        23
+      ],
+      "torch_logits_sha256": "9d9569d07b1cc259aea0a89a8eee5eb1ca15fecd5657f9e818bde4279ad79f51",
+      "within_tolerance": true,
+      "workload": "small",
+      "worst_scaled_error": {
+        "absolute_error": 6.794929504394531e-06,
+        "allowed_error": 1.902207970619202e-05,
+        "index": [
+          0,
+          1,
+          14,
+          20
+        ],
+        "onnx": -0.9022011756896973,
+        "torch": -0.9022079706192017
+      }
+    },
+    {
+      "elementwise_close": true,
+      "elementwise_violation_count": 0,
+      "finite": true,
+      "label_disagreement_fraction": 0.0,
+      "maximum_absolute_error": 3.0517578125e-05,
+      "maximum_error_to_elementwise_bound": 0.8069183420423733,
+      "mean_absolute_error": 4.287018764150264e-06,
+      "onnx_logits_sha256": "e5c8cb554d3ce29733e5a11595e53c2ef66c30d3249d5a51d46dec19a0d0f031",
+      "pair": 0,
+      "shape": [
+        1,
+        2,
+        65,
+        81
+      ],
+      "torch_logits_sha256": "3a4776afc9262c33b38c1723d3848807dfdccc5191944accb5d613ab75a1e3d4",
+      "within_tolerance": true,
+      "workload": "medium",
+      "worst_scaled_error": {
+        "absolute_error": 8.223578333854675e-06,
+        "allowed_error": 1.019133895635605e-05,
+        "index": [
+          0,
+          1,
+          55,
+          4
+        ],
+        "onnx": -0.019142119213938713,
+        "torch": -0.01913389563560486
+      }
+    },
+    {
+      "elementwise_close": true,
+      "elementwise_violation_count": 0,
+      "finite": true,
+      "label_disagreement_fraction": 0.0,
+      "maximum_absolute_error": 3.0517578125e-05,
+      "maximum_error_to_elementwise_bound": 0.8069183420423733,
+      "mean_absolute_error": 4.287018764150264e-06,
+      "onnx_logits_sha256": "e5c8cb554d3ce29733e5a11595e53c2ef66c30d3249d5a51d46dec19a0d0f031",
+      "pair": 1,
+      "shape": [
+        1,
+        2,
+        65,
+        81
+      ],
+      "torch_logits_sha256": "3a4776afc9262c33b38c1723d3848807dfdccc5191944accb5d613ab75a1e3d4",
+      "within_tolerance": true,
+      "workload": "medium",
+      "worst_scaled_error": {
+        "absolute_error": 8.223578333854675e-06,
+        "allowed_error": 1.019133895635605e-05,
+        "index": [
+          0,
+          1,
+          55,
+          4
+        ],
+        "onnx": -0.019142119213938713,
+        "torch": -0.01913389563560486
+      }
+    },
+    {
+      "elementwise_close": true,
+      "elementwise_violation_count": 0,
+      "finite": true,
+      "label_disagreement_fraction": 0.0,
+      "maximum_absolute_error": 3.0517578125e-05,
+      "maximum_error_to_elementwise_bound": 0.8069183420423733,
+      "mean_absolute_error": 4.287018764150264e-06,
+      "onnx_logits_sha256": "e5c8cb554d3ce29733e5a11595e53c2ef66c30d3249d5a51d46dec19a0d0f031",
+      "pair": 2,
+      "shape": [
+        1,
+        2,
+        65,
+        81
+      ],
+      "torch_logits_sha256": "3a4776afc9262c33b38c1723d3848807dfdccc5191944accb5d613ab75a1e3d4",
+      "within_tolerance": true,
+      "workload": "medium",
+      "worst_scaled_error": {
+        "absolute_error": 8.223578333854675e-06,
+        "allowed_error": 1.019133895635605e-05,
+        "index": [
+          0,
+          1,
+          55,
+          4
+        ],
+        "onnx": -0.019142119213938713,
+        "torch": -0.01913389563560486
+      }
+    },
+    {
+      "elementwise_close": true,
+      "elementwise_violation_count": 0,
+      "finite": true,
+      "label_disagreement_fraction": 0.0,
+      "maximum_absolute_error": 3.0517578125e-05,
+      "maximum_error_to_elementwise_bound": 0.8069183420423733,
+      "mean_absolute_error": 4.287018764150264e-06,
+      "onnx_logits_sha256": "e5c8cb554d3ce29733e5a11595e53c2ef66c30d3249d5a51d46dec19a0d0f031",
+      "pair": 3,
+      "shape": [
+        1,
+        2,
+        65,
+        81
+      ],
+      "torch_logits_sha256": "3a4776afc9262c33b38c1723d3848807dfdccc5191944accb5d613ab75a1e3d4",
+      "within_tolerance": true,
+      "workload": "medium",
+      "worst_scaled_error": {
+        "absolute_error": 8.223578333854675e-06,
+        "allowed_error": 1.019133895635605e-05,
+        "index": [
+          0,
+          1,
+          55,
+          4
+        ],
+        "onnx": -0.019142119213938713,
+        "torch": -0.01913389563560486
+      }
+    },
+    {
+      "elementwise_close": true,
+      "elementwise_violation_count": 0,
+      "finite": true,
+      "label_disagreement_fraction": 0.0,
+      "maximum_absolute_error": 3.0517578125e-05,
+      "maximum_error_to_elementwise_bound": 0.8069183420423733,
+      "mean_absolute_error": 4.287018764150264e-06,
+      "onnx_logits_sha256": "e5c8cb554d3ce29733e5a11595e53c2ef66c30d3249d5a51d46dec19a0d0f031",
+      "pair": 4,
+      "shape": [
+        1,
+        2,
+        65,
+        81
+      ],
+      "torch_logits_sha256": "3a4776afc9262c33b38c1723d3848807dfdccc5191944accb5d613ab75a1e3d4",
+      "within_tolerance": true,
+      "workload": "medium",
+      "worst_scaled_error": {
+        "absolute_error": 8.223578333854675e-06,
+        "allowed_error": 1.019133895635605e-05,
+        "index": [
+          0,
+          1,
+          55,
+          4
+        ],
+        "onnx": -0.019142119213938713,
+        "torch": -0.01913389563560486
+      }
+    },
+    {
+      "elementwise_close": true,
+      "elementwise_violation_count": 0,
+      "finite": true,
+      "label_disagreement_fraction": 0.0,
+      "maximum_absolute_error": 3.0517578125e-05,
+      "maximum_error_to_elementwise_bound": 0.8069183420423733,
+      "mean_absolute_error": 4.287018764150264e-06,
+      "onnx_logits_sha256": "e5c8cb554d3ce29733e5a11595e53c2ef66c30d3249d5a51d46dec19a0d0f031",
+      "pair": 5,
+      "shape": [
+        1,
+        2,
+        65,
+        81
+      ],
+      "torch_logits_sha256": "3a4776afc9262c33b38c1723d3848807dfdccc5191944accb5d613ab75a1e3d4",
+      "within_tolerance": true,
+      "workload": "medium",
+      "worst_scaled_error": {
+        "absolute_error": 8.223578333854675e-06,
+        "allowed_error": 1.019133895635605e-05,
+        "index": [
+          0,
+          1,
+          55,
+          4
+        ],
+        "onnx": -0.019142119213938713,
+        "torch": -0.01913389563560486
+      }
+    },
+    {
+      "elementwise_close": true,
+      "elementwise_violation_count": 0,
+      "finite": true,
+      "label_disagreement_fraction": 0.0,
+      "maximum_absolute_error": 3.814697265625e-05,
+      "maximum_error_to_elementwise_bound": 0.9730029895516854,
+      "mean_absolute_error": 4.43270839587486e-06,
+      "onnx_logits_sha256": "7ddcab3154b35dd35f5735809024c8e8a50fa51cba73659902d552f4fbb44eb6",
+      "pair": 0,
+      "shape": [
+        1,
+        2,
+        129,
+        161
+      ],
+      "torch_logits_sha256": "e65ae19d43fad293ba169d9da9820dec4af690e9c5c6ff36125b5453bc67e1e7",
+      "within_tolerance": true,
+      "workload": "large",
+      "worst_scaled_error": {
+        "absolute_error": 1.1265277862548828e-05,
+        "allowed_error": 1.1577845066785813e-05,
+        "index": [
+          0,
+          1,
+          69,
+          147
+        ],
+        "onnx": 0.1577732414007187,
+        "torch": 0.15778450667858124
+      }
+    },
+    {
+      "elementwise_close": true,
+      "elementwise_violation_count": 0,
+      "finite": true,
+      "label_disagreement_fraction": 0.0,
+      "maximum_absolute_error": 3.814697265625e-05,
+      "maximum_error_to_elementwise_bound": 0.9730029895516854,
+      "mean_absolute_error": 4.43270839587486e-06,
+      "onnx_logits_sha256": "7ddcab3154b35dd35f5735809024c8e8a50fa51cba73659902d552f4fbb44eb6",
+      "pair": 1,
+      "shape": [
+        1,
+        2,
+        129,
+        161
+      ],
+      "torch_logits_sha256": "e65ae19d43fad293ba169d9da9820dec4af690e9c5c6ff36125b5453bc67e1e7",
+      "within_tolerance": true,
+      "workload": "large",
+      "worst_scaled_error": {
+        "absolute_error": 1.1265277862548828e-05,
+        "allowed_error": 1.1577845066785813e-05,
+        "index": [
+          0,
+          1,
+          69,
+          147
+        ],
+        "onnx": 0.1577732414007187,
+        "torch": 0.15778450667858124
+      }
+    },
+    {
+      "elementwise_close": true,
+      "elementwise_violation_count": 0,
+      "finite": true,
+      "label_disagreement_fraction": 0.0,
+      "maximum_absolute_error": 3.814697265625e-05,
+      "maximum_error_to_elementwise_bound": 0.9730029895516854,
+      "mean_absolute_error": 4.43270839587486e-06,
+      "onnx_logits_sha256": "7ddcab3154b35dd35f5735809024c8e8a50fa51cba73659902d552f4fbb44eb6",
+      "pair": 2,
+      "shape": [
+        1,
+        2,
+        129,
+        161
+      ],
+      "torch_logits_sha256": "e65ae19d43fad293ba169d9da9820dec4af690e9c5c6ff36125b5453bc67e1e7",
+      "within_tolerance": true,
+      "workload": "large",
+      "worst_scaled_error": {
+        "absolute_error": 1.1265277862548828e-05,
+        "allowed_error": 1.1577845066785813e-05,
+        "index": [
+          0,
+          1,
+          69,
+          147
+        ],
+        "onnx": 0.1577732414007187,
+        "torch": 0.15778450667858124
+      }
+    },
+    {
+      "elementwise_close": true,
+      "elementwise_violation_count": 0,
+      "finite": true,
+      "label_disagreement_fraction": 0.0,
+      "maximum_absolute_error": 3.814697265625e-05,
+      "maximum_error_to_elementwise_bound": 0.9730029895516854,
+      "mean_absolute_error": 4.43270839587486e-06,
+      "onnx_logits_sha256": "7ddcab3154b35dd35f5735809024c8e8a50fa51cba73659902d552f4fbb44eb6",
+      "pair": 3,
+      "shape": [
+        1,
+        2,
+        129,
+        161
+      ],
+      "torch_logits_sha256": "e65ae19d43fad293ba169d9da9820dec4af690e9c5c6ff36125b5453bc67e1e7",
+      "within_tolerance": true,
+      "workload": "large",
+      "worst_scaled_error": {
+        "absolute_error": 1.1265277862548828e-05,
+        "allowed_error": 1.1577845066785813e-05,
+        "index": [
+          0,
+          1,
+          69,
+          147
+        ],
+        "onnx": 0.1577732414007187,
+        "torch": 0.15778450667858124
+      }
+    },
+    {
+      "elementwise_close": true,
+      "elementwise_violation_count": 0,
+      "finite": true,
+      "label_disagreement_fraction": 0.0,
+      "maximum_absolute_error": 3.814697265625e-05,
+      "maximum_error_to_elementwise_bound": 0.9730029895516854,
+      "mean_absolute_error": 4.43270839587486e-06,
+      "onnx_logits_sha256": "7ddcab3154b35dd35f5735809024c8e8a50fa51cba73659902d552f4fbb44eb6",
+      "pair": 4,
+      "shape": [
+        1,
+        2,
+        129,
+        161
+      ],
+      "torch_logits_sha256": "e65ae19d43fad293ba169d9da9820dec4af690e9c5c6ff36125b5453bc67e1e7",
+      "within_tolerance": true,
+      "workload": "large",
+      "worst_scaled_error": {
+        "absolute_error": 1.1265277862548828e-05,
+        "allowed_error": 1.1577845066785813e-05,
+        "index": [
+          0,
+          1,
+          69,
+          147
+        ],
+        "onnx": 0.1577732414007187,
+        "torch": 0.15778450667858124
+      }
+    },
+    {
+      "elementwise_close": true,
+      "elementwise_violation_count": 0,
+      "finite": true,
+      "label_disagreement_fraction": 0.0,
+      "maximum_absolute_error": 3.814697265625e-05,
+      "maximum_error_to_elementwise_bound": 0.9730029895516854,
+      "mean_absolute_error": 4.43270839587486e-06,
+      "onnx_logits_sha256": "7ddcab3154b35dd35f5735809024c8e8a50fa51cba73659902d552f4fbb44eb6",
+      "pair": 5,
+      "shape": [
+        1,
+        2,
+        129,
+        161
+      ],
+      "torch_logits_sha256": "e65ae19d43fad293ba169d9da9820dec4af690e9c5c6ff36125b5453bc67e1e7",
+      "within_tolerance": true,
+      "workload": "large",
+      "worst_scaled_error": {
+        "absolute_error": 1.1265277862548828e-05,
+        "allowed_error": 1.1577845066785813e-05,
+        "index": [
+          0,
+          1,
+          69,
+          147
+        ],
+        "onnx": 0.1577732414007187,
+        "torch": 0.15778450667858124
+      }
+    }
+  ],
+  "environment": {
+    "affinity": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "cgroup_cpu_max": null,
+    "cpu_models": [
+      "DO-Regular"
+    ],
+    "logical_cpus": 4,
+    "machine": "x86_64",
+    "onnxruntime_build": "ORT Build Info: git-branch=HEAD, git-commit-id=5c1b7ccbff, build type=Release, cmake cxx flags: -DNDEBUG -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -fstack-protector-strong -O3 -pipe -fstack-clash-protection -fcf-protection -ffunction-sections -fdata-sections -Wno-restrict  -DCPUINFO_SUPPORTED",
+    "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "torch_build": "PyTorch built with:\n  - GCC 9.3\n  - C++ Version: 201703\n  - Intel(R) oneAPI Math Kernel Library Version 2024.2-Product Build 20240605 for Intel(R) 64 architecture applications\n  - Intel(R) MKL-DNN v3.5.3 (Git Hash 66f0cb9eb66affd2da3bf5f8d897376f04aae6af)\n  - OpenMP 201511 (a.k.a. OpenMP 4.5)\n  - LAPACK is enabled (usually provided by MKL)\n  - NNPACK is enabled\n  - CPU capability usage: AVX2\n  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, COMMIT_SHA=2236df1770800ffea5697b11b0bb0d910b2e59e1, CXX_COMPILER=/opt/rh/devtoolset-9/root/usr/bin/c++, CXX_FLAGS= -D_GLIBCXX_USE_CXX11_ABI=0 -fabi-version=11 -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOCUPTI -DLIBKINETO_NOROCTRACER -DLIBKINETO_NOXPUPTI=ON -DUSE_FBGEMM -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wsuggest-override -Wno-psabi -Wno-error=old-style-cast -Wno-missing-braces -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, TORCH_VERSION=2.6.0, USE_CUDA=0, USE_CUDNN=OFF, USE_CUSPARSELT=OFF, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=OFF, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, \n",
+    "versions": {
+      "numpy": "2.2.6",
+      "onnx": "1.17.0",
+      "onnxruntime": "1.20.1",
+      "torch": "2.6.0+cpu"
+    }
+  },
+  "limitations": [
+    "Shared-host CPU measurements, six paired repetitions; no statistical significance claim.",
+    "RSS includes runtime imports, caches, setup and all calls; not incremental tensor memory.",
+    "Only three workloads, one small trained synthetic model, float32 and one thread.",
+    "Timing includes tiled input validation, tile calls, blending and normalization; excludes file IO and initialization.",
+    "No acceleration guarantee; preserve slower runs and ratios above one."
+  ],
+  "measurement": "Fresh Linux worker from a stdlib-only supervisor: ru_maxrss * 1024; direct calls timed by perf_counter_ns after 3 warmups",
+  "protocol": {
+    "benchmark": {
+      "blend": "gaussian",
+      "input_seed": 9001,
+      "overlap": [
+        16,
+        20
+      ],
+      "process_pairs": 6,
+      "tile": [
+        33,
+        41
+      ],
+      "timed_calls": 7,
+      "warmups": 3,
+      "workloads": [
+        {
+          "name": "small",
+          "shape": [
+            1,
+            1,
+            17,
+            23
+          ]
+        },
+        {
+          "name": "medium",
+          "shape": [
+            1,
+            1,
+            65,
+            81
+          ]
+        },
+        {
+          "name": "large",
+          "shape": [
+            1,
+            1,
+            129,
+            161
+          ]
+        }
+      ]
+    },
+    "geometry": {
+      "cases": 256,
+      "oracle_atol": 2e-05,
+      "oracle_rtol": 2e-06,
+      "seed": 20260927
+    },
+    "matrix": [
+      {
+        "blend": "constant",
+        "classes": 2,
+        "depth": 1,
+        "image": [
+          1,
+          8
+        ],
+        "input_channels": 1,
+        "input_seed": 1701,
+        "overlap": [
+          2,
+          3
+        ],
+        "tile": [
+          5,
+          7
+        ],
+        "weight_seed": 17,
+        "width": 2
+      },
+      {
+        "blend": "gaussian",
+        "classes": 2,
+        "depth": 1,
+        "image": [
+          1,
+          8
+        ],
+        "input_channels": 1,
+        "input_seed": 1701,
+        "overlap": [
+          2,
+          3
+        ],
+        "tile": [
+          5,
+          7
+        ],
+        "weight_seed": 17,
+        "width": 2
+      },
+      {
+        "blend": "constant",
+        "classes": 1,
+        "depth": 1,
+        "image": [
+          5,
+          7
+        ],
+        "input_channels": 3,
+        "input_seed": 1701,
+        "overlap": [
+          0,
+          0
+        ],
+        "tile": [
+          5,
+          7
+        ],
+        "weight_seed": 18,
+        "width": 3
+      },
+      {
+        "blend": "gaussian",
+        "classes": 1,
+        "depth": 1,
+        "image": [
+          5,
+          7
+        ],
+        "input_channels": 3,
+        "input_seed": 1701,
+        "overlap": [
+          0,
+          0
+        ],
+        "tile": [
+          5,
+          7
+        ],
+        "weight_seed": 18,
+        "width": 3
+      },
+      {
+        "blend": "constant",
+        "classes": 2,
+        "depth": 1,
+        "image": [
+          11,
+          13
+        ],
+        "input_channels": 3,
+        "input_seed": 1701,
+        "overlap": [
+          2,
+          3
+        ],
+        "tile": [
+          5,
+          7
+        ],
+        "weight_seed": 19,
+        "width": 4
+      },
+      {
+        "blend": "gaussian",
+        "classes": 2,
+        "depth": 1,
+        "image": [
+          11,
+          13
+        ],
+        "input_channels": 3,
+        "input_seed": 1701,
+        "overlap": [
+          2,
+          3
+        ],
+        "tile": [
+          5,
+          7
+        ],
+        "weight_seed": 19,
+        "width": 4
+      },
+      {
+        "blend": "constant",
+        "classes": 2,
+        "depth": 2,
+        "image": [
+          1,
+          10
+        ],
+        "input_channels": 1,
+        "input_seed": 1701,
+        "overlap": [
+          3,
+          4
+        ],
+        "tile": [
+          7,
+          9
+        ],
+        "weight_seed": 17,
+        "width": 2
+      },
+      {
+        "blend": "gaussian",
+        "classes": 2,
+        "depth": 2,
+        "image": [
+          1,
+          10
+        ],
+        "input_channels": 1,
+        "input_seed": 1701,
+        "overlap": [
+          3,
+          4
+        ],
+        "tile": [
+          7,
+          9
+        ],
+        "weight_seed": 17,
+        "width": 2
+      },
+      {
+        "blend": "constant",
+        "classes": 1,
+        "depth": 2,
+        "image": [
+          7,
+          9
+        ],
+        "input_channels": 3,
+        "input_seed": 1701,
+        "overlap": [
+          0,
+          0
+        ],
+        "tile": [
+          7,
+          9
+        ],
+        "weight_seed": 18,
+        "width": 3
+      },
+      {
+        "blend": "gaussian",
+        "classes": 1,
+        "depth": 2,
+        "image": [
+          7,
+          9
+        ],
+        "input_channels": 3,
+        "input_seed": 1701,
+        "overlap": [
+          0,
+          0
+        ],
+        "tile": [
+          7,
+          9
+        ],
+        "weight_seed": 18,
+        "width": 3
+      },
+      {
+        "blend": "constant",
+        "classes": 2,
+        "depth": 2,
+        "image": [
+          15,
+          17
+        ],
+        "input_channels": 3,
+        "input_seed": 1701,
+        "overlap": [
+          3,
+          4
+        ],
+        "tile": [
+          7,
+          9
+        ],
+        "weight_seed": 19,
+        "width": 4
+      },
+      {
+        "blend": "gaussian",
+        "classes": 2,
+        "depth": 2,
+        "image": [
+          15,
+          17
+        ],
+        "input_channels": 3,
+        "input_seed": 1701,
+        "overlap": [
+          3,
+          4
+        ],
+        "tile": [
+          7,
+          9
+        ],
+        "weight_seed": 19,
+        "width": 4
+      },
+      {
+        "blend": "constant",
+        "classes": 2,
+        "depth": 3,
+        "image": [
+          1,
+          14
+        ],
+        "input_channels": 1,
+        "input_seed": 1701,
+        "overlap": [
+          5,
+          6
+        ],
+        "tile": [
+          11,
+          13
+        ],
+        "weight_seed": 17,
+        "width": 2
+      },
+      {
+        "blend": "gaussian",
+        "classes": 2,
+        "depth": 3,
+        "image": [
+          1,
+          14
+        ],
+        "input_channels": 1,
+        "input_seed": 1701,
+        "overlap": [
+          5,
+          6
+        ],
+        "tile": [
+          11,
+          13
+        ],
+        "weight_seed": 17,
+        "width": 2
+      },
+      {
+        "blend": "constant",
+        "classes": 1,
+        "depth": 3,
+        "image": [
+          11,
+          13
+        ],
+        "input_channels": 3,
+        "input_seed": 1701,
+        "overlap": [
+          0,
+          0
+        ],
+        "tile": [
+          11,
+          13
+        ],
+        "weight_seed": 18,
+        "width": 3
+      },
+      {
+        "blend": "gaussian",
+        "classes": 1,
+        "depth": 3,
+        "image": [
+          11,
+          13
+        ],
+        "input_channels": 3,
+        "input_seed": 1701,
+        "overlap": [
+          0,
+          0
+        ],
+        "tile": [
+          11,
+          13
+        ],
+        "weight_seed": 18,
+        "width": 3
+      },
+      {
+        "blend": "constant",
+        "classes": 2,
+        "depth": 3,
+        "image": [
+          23,
+          25
+        ],
+        "input_channels": 3,
+        "input_seed": 1701,
+        "overlap": [
+          5,
+          6
+        ],
+        "tile": [
+          11,
+          13
+        ],
+        "weight_seed": 19,
+        "width": 4
+      },
+      {
+        "blend": "gaussian",
+        "classes": 2,
+        "depth": 3,
+        "image": [
+          23,
+          25
+        ],
+        "input_channels": 3,
+        "input_seed": 1701,
+        "overlap": [
+          5,
+          6
+        ],
+        "tile": [
+          11,
+          13
+        ],
+        "weight_seed": 19,
+        "width": 4
+      },
+      {
+        "blend": "constant",
+        "classes": 2,
+        "depth": 4,
+        "image": [
+          1,
+          22
+        ],
+        "input_channels": 1,
+        "input_seed": 1701,
+        "overlap": [
+          9,
+          10
+        ],
+        "tile": [
+          19,
+          21
+        ],
+        "weight_seed": 17,
+        "width": 2
+      },
+      {
+        "blend": "gaussian",
+        "classes": 2,
+        "depth": 4,
+        "image": [
+          1,
+          22
+        ],
+        "input_channels": 1,
+        "input_seed": 1701,
+        "overlap": [
+          9,
+          10
+        ],
+        "tile": [
+          19,
+          21
+        ],
+        "weight_seed": 17,
+        "width": 2
+      },
+      {
+        "blend": "constant",
+        "classes": 1,
+        "depth": 4,
+        "image": [
+          19,
+          21
+        ],
+        "input_channels": 3,
+        "input_seed": 1701,
+        "overlap": [
+          0,
+          0
+        ],
+        "tile": [
+          19,
+          21
+        ],
+        "weight_seed": 18,
+        "width": 3
+      },
+      {
+        "blend": "gaussian",
+        "classes": 1,
+        "depth": 4,
+        "image": [
+          19,
+          21
+        ],
+        "input_channels": 3,
+        "input_seed": 1701,
+        "overlap": [
+          0,
+          0
+        ],
+        "tile": [
+          19,
+          21
+        ],
+        "weight_seed": 18,
+        "width": 3
+      },
+      {
+        "blend": "constant",
+        "classes": 2,
+        "depth": 4,
+        "image": [
+          39,
+          41
+        ],
+        "input_channels": 3,
+        "input_seed": 1701,
+        "overlap": [
+          9,
+          10
+        ],
+        "tile": [
+          19,
+          21
+        ],
+        "weight_seed": 19,
+        "width": 4
+      },
+      {
+        "blend": "gaussian",
+        "classes": 2,
+        "depth": 4,
+        "image": [
+          39,
+          41
+        ],
+        "input_channels": 3,
+        "input_seed": 1701,
+        "overlap": [
+          9,
+          10
+        ],
+        "tile": [
+          19,
+          21
+        ],
+        "weight_seed": 19,
+        "width": 4
+      }
+    ],
+    "precision": "float32",
+    "schema_version": 1,
+    "threads": 1,
+    "tolerances": {
+      "atol": 1e-05,
+      "label_disagreement_fraction": 0.001,
+      "maximum_absolute_error": 0.0001,
+      "mean_absolute_error": 1e-05,
+      "rtol": 1e-05
+    },
+    "trained": {
+      "boundary_band": 2,
+      "evaluation_seed": 202,
+      "methods": [
+        {
+          "blend": "constant",
+          "overlap": [
+            0,
+            0
+          ]
+        },
+        {
+          "blend": "constant",
+          "overlap": [
+            8,
+            10
+          ]
+        },
+        {
+          "blend": "gaussian",
+          "overlap": [
+            8,
+            10
+          ]
+        }
+      ],
+      "samples": 16,
+      "tile": [
+        16,
+        20
+      ]
+    }
+  },
+  "protocol_sha256": "3cea802d8c9e430ca2daa410f93bff6012e04bcc0cfc672934b2c543b73c6ce0",
+  "samples": [
+    {
+      "checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633",
+      "compiler_imported": false,
+      "generated_source_sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0",
+      "import_seconds": 2.56995231,
+      "initialization_seconds": 3.106065988,
+      "input_file_sha256": "7cdfb4987d664aec842df285ea7b043c1baf7913b351c038d495058434be7bef",
+      "method": "torch",
+      "model_input_setup_seconds": 0.536113678,
+      "onnx_sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6",
+      "order_in_pair": 0,
+      "output_sha256": "9d9569d07b1cc259aea0a89a8eee5eb1ca15fecd5657f9e818bde4279ad79f51",
+      "output_shape": [
+        1,
+        2,
+        17,
+        23
+      ],
+      "pair": 0,
+      "peak_rss_bytes": 257191936,
+      "process_wall_seconds": 4.319277474,
+      "seconds": [
+        0.003196665,
+        0.003189762,
+        0.003191592,
+        0.003194029,
+        0.001866173,
+        0.002035711,
+        0.002438436
+      ],
+      "setup_peak_rss_bytes": 247492608,
+      "startup_peak_rss_bytes": 23461888,
+      "stderr": "[W927 01:09:29.925094373 NNPACK.cpp:62] Could not initialize NNPACK! Reason: Unsupported hardware.",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      },
+      "threads": {
+        "inter_op": 1,
+        "intra_op": 1
+      },
+      "torch_imported": true,
+      "warmup_seconds": [
+        0.005940385,
+        0.00285712,
+        0.002815243
+      ],
+      "workload": "small"
+    },
+    {
+      "checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633",
+      "compiler_imported": false,
+      "generated_source_sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0",
+      "import_seconds": 0.140950406,
+      "initialization_seconds": 0.16083358,
+      "input_file_sha256": "7cdfb4987d664aec842df285ea7b043c1baf7913b351c038d495058434be7bef",
+      "method": "onnx",
+      "model_input_setup_seconds": 0.019883174,
+      "onnx_sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6",
+      "order_in_pair": 1,
+      "output_sha256": "ddfd733a58ccfee1f1a488251ca34c69b4603eeba3d383abe90853c216474df2",
+      "output_shape": [
+        1,
+        2,
+        17,
+        23
+      ],
+      "pair": 0,
+      "peak_rss_bytes": 56098816,
+      "process_wall_seconds": 0.597934025,
+      "seconds": [
+        0.000927424,
+        0.000944951,
+        0.00093147,
+        0.000899558,
+        0.000843204,
+        0.000913784,
+        0.000888521
+      ],
+      "setup_peak_rss_bytes": 55181312,
+      "startup_peak_rss_bytes": 23461888,
+      "stderr": "",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      },
+      "threads": {
+        "execution_mode": "ExecutionMode.ORT_SEQUENTIAL",
+        "graph_optimization": "GraphOptimizationLevel.ORT_ENABLE_ALL",
+        "inter_op": 1,
+        "intra_op": 1,
+        "providers": [
+          "CPUExecutionProvider"
+        ]
+      },
+      "torch_imported": false,
+      "warmup_seconds": [
+        0.002134387,
+        0.001094173,
+        0.000930082
+      ],
+      "workload": "small"
+    },
+    {
+      "checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633",
+      "compiler_imported": false,
+      "generated_source_sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0",
+      "import_seconds": 0.150108053,
+      "initialization_seconds": 0.163533345,
+      "input_file_sha256": "7cdfb4987d664aec842df285ea7b043c1baf7913b351c038d495058434be7bef",
+      "method": "onnx",
+      "model_input_setup_seconds": 0.013425292,
+      "onnx_sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6",
+      "order_in_pair": 0,
+      "output_sha256": "ddfd733a58ccfee1f1a488251ca34c69b4603eeba3d383abe90853c216474df2",
+      "output_shape": [
+        1,
+        2,
+        17,
+        23
+      ],
+      "pair": 1,
+      "peak_rss_bytes": 55705600,
+      "process_wall_seconds": 0.606204738,
+      "seconds": [
+        0.001004313,
+        0.001008097,
+        0.000905966,
+        0.000896392,
+        0.001301108,
+        0.00097948,
+        0.000904044
+      ],
+      "setup_peak_rss_bytes": 54788096,
+      "startup_peak_rss_bytes": 23461888,
+      "stderr": "",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      },
+      "threads": {
+        "execution_mode": "ExecutionMode.ORT_SEQUENTIAL",
+        "graph_optimization": "GraphOptimizationLevel.ORT_ENABLE_ALL",
+        "inter_op": 1,
+        "intra_op": 1,
+        "providers": [
+          "CPUExecutionProvider"
+        ]
+      },
+      "torch_imported": false,
+      "warmup_seconds": [
+        0.002124023,
+        0.001116994,
+        0.000997712
+      ],
+      "workload": "small"
+    },
+    {
+      "checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633",
+      "compiler_imported": false,
+      "generated_source_sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0",
+      "import_seconds": 2.676135187,
+      "initialization_seconds": 3.260866336,
+      "input_file_sha256": "7cdfb4987d664aec842df285ea7b043c1baf7913b351c038d495058434be7bef",
+      "method": "torch",
+      "model_input_setup_seconds": 0.584731149,
+      "onnx_sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6",
+      "order_in_pair": 1,
+      "output_sha256": "9d9569d07b1cc259aea0a89a8eee5eb1ca15fecd5657f9e818bde4279ad79f51",
+      "output_shape": [
+        1,
+        2,
+        17,
+        23
+      ],
+      "pair": 1,
+      "peak_rss_bytes": 256528384,
+      "process_wall_seconds": 4.484215733,
+      "seconds": [
+        0.003214723,
+        0.003191298,
+        0.00285183,
+        0.003226694,
+        0.003248255,
+        0.003229758,
+        0.003376207
+      ],
+      "setup_peak_rss_bytes": 246566912,
+      "startup_peak_rss_bytes": 23330816,
+      "stderr": "[W927 01:09:35.618384937 NNPACK.cpp:62] Could not initialize NNPACK! Reason: Unsupported hardware.",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      },
+      "threads": {
+        "inter_op": 1,
+        "intra_op": 1
+      },
+      "torch_imported": true,
+      "warmup_seconds": [
+        0.007128865,
+        0.003967488,
+        0.003366476
+      ],
+      "workload": "small"
+    },
+    {
+      "checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633",
+      "compiler_imported": false,
+      "generated_source_sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0",
+      "import_seconds": 2.674059159,
+      "initialization_seconds": 3.268232633,
+      "input_file_sha256": "7cdfb4987d664aec842df285ea7b043c1baf7913b351c038d495058434be7bef",
+      "method": "torch",
+      "model_input_setup_seconds": 0.594173474,
+      "onnx_sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6",
+      "order_in_pair": 0,
+      "output_sha256": "9d9569d07b1cc259aea0a89a8eee5eb1ca15fecd5657f9e818bde4279ad79f51",
+      "output_shape": [
+        1,
+        2,
+        17,
+        23
+      ],
+      "pair": 2,
+      "peak_rss_bytes": 256536576,
+      "process_wall_seconds": 4.504295184,
+      "seconds": [
+        0.003367934,
+        0.002786762,
+        0.003392064,
+        0.003421268,
+        0.003336627,
+        0.003379808,
+        0.003332773
+      ],
+      "setup_peak_rss_bytes": 246575104,
+      "startup_peak_rss_bytes": 23330816,
+      "stderr": "[W927 01:09:40.086679698 NNPACK.cpp:62] Could not initialize NNPACK! Reason: Unsupported hardware.",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      },
+      "threads": {
+        "inter_op": 1,
+        "intra_op": 1
+      },
+      "torch_imported": true,
+      "warmup_seconds": [
+        0.006607817,
+        0.0033911,
+        0.003199764
+      ],
+      "workload": "small"
+    },
+    {
+      "checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633",
+      "compiler_imported": false,
+      "generated_source_sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0",
+      "import_seconds": 0.139942443,
+      "initialization_seconds": 0.152946343,
+      "input_file_sha256": "7cdfb4987d664aec842df285ea7b043c1baf7913b351c038d495058434be7bef",
+      "method": "onnx",
+      "model_input_setup_seconds": 0.0130039,
+      "onnx_sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6",
+      "order_in_pair": 1,
+      "output_sha256": "ddfd733a58ccfee1f1a488251ca34c69b4603eeba3d383abe90853c216474df2",
+      "output_shape": [
+        1,
+        2,
+        17,
+        23
+      ],
+      "pair": 2,
+      "peak_rss_bytes": 55705600,
+      "process_wall_seconds": 0.544197611,
+      "seconds": [
+        0.000779617,
+        0.000869174,
+        0.000939009,
+        0.000775269,
+        0.001090105,
+        0.000812113,
+        0.000618466
+      ],
+      "setup_peak_rss_bytes": 54788096,
+      "startup_peak_rss_bytes": 23330816,
+      "stderr": "",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      },
+      "threads": {
+        "execution_mode": "ExecutionMode.ORT_SEQUENTIAL",
+        "graph_optimization": "GraphOptimizationLevel.ORT_ENABLE_ALL",
+        "inter_op": 1,
+        "intra_op": 1,
+        "providers": [
+          "CPUExecutionProvider"
+        ]
+      },
+      "torch_imported": false,
+      "warmup_seconds": [
+        0.001649253,
+        0.00088404,
+        0.000788824
+      ],
+      "workload": "small"
+    },
+    {
+      "checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633",
+      "compiler_imported": false,
+      "generated_source_sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0",
+      "import_seconds": 0.135326479,
+      "initialization_seconds": 0.148507719,
+      "input_file_sha256": "7cdfb4987d664aec842df285ea7b043c1baf7913b351c038d495058434be7bef",
+      "method": "onnx",
+      "model_input_setup_seconds": 0.01318124,
+      "onnx_sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6",
+      "order_in_pair": 0,
+      "output_sha256": "ddfd733a58ccfee1f1a488251ca34c69b4603eeba3d383abe90853c216474df2",
+      "output_shape": [
+        1,
+        2,
+        17,
+        23
+      ],
+      "pair": 3,
+      "peak_rss_bytes": 55705600,
+      "process_wall_seconds": 0.577438,
+      "seconds": [
+        0.000753027,
+        0.000578903,
+        0.00069167,
+        0.000775423,
+        0.001084245,
+        0.000877094,
+        0.000785676
+      ],
+      "setup_peak_rss_bytes": 54919168,
+      "startup_peak_rss_bytes": 23461888,
+      "stderr": "",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      },
+      "threads": {
+        "execution_mode": "ExecutionMode.ORT_SEQUENTIAL",
+        "graph_optimization": "GraphOptimizationLevel.ORT_ENABLE_ALL",
+        "inter_op": 1,
+        "intra_op": 1,
+        "providers": [
+          "CPUExecutionProvider"
+        ]
+      },
+      "torch_imported": false,
+      "warmup_seconds": [
+        0.001625355,
+        0.000855899,
+        0.000731195
+      ],
+      "workload": "small"
+    },
+    {
+      "checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633",
+      "compiler_imported": false,
+      "generated_source_sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0",
+      "import_seconds": 2.715987366,
+      "initialization_seconds": 3.284033942,
+      "input_file_sha256": "7cdfb4987d664aec842df285ea7b043c1baf7913b351c038d495058434be7bef",
+      "method": "torch",
+      "model_input_setup_seconds": 0.568046576,
+      "onnx_sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6",
+      "order_in_pair": 1,
+      "output_sha256": "9d9569d07b1cc259aea0a89a8eee5eb1ca15fecd5657f9e818bde4279ad79f51",
+      "output_shape": [
+        1,
+        2,
+        17,
+        23
+      ],
+      "pair": 3,
+      "peak_rss_bytes": 256794624,
+      "process_wall_seconds": 4.463202621,
+      "seconds": [
+        0.003327078,
+        0.003260415,
+        0.002625723,
+        0.001843482,
+        0.001895761,
+        0.001828429,
+        0.003214687
+      ],
+      "setup_peak_rss_bytes": 246702080,
+      "startup_peak_rss_bytes": 23461888,
+      "stderr": "[W927 01:09:45.735895542 NNPACK.cpp:62] Could not initialize NNPACK! Reason: Unsupported hardware.",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      },
+      "threads": {
+        "inter_op": 1,
+        "intra_op": 1
+      },
+      "torch_imported": true,
+      "warmup_seconds": [
+        0.006462221,
+        0.003066384,
+        0.002882054
+      ],
+      "workload": "small"
+    },
+    {
+      "checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633",
+      "compiler_imported": false,
+      "generated_source_sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0",
+      "import_seconds": 2.683278575,
+      "initialization_seconds": 3.248788115,
+      "input_file_sha256": "7cdfb4987d664aec842df285ea7b043c1baf7913b351c038d495058434be7bef",
+      "method": "torch",
+      "model_input_setup_seconds": 0.56550954,
+      "onnx_sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6",
+      "order_in_pair": 0,
+      "output_sha256": "9d9569d07b1cc259aea0a89a8eee5eb1ca15fecd5657f9e818bde4279ad79f51",
+      "output_shape": [
+        1,
+        2,
+        17,
+        23
+      ],
+      "pair": 4,
+      "peak_rss_bytes": 256790528,
+      "process_wall_seconds": 4.501853332,
+      "seconds": [
+        0.003678028,
+        0.003408191,
+        0.003142801,
+        0.003454679,
+        0.003308592,
+        0.003483067,
+        0.003520154
+      ],
+      "setup_peak_rss_bytes": 246829056,
+      "startup_peak_rss_bytes": 23461888,
+      "stderr": "[W927 01:09:50.168721128 NNPACK.cpp:62] Could not initialize NNPACK! Reason: Unsupported hardware.",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      },
+      "threads": {
+        "inter_op": 1,
+        "intra_op": 1
+      },
+      "torch_imported": true,
+      "warmup_seconds": [
+        0.006681944,
+        0.005290073,
+        0.003986798
+      ],
+      "workload": "small"
+    },
+    {
+      "checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633",
+      "compiler_imported": false,
+      "generated_source_sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0",
+      "import_seconds": 0.143499901,
+      "initialization_seconds": 0.157118917,
+      "input_file_sha256": "7cdfb4987d664aec842df285ea7b043c1baf7913b351c038d495058434be7bef",
+      "method": "onnx",
+      "model_input_setup_seconds": 0.013619016,
+      "onnx_sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6",
+      "order_in_pair": 1,
+      "output_sha256": "ddfd733a58ccfee1f1a488251ca34c69b4603eeba3d383abe90853c216474df2",
+      "output_shape": [
+        1,
+        2,
+        17,
+        23
+      ],
+      "pair": 4,
+      "peak_rss_bytes": 55836672,
+      "process_wall_seconds": 0.601701822,
+      "seconds": [
+        0.000915289,
+        0.000816643,
+        0.000809408,
+        0.00083553,
+        0.001045929,
+        0.000784856,
+        0.000806935
+      ],
+      "setup_peak_rss_bytes": 54919168,
+      "startup_peak_rss_bytes": 23461888,
+      "stderr": "",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      },
+      "threads": {
+        "execution_mode": "ExecutionMode.ORT_SEQUENTIAL",
+        "graph_optimization": "GraphOptimizationLevel.ORT_ENABLE_ALL",
+        "inter_op": 1,
+        "intra_op": 1,
+        "providers": [
+          "CPUExecutionProvider"
+        ]
+      },
+      "torch_imported": false,
+      "warmup_seconds": [
+        0.002083182,
+        0.00101424,
+        0.000877881
+      ],
+      "workload": "small"
+    },
+    {
+      "checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633",
+      "compiler_imported": false,
+      "generated_source_sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0",
+      "import_seconds": 0.150776641,
+      "initialization_seconds": 0.165449502,
+      "input_file_sha256": "7cdfb4987d664aec842df285ea7b043c1baf7913b351c038d495058434be7bef",
+      "method": "onnx",
+      "model_input_setup_seconds": 0.014672861,
+      "onnx_sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6",
+      "order_in_pair": 0,
+      "output_sha256": "ddfd733a58ccfee1f1a488251ca34c69b4603eeba3d383abe90853c216474df2",
+      "output_shape": [
+        1,
+        2,
+        17,
+        23
+      ],
+      "pair": 5,
+      "peak_rss_bytes": 55705600,
+      "process_wall_seconds": 0.595575796,
+      "seconds": [
+        0.000702968,
+        0.000543644,
+        0.000750268,
+        0.000755267,
+        0.001176587,
+        0.000924788,
+        0.00091741
+      ],
+      "setup_peak_rss_bytes": 54788096,
+      "startup_peak_rss_bytes": 23461888,
+      "stderr": "",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      },
+      "threads": {
+        "execution_mode": "ExecutionMode.ORT_SEQUENTIAL",
+        "graph_optimization": "GraphOptimizationLevel.ORT_ENABLE_ALL",
+        "inter_op": 1,
+        "intra_op": 1,
+        "providers": [
+          "CPUExecutionProvider"
+        ]
+      },
+      "torch_imported": false,
+      "warmup_seconds": [
+        0.001863227,
+        0.000985444,
+        0.000830788
+      ],
+      "workload": "small"
+    },
+    {
+      "checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633",
+      "compiler_imported": false,
+      "generated_source_sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0",
+      "import_seconds": 2.689810724,
+      "initialization_seconds": 3.288818715,
+      "input_file_sha256": "7cdfb4987d664aec842df285ea7b043c1baf7913b351c038d495058434be7bef",
+      "method": "torch",
+      "model_input_setup_seconds": 0.599007991,
+      "onnx_sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6",
+      "order_in_pair": 1,
+      "output_sha256": "9d9569d07b1cc259aea0a89a8eee5eb1ca15fecd5657f9e818bde4279ad79f51",
+      "output_shape": [
+        1,
+        2,
+        17,
+        23
+      ],
+      "pair": 5,
+      "peak_rss_bytes": 256667648,
+      "process_wall_seconds": 4.450345039,
+      "seconds": [
+        0.002655758,
+        0.00325328,
+        0.00279059,
+        0.002779812,
+        0.003492783,
+        0.002129775,
+        0.002139751
+      ],
+      "setup_peak_rss_bytes": 246706176,
+      "startup_peak_rss_bytes": 23461888,
+      "stderr": "[W927 01:09:55.913715852 NNPACK.cpp:62] Could not initialize NNPACK! Reason: Unsupported hardware.",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      },
+      "threads": {
+        "inter_op": 1,
+        "intra_op": 1
+      },
+      "torch_imported": true,
+      "warmup_seconds": [
+        0.006761231,
+        0.003788356,
+        0.002572144
+      ],
+      "workload": "small"
+    },
+    {
+      "checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633",
+      "compiler_imported": false,
+      "generated_source_sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0",
+      "import_seconds": 2.228533943,
+      "initialization_seconds": 2.744989029,
+      "input_file_sha256": "ed0fb9460cc63771ce347dcc6215c06b3a7ed67e80e94079d39bc2ff91fcdc1d",
+      "method": "torch",
+      "model_input_setup_seconds": 0.516455086,
+      "onnx_sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6",
+      "order_in_pair": 0,
+      "output_sha256": "3a4776afc9262c33b38c1723d3848807dfdccc5191944accb5d613ab75a1e3d4",
+      "output_shape": [
+        1,
+        2,
+        65,
+        81
+      ],
+      "pair": 0,
+      "peak_rss_bytes": 257216512,
+      "process_wall_seconds": 4.164438241,
+      "seconds": [
+        0.013090035,
+        0.015954151,
+        0.018729074,
+        0.018850493,
+        0.02251556,
+        0.026087712,
+        0.027379964
+      ],
+      "setup_peak_rss_bytes": 247517184,
+      "startup_peak_rss_bytes": 23461888,
+      "stderr": "[W927 01:09:59.939260346 NNPACK.cpp:62] Could not initialize NNPACK! Reason: Unsupported hardware.",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      },
+      "threads": {
+        "inter_op": 1,
+        "intra_op": 1
+      },
+      "torch_imported": true,
+      "warmup_seconds": [
+        0.019191321,
+        0.016893564,
+        0.016088372
+      ],
+      "workload": "medium"
+    },
+    {
+      "checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633",
+      "compiler_imported": false,
+      "generated_source_sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0",
+      "import_seconds": 0.149979214,
+      "initialization_seconds": 0.172522743,
+      "input_file_sha256": "ed0fb9460cc63771ce347dcc6215c06b3a7ed67e80e94079d39bc2ff91fcdc1d",
+      "method": "onnx",
+      "model_input_setup_seconds": 0.022543529,
+      "onnx_sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6",
+      "order_in_pair": 1,
+      "output_sha256": "e5c8cb554d3ce29733e5a11595e53c2ef66c30d3249d5a51d46dec19a0d0f031",
+      "output_shape": [
+        1,
+        2,
+        65,
+        81
+      ],
+      "pair": 0,
+      "peak_rss_bytes": 56098816,
+      "process_wall_seconds": 0.688106959,
+      "seconds": [
+        0.006819353,
+        0.006661399,
+        0.006593168,
+        0.006308177,
+        0.00683844,
+        0.006818384,
+        0.006585844
+      ],
+      "setup_peak_rss_bytes": 55181312,
+      "startup_peak_rss_bytes": 23330816,
+      "stderr": "",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      },
+      "threads": {
+        "execution_mode": "ExecutionMode.ORT_SEQUENTIAL",
+        "graph_optimization": "GraphOptimizationLevel.ORT_ENABLE_ALL",
+        "inter_op": 1,
+        "intra_op": 1,
+        "providers": [
+          "CPUExecutionProvider"
+        ]
+      },
+      "torch_imported": false,
+      "warmup_seconds": [
+        0.00973229,
+        0.006894081,
+        0.006582497
+      ],
+      "workload": "medium"
+    },
+    {
+      "checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633",
+      "compiler_imported": false,
+      "generated_source_sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0",
+      "import_seconds": 0.479094015,
+      "initialization_seconds": 0.496162267,
+      "input_file_sha256": "ed0fb9460cc63771ce347dcc6215c06b3a7ed67e80e94079d39bc2ff91fcdc1d",
+      "method": "onnx",
+      "model_input_setup_seconds": 0.017068252,
+      "onnx_sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6",
+      "order_in_pair": 0,
+      "output_sha256": "e5c8cb554d3ce29733e5a11595e53c2ef66c30d3249d5a51d46dec19a0d0f031",
+      "output_shape": [
+        1,
+        2,
+        65,
+        81
+      ],
+      "pair": 1,
+      "peak_rss_bytes": 55967744,
+      "process_wall_seconds": 1.706730947,
+      "seconds": [
+        0.01137615,
+        0.007819826,
+        0.006939986,
+        0.070157079,
+        0.0075868,
+        0.006811329,
+        0.006389176
+      ],
+      "setup_peak_rss_bytes": 55050240,
+      "startup_peak_rss_bytes": 23330816,
+      "stderr": "",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      },
+      "threads": {
+        "execution_mode": "ExecutionMode.ORT_SEQUENTIAL",
+        "graph_optimization": "GraphOptimizationLevel.ORT_ENABLE_ALL",
+        "inter_op": 1,
+        "intra_op": 1,
+        "providers": [
+          "CPUExecutionProvider"
+        ]
+      },
+      "torch_imported": false,
+      "warmup_seconds": [
+        0.06609687,
+        0.007519108,
+        0.008629539
+      ],
+      "workload": "medium"
+    },
+    {
+      "checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633",
+      "compiler_imported": false,
+      "generated_source_sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0",
+      "import_seconds": 6.188205406,
+      "initialization_seconds": 7.479104715,
+      "input_file_sha256": "ed0fb9460cc63771ce347dcc6215c06b3a7ed67e80e94079d39bc2ff91fcdc1d",
+      "method": "torch",
+      "model_input_setup_seconds": 1.290899309,
+      "onnx_sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6",
+      "order_in_pair": 1,
+      "output_sha256": "3a4776afc9262c33b38c1723d3848807dfdccc5191944accb5d613ab75a1e3d4",
+      "output_shape": [
+        1,
+        2,
+        65,
+        81
+      ],
+      "pair": 1,
+      "peak_rss_bytes": 256712704,
+      "process_wall_seconds": 10.505761275,
+      "seconds": [
+        0.073690441,
+        0.023758155,
+        0.018175632,
+        0.07302528,
+        0.022200361,
+        0.075572357,
+        0.024410765
+      ],
+      "setup_peak_rss_bytes": 246620160,
+      "startup_peak_rss_bytes": 23461888,
+      "stderr": "[W927 01:10:11.786420077 NNPACK.cpp:62] Could not initialize NNPACK! Reason: Unsupported hardware.",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      },
+      "threads": {
+        "inter_op": 1,
+        "intra_op": 1
+      },
+      "torch_imported": true,
+      "warmup_seconds": [
+        0.025423183,
+        0.074651693,
+        0.019584824
+      ],
+      "workload": "medium"
+    },
+    {
+      "checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633",
+      "compiler_imported": false,
+      "generated_source_sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0",
+      "import_seconds": 5.92906828,
+      "initialization_seconds": 7.200263498,
+      "input_file_sha256": "ed0fb9460cc63771ce347dcc6215c06b3a7ed67e80e94079d39bc2ff91fcdc1d",
+      "method": "torch",
+      "model_input_setup_seconds": 1.271195218,
+      "onnx_sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6",
+      "order_in_pair": 0,
+      "output_sha256": "3a4776afc9262c33b38c1723d3848807dfdccc5191944accb5d613ab75a1e3d4",
+      "output_shape": [
+        1,
+        2,
+        65,
+        81
+      ],
+      "pair": 2,
+      "peak_rss_bytes": 256929792,
+      "process_wall_seconds": 10.188363379,
+      "seconds": [
+        0.075144789,
+        0.023526685,
+        0.077066197,
+        0.024176611,
+        0.077384995,
+        0.025784157,
+        0.073943324
+      ],
+      "setup_peak_rss_bytes": 246837248,
+      "startup_peak_rss_bytes": 23330816,
+      "stderr": "[W927 01:10:21.888313755 NNPACK.cpp:62] Could not initialize NNPACK! Reason: Unsupported hardware.",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      },
+      "threads": {
+        "inter_op": 1,
+        "intra_op": 1
+      },
+      "torch_imported": true,
+      "warmup_seconds": [
+        0.025469553,
+        0.073937135,
+        0.022726247
+      ],
+      "workload": "medium"
+    },
+    {
+      "checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633",
+      "compiler_imported": false,
+      "generated_source_sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0",
+      "import_seconds": 0.301226344,
+      "initialization_seconds": 0.313474024,
+      "input_file_sha256": "ed0fb9460cc63771ce347dcc6215c06b3a7ed67e80e94079d39bc2ff91fcdc1d",
+      "method": "onnx",
+      "model_input_setup_seconds": 0.01224768,
+      "onnx_sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6",
+      "order_in_pair": 1,
+      "output_sha256": "e5c8cb554d3ce29733e5a11595e53c2ef66c30d3249d5a51d46dec19a0d0f031",
+      "output_shape": [
+        1,
+        2,
+        65,
+        81
+      ],
+      "pair": 2,
+      "peak_rss_bytes": 55836672,
+      "process_wall_seconds": 1.391347678,
+      "seconds": [
+        0.005609181,
+        0.005497046,
+        0.005771987,
+        0.005656999,
+        0.005507363,
+        0.005357259,
+        0.005522761
+      ],
+      "setup_peak_rss_bytes": 54788096,
+      "startup_peak_rss_bytes": 23461888,
+      "stderr": "",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      },
+      "threads": {
+        "execution_mode": "ExecutionMode.ORT_SEQUENTIAL",
+        "graph_optimization": "GraphOptimizationLevel.ORT_ENABLE_ALL",
+        "inter_op": 1,
+        "intra_op": 1,
+        "providers": [
+          "CPUExecutionProvider"
+        ]
+      },
+      "torch_imported": false,
+      "warmup_seconds": [
+        0.007131944,
+        0.006060662,
+        0.055600936
+      ],
+      "workload": "medium"
+    },
+    {
+      "checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633",
+      "compiler_imported": false,
+      "generated_source_sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0",
+      "import_seconds": 0.301877061,
+      "initialization_seconds": 0.316397235,
+      "input_file_sha256": "ed0fb9460cc63771ce347dcc6215c06b3a7ed67e80e94079d39bc2ff91fcdc1d",
+      "method": "onnx",
+      "model_input_setup_seconds": 0.014520174,
+      "onnx_sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6",
+      "order_in_pair": 0,
+      "output_sha256": "e5c8cb554d3ce29733e5a11595e53c2ef66c30d3249d5a51d46dec19a0d0f031",
+      "output_shape": [
+        1,
+        2,
+        65,
+        81
+      ],
+      "pair": 3,
+      "peak_rss_bytes": 55836672,
+      "process_wall_seconds": 1.388328056,
+      "seconds": [
+        0.058803474,
+        0.006863486,
+        0.006528888,
+        0.006648412,
+        0.006679665,
+        0.006427882,
+        0.006424556
+      ],
+      "setup_peak_rss_bytes": 54788096,
+      "startup_peak_rss_bytes": 23330816,
+      "stderr": "",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      },
+      "threads": {
+        "execution_mode": "ExecutionMode.ORT_SEQUENTIAL",
+        "graph_optimization": "GraphOptimizationLevel.ORT_ENABLE_ALL",
+        "inter_op": 1,
+        "intra_op": 1,
+        "providers": [
+          "CPUExecutionProvider"
+        ]
+      },
+      "torch_imported": false,
+      "warmup_seconds": [
+        0.008254961,
+        0.006815923,
+        0.006511475
+      ],
+      "workload": "medium"
+    },
+    {
+      "checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633",
+      "compiler_imported": false,
+      "generated_source_sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0",
+      "import_seconds": 6.09018712,
+      "initialization_seconds": 7.373728883,
+      "input_file_sha256": "ed0fb9460cc63771ce347dcc6215c06b3a7ed67e80e94079d39bc2ff91fcdc1d",
+      "method": "torch",
+      "model_input_setup_seconds": 1.283541763,
+      "onnx_sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6",
+      "order_in_pair": 1,
+      "output_sha256": "3a4776afc9262c33b38c1723d3848807dfdccc5191944accb5d613ab75a1e3d4",
+      "output_shape": [
+        1,
+        2,
+        65,
+        81
+      ],
+      "pair": 3,
+      "peak_rss_bytes": 256806912,
+      "process_wall_seconds": 10.395276881,
+      "seconds": [
+        0.085554476,
+        0.075852985,
+        0.02585938,
+        0.077080459,
+        0.024227709,
+        0.079320826,
+        0.025141096
+      ],
+      "setup_peak_rss_bytes": 246714368,
+      "startup_peak_rss_bytes": 23461888,
+      "stderr": "[W927 01:10:34.991970680 NNPACK.cpp:62] Could not initialize NNPACK! Reason: Unsupported hardware.",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      },
+      "threads": {
+        "inter_op": 1,
+        "intra_op": 1
+      },
+      "torch_imported": true,
+      "warmup_seconds": [
+        0.028776316,
+        0.075272779,
+        0.026483774
+      ],
+      "workload": "medium"
+    },
+    {
+      "checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633",
+      "compiler_imported": false,
+      "generated_source_sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0",
+      "import_seconds": 3.865374736,
+      "initialization_seconds": 4.440175465,
+      "input_file_sha256": "ed0fb9460cc63771ce347dcc6215c06b3a7ed67e80e94079d39bc2ff91fcdc1d",
+      "method": "torch",
+      "model_input_setup_seconds": 0.574800729,
+      "onnx_sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6",
+      "order_in_pair": 0,
+      "output_sha256": "3a4776afc9262c33b38c1723d3848807dfdccc5191944accb5d613ab75a1e3d4",
+      "output_shape": [
+        1,
+        2,
+        65,
+        81
+      ],
+      "pair": 4,
+      "peak_rss_bytes": 256925696,
+      "process_wall_seconds": 6.186637739,
+      "seconds": [
+        0.021349231,
+        0.02350013,
+        0.020152713,
+        0.021546829,
+        0.01989937,
+        0.022348141,
+        0.022333259
+      ],
+      "setup_peak_rss_bytes": 246833152,
+      "startup_peak_rss_bytes": 23330816,
+      "stderr": "[W927 01:10:42.463844609 NNPACK.cpp:62] Could not initialize NNPACK! Reason: Unsupported hardware.",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      },
+      "threads": {
+        "inter_op": 1,
+        "intra_op": 1
+      },
+      "torch_imported": true,
+      "warmup_seconds": [
+        0.02828336,
+        0.020604883,
+        0.021510822
+      ],
+      "workload": "medium"
+    },
+    {
+      "checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633",
+      "compiler_imported": false,
+      "generated_source_sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0",
+      "import_seconds": 0.137376165,
+      "initialization_seconds": 0.151527966,
+      "input_file_sha256": "ed0fb9460cc63771ce347dcc6215c06b3a7ed67e80e94079d39bc2ff91fcdc1d",
+      "method": "onnx",
+      "model_input_setup_seconds": 0.014151801,
+      "onnx_sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6",
+      "order_in_pair": 1,
+      "output_sha256": "e5c8cb554d3ce29733e5a11595e53c2ef66c30d3249d5a51d46dec19a0d0f031",
+      "output_shape": [
+        1,
+        2,
+        65,
+        81
+      ],
+      "pair": 4,
+      "peak_rss_bytes": 55836672,
+      "process_wall_seconds": 0.637716778,
+      "seconds": [
+        0.006330081,
+        0.006612852,
+        0.006210883,
+        0.007686346,
+        0.0067731,
+        0.006257434,
+        0.005594029
+      ],
+      "setup_peak_rss_bytes": 54788096,
+      "startup_peak_rss_bytes": 23461888,
+      "stderr": "",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      },
+      "threads": {
+        "execution_mode": "ExecutionMode.ORT_SEQUENTIAL",
+        "graph_optimization": "GraphOptimizationLevel.ORT_ENABLE_ALL",
+        "inter_op": 1,
+        "intra_op": 1,
+        "providers": [
+          "CPUExecutionProvider"
+        ]
+      },
+      "torch_imported": false,
+      "warmup_seconds": [
+        0.008154886,
+        0.00665828,
+        0.006398191
+      ],
+      "workload": "medium"
+    },
+    {
+      "checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633",
+      "compiler_imported": false,
+      "generated_source_sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0",
+      "import_seconds": 0.148045236,
+      "initialization_seconds": 0.163421358,
+      "input_file_sha256": "ed0fb9460cc63771ce347dcc6215c06b3a7ed67e80e94079d39bc2ff91fcdc1d",
+      "method": "onnx",
+      "model_input_setup_seconds": 0.015376122,
+      "onnx_sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6",
+      "order_in_pair": 0,
+      "output_sha256": "e5c8cb554d3ce29733e5a11595e53c2ef66c30d3249d5a51d46dec19a0d0f031",
+      "output_shape": [
+        1,
+        2,
+        65,
+        81
+      ],
+      "pair": 5,
+      "peak_rss_bytes": 55967744,
+      "process_wall_seconds": 0.661700886,
+      "seconds": [
+        0.006330094,
+        0.00610504,
+        0.005894787,
+        0.005638328,
+        0.004879633,
+        0.005880273,
+        0.005316296
+      ],
+      "setup_peak_rss_bytes": 55050240,
+      "startup_peak_rss_bytes": 23330816,
+      "stderr": "",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      },
+      "threads": {
+        "execution_mode": "ExecutionMode.ORT_SEQUENTIAL",
+        "graph_optimization": "GraphOptimizationLevel.ORT_ENABLE_ALL",
+        "inter_op": 1,
+        "intra_op": 1,
+        "providers": [
+          "CPUExecutionProvider"
+        ]
+      },
+      "torch_imported": false,
+      "warmup_seconds": [
+        0.007687303,
+        0.006567411,
+        0.006228254
+      ],
+      "workload": "medium"
+    },
+    {
+      "checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633",
+      "compiler_imported": false,
+      "generated_source_sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0",
+      "import_seconds": 2.718941759,
+      "initialization_seconds": 3.284863642,
+      "input_file_sha256": "ed0fb9460cc63771ce347dcc6215c06b3a7ed67e80e94079d39bc2ff91fcdc1d",
+      "method": "torch",
+      "model_input_setup_seconds": 0.565921883,
+      "onnx_sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6",
+      "order_in_pair": 1,
+      "output_sha256": "3a4776afc9262c33b38c1723d3848807dfdccc5191944accb5d613ab75a1e3d4",
+      "output_shape": [
+        1,
+        2,
+        65,
+        81
+      ],
+      "pair": 5,
+      "peak_rss_bytes": 256675840,
+      "process_wall_seconds": 4.733515209,
+      "seconds": [
+        0.023643482,
+        0.02560695,
+        0.022966564,
+        0.024765101,
+        0.023602386,
+        0.024015262,
+        0.025360089
+      ],
+      "setup_peak_rss_bytes": 246583296,
+      "startup_peak_rss_bytes": 23330816,
+      "stderr": "[W927 01:10:48.469730239 NNPACK.cpp:62] Could not initialize NNPACK! Reason: Unsupported hardware.",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      },
+      "threads": {
+        "inter_op": 1,
+        "intra_op": 1
+      },
+      "torch_imported": true,
+      "warmup_seconds": [
+        0.028681535,
+        0.023198294,
+        0.021971815
+      ],
+      "workload": "medium"
+    },
+    {
+      "checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633",
+      "compiler_imported": false,
+      "generated_source_sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0",
+      "import_seconds": 2.720068558,
+      "initialization_seconds": 3.275605939,
+      "input_file_sha256": "87663ca7fae2e87063028041182021fe8b7712330df7572aa5249c40668a292c",
+      "method": "torch",
+      "model_input_setup_seconds": 0.555537381,
+      "onnx_sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6",
+      "order_in_pair": 0,
+      "output_sha256": "e65ae19d43fad293ba169d9da9820dec4af690e9c5c6ff36125b5453bc67e1e7",
+      "output_shape": [
+        1,
+        2,
+        129,
+        161
+      ],
+      "pair": 0,
+      "peak_rss_bytes": 257396736,
+      "process_wall_seconds": 5.620735795,
+      "seconds": [
+        0.108172748,
+        0.120320308,
+        0.109838684,
+        0.128917854,
+        0.119723004,
+        0.124370881,
+        0.111040554
+      ],
+      "setup_peak_rss_bytes": 247566336,
+      "startup_peak_rss_bytes": 23461888,
+      "stderr": "[W927 01:10:53.351356421 NNPACK.cpp:62] Could not initialize NNPACK! Reason: Unsupported hardware.",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      },
+      "threads": {
+        "inter_op": 1,
+        "intra_op": 1
+      },
+      "torch_imported": true,
+      "warmup_seconds": [
+        0.119722963,
+        0.122748136,
+        0.11708821
+      ],
+      "workload": "large"
+    },
+    {
+      "checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633",
+      "compiler_imported": false,
+      "generated_source_sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0",
+      "import_seconds": 0.143016803,
+      "initialization_seconds": 0.163352866,
+      "input_file_sha256": "87663ca7fae2e87063028041182021fe8b7712330df7572aa5249c40668a292c",
+      "method": "onnx",
+      "model_input_setup_seconds": 0.020336063,
+      "onnx_sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6",
+      "order_in_pair": 1,
+      "output_sha256": "7ddcab3154b35dd35f5735809024c8e8a50fa51cba73659902d552f4fbb44eb6",
+      "output_shape": [
+        1,
+        2,
+        129,
+        161
+      ],
+      "pair": 0,
+      "peak_rss_bytes": 56492032,
+      "process_wall_seconds": 0.898678337,
+      "seconds": [
+        0.034138957,
+        0.032444888,
+        0.031655058,
+        0.032024318,
+        0.028679927,
+        0.030699378,
+        0.034520995
+      ],
+      "setup_peak_rss_bytes": 55181312,
+      "startup_peak_rss_bytes": 23461888,
+      "stderr": "",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      },
+      "threads": {
+        "execution_mode": "ExecutionMode.ORT_SEQUENTIAL",
+        "graph_optimization": "GraphOptimizationLevel.ORT_ENABLE_ALL",
+        "inter_op": 1,
+        "intra_op": 1,
+        "providers": [
+          "CPUExecutionProvider"
+        ]
+      },
+      "torch_imported": false,
+      "warmup_seconds": [
+        0.035378739,
+        0.033310337,
+        0.03190795
+      ],
+      "workload": "large"
+    },
+    {
+      "checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633",
+      "compiler_imported": false,
+      "generated_source_sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0",
+      "import_seconds": 0.142151918,
+      "initialization_seconds": 0.156854292,
+      "input_file_sha256": "87663ca7fae2e87063028041182021fe8b7712330df7572aa5249c40668a292c",
+      "method": "onnx",
+      "model_input_setup_seconds": 0.014702374,
+      "onnx_sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6",
+      "order_in_pair": 0,
+      "output_sha256": "7ddcab3154b35dd35f5735809024c8e8a50fa51cba73659902d552f4fbb44eb6",
+      "output_shape": [
+        1,
+        2,
+        129,
+        161
+      ],
+      "pair": 1,
+      "peak_rss_bytes": 56229888,
+      "process_wall_seconds": 0.932903031,
+      "seconds": [
+        0.034473352,
+        0.034955542,
+        0.034854406,
+        0.032689025,
+        0.032858754,
+        0.034076927,
+        0.030614848
+      ],
+      "setup_peak_rss_bytes": 55050240,
+      "startup_peak_rss_bytes": 23461888,
+      "stderr": "",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      },
+      "threads": {
+        "execution_mode": "ExecutionMode.ORT_SEQUENTIAL",
+        "graph_optimization": "GraphOptimizationLevel.ORT_ENABLE_ALL",
+        "inter_op": 1,
+        "intra_op": 1,
+        "providers": [
+          "CPUExecutionProvider"
+        ]
+      },
+      "torch_imported": false,
+      "warmup_seconds": [
+        0.035189626,
+        0.031767125,
+        0.034815863
+      ],
+      "workload": "large"
+    },
+    {
+      "checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633",
+      "compiler_imported": false,
+      "generated_source_sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0",
+      "import_seconds": 2.759105147,
+      "initialization_seconds": 3.363428423,
+      "input_file_sha256": "87663ca7fae2e87063028041182021fe8b7712330df7572aa5249c40668a292c",
+      "method": "torch",
+      "model_input_setup_seconds": 0.604323276,
+      "onnx_sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6",
+      "order_in_pair": 1,
+      "output_sha256": "e65ae19d43fad293ba169d9da9820dec4af690e9c5c6ff36125b5453bc67e1e7",
+      "output_shape": [
+        1,
+        2,
+        129,
+        161
+      ],
+      "pair": 1,
+      "peak_rss_bytes": 257122304,
+      "process_wall_seconds": 5.938764385,
+      "seconds": [
+        0.128037236,
+        0.131703459,
+        0.131299855,
+        0.134920055,
+        0.139518357,
+        0.144268331,
+        0.141348357
+      ],
+      "setup_peak_rss_bytes": 246767616,
+      "startup_peak_rss_bytes": 23461888,
+      "stderr": "[W927 01:11:00.923927954 NNPACK.cpp:62] Could not initialize NNPACK! Reason: Unsupported hardware.",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      },
+      "threads": {
+        "inter_op": 1,
+        "intra_op": 1
+      },
+      "torch_imported": true,
+      "warmup_seconds": [
+        0.121183689,
+        0.125903195,
+        0.126010202
+      ],
+      "workload": "large"
+    },
+    {
+      "checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633",
+      "compiler_imported": false,
+      "generated_source_sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0",
+      "import_seconds": 2.829470993,
+      "initialization_seconds": 3.433691818,
+      "input_file_sha256": "87663ca7fae2e87063028041182021fe8b7712330df7572aa5249c40668a292c",
+      "method": "torch",
+      "model_input_setup_seconds": 0.604220825,
+      "onnx_sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6",
+      "order_in_pair": 0,
+      "output_sha256": "e65ae19d43fad293ba169d9da9820dec4af690e9c5c6ff36125b5453bc67e1e7",
+      "output_shape": [
+        1,
+        2,
+        129,
+        161
+      ],
+      "pair": 2,
+      "peak_rss_bytes": 257007616,
+      "process_wall_seconds": 5.915426896,
+      "seconds": [
+        0.13858656,
+        0.131101205,
+        0.122265514,
+        0.107328316,
+        0.120939593,
+        0.115378121,
+        0.114658616
+      ],
+      "setup_peak_rss_bytes": 246652928,
+      "startup_peak_rss_bytes": 23330816,
+      "stderr": "[W927 01:11:06.934687312 NNPACK.cpp:62] Could not initialize NNPACK! Reason: Unsupported hardware.",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      },
+      "threads": {
+        "inter_op": 1,
+        "intra_op": 1
+      },
+      "torch_imported": true,
+      "warmup_seconds": [
+        0.147943502,
+        0.143567973,
+        0.133583799
+      ],
+      "workload": "large"
+    },
+    {
+      "checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633",
+      "compiler_imported": false,
+      "generated_source_sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0",
+      "import_seconds": 0.14987736,
+      "initialization_seconds": 0.166186946,
+      "input_file_sha256": "87663ca7fae2e87063028041182021fe8b7712330df7572aa5249c40668a292c",
+      "method": "onnx",
+      "model_input_setup_seconds": 0.016309586,
+      "onnx_sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6",
+      "order_in_pair": 1,
+      "output_sha256": "7ddcab3154b35dd35f5735809024c8e8a50fa51cba73659902d552f4fbb44eb6",
+      "output_shape": [
+        1,
+        2,
+        129,
+        161
+      ],
+      "pair": 2,
+      "peak_rss_bytes": 56098816,
+      "process_wall_seconds": 0.927353274,
+      "seconds": [
+        0.033623246,
+        0.033165777,
+        0.033549679,
+        0.032602763,
+        0.028632011,
+        0.034809803,
+        0.032909051
+      ],
+      "setup_peak_rss_bytes": 54919168,
+      "startup_peak_rss_bytes": 23330816,
+      "stderr": "",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      },
+      "threads": {
+        "execution_mode": "ExecutionMode.ORT_SEQUENTIAL",
+        "graph_optimization": "GraphOptimizationLevel.ORT_ENABLE_ALL",
+        "inter_op": 1,
+        "intra_op": 1,
+        "providers": [
+          "CPUExecutionProvider"
+        ]
+      },
+      "torch_imported": false,
+      "warmup_seconds": [
+        0.031232356,
+        0.031437733,
+        0.033413549
+      ],
+      "workload": "large"
+    },
+    {
+      "checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633",
+      "compiler_imported": false,
+      "generated_source_sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0",
+      "import_seconds": 0.153090636,
+      "initialization_seconds": 0.167449545,
+      "input_file_sha256": "87663ca7fae2e87063028041182021fe8b7712330df7572aa5249c40668a292c",
+      "method": "onnx",
+      "model_input_setup_seconds": 0.014358909,
+      "onnx_sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6",
+      "order_in_pair": 0,
+      "output_sha256": "7ddcab3154b35dd35f5735809024c8e8a50fa51cba73659902d552f4fbb44eb6",
+      "output_shape": [
+        1,
+        2,
+        129,
+        161
+      ],
+      "pair": 3,
+      "peak_rss_bytes": 56229888,
+      "process_wall_seconds": 0.961167066,
+      "seconds": [
+        0.033953863,
+        0.034459612,
+        0.035042744,
+        0.034991308,
+        0.032796486,
+        0.033720888,
+        0.034062873
+      ],
+      "setup_peak_rss_bytes": 54919168,
+      "startup_peak_rss_bytes": 23330816,
+      "stderr": "",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      },
+      "threads": {
+        "execution_mode": "ExecutionMode.ORT_SEQUENTIAL",
+        "graph_optimization": "GraphOptimizationLevel.ORT_ENABLE_ALL",
+        "inter_op": 1,
+        "intra_op": 1,
+        "providers": [
+          "CPUExecutionProvider"
+        ]
+      },
+      "torch_imported": false,
+      "warmup_seconds": [
+        0.033971572,
+        0.034152507,
+        0.033321871
+      ],
+      "workload": "large"
+    },
+    {
+      "checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633",
+      "compiler_imported": false,
+      "generated_source_sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0",
+      "import_seconds": 2.913571883,
+      "initialization_seconds": 3.557266652,
+      "input_file_sha256": "87663ca7fae2e87063028041182021fe8b7712330df7572aa5249c40668a292c",
+      "method": "torch",
+      "model_input_setup_seconds": 0.643694769,
+      "onnx_sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6",
+      "order_in_pair": 1,
+      "output_sha256": "e65ae19d43fad293ba169d9da9820dec4af690e9c5c6ff36125b5453bc67e1e7",
+      "output_shape": [
+        1,
+        2,
+        129,
+        161
+      ],
+      "pair": 3,
+      "peak_rss_bytes": 257388544,
+      "process_wall_seconds": 6.028918558,
+      "seconds": [
+        0.121052186,
+        0.117410178,
+        0.106085201,
+        0.116015158,
+        0.134337818,
+        0.124299044,
+        0.130631987
+      ],
+      "setup_peak_rss_bytes": 247033856,
+      "startup_peak_rss_bytes": 23461888,
+      "stderr": "[W927 01:11:14.886210729 NNPACK.cpp:62] Could not initialize NNPACK! Reason: Unsupported hardware.",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      },
+      "threads": {
+        "inter_op": 1,
+        "intra_op": 1
+      },
+      "torch_imported": true,
+      "warmup_seconds": [
+        0.133154802,
+        0.133208195,
+        0.122904455
+      ],
+      "workload": "large"
+    },
+    {
+      "checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633",
+      "compiler_imported": false,
+      "generated_source_sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0",
+      "import_seconds": 2.752217684,
+      "initialization_seconds": 3.330397836,
+      "input_file_sha256": "87663ca7fae2e87063028041182021fe8b7712330df7572aa5249c40668a292c",
+      "method": "torch",
+      "model_input_setup_seconds": 0.578180152,
+      "onnx_sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6",
+      "order_in_pair": 0,
+      "output_sha256": "e65ae19d43fad293ba169d9da9820dec4af690e9c5c6ff36125b5453bc67e1e7",
+      "output_shape": [
+        1,
+        2,
+        129,
+        161
+      ],
+      "pair": 4,
+      "peak_rss_bytes": 257388544,
+      "process_wall_seconds": 5.760439207,
+      "seconds": [
+        0.121067942,
+        0.124920478,
+        0.126824223,
+        0.128494923,
+        0.132595695,
+        0.135020044,
+        0.126263031
+      ],
+      "setup_peak_rss_bytes": 247033856,
+      "startup_peak_rss_bytes": 23461888,
+      "stderr": "[W927 01:11:20.666354860 NNPACK.cpp:62] Could not initialize NNPACK! Reason: Unsupported hardware.",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      },
+      "threads": {
+        "inter_op": 1,
+        "intra_op": 1
+      },
+      "torch_imported": true,
+      "warmup_seconds": [
+        0.115161944,
+        0.121881285,
+        0.128050115
+      ],
+      "workload": "large"
+    },
+    {
+      "checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633",
+      "compiler_imported": false,
+      "generated_source_sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0",
+      "import_seconds": 0.139038471,
+      "initialization_seconds": 0.151804773,
+      "input_file_sha256": "87663ca7fae2e87063028041182021fe8b7712330df7572aa5249c40668a292c",
+      "method": "onnx",
+      "model_input_setup_seconds": 0.012766302,
+      "onnx_sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6",
+      "order_in_pair": 1,
+      "output_sha256": "7ddcab3154b35dd35f5735809024c8e8a50fa51cba73659902d552f4fbb44eb6",
+      "output_shape": [
+        1,
+        2,
+        129,
+        161
+      ],
+      "pair": 4,
+      "peak_rss_bytes": 56229888,
+      "process_wall_seconds": 0.917537415,
+      "seconds": [
+        0.029045615,
+        0.027691315,
+        0.030489219,
+        0.032253608,
+        0.030187844,
+        0.033618666,
+        0.032473122
+      ],
+      "setup_peak_rss_bytes": 54919168,
+      "startup_peak_rss_bytes": 23330816,
+      "stderr": "",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      },
+      "threads": {
+        "execution_mode": "ExecutionMode.ORT_SEQUENTIAL",
+        "graph_optimization": "GraphOptimizationLevel.ORT_ENABLE_ALL",
+        "inter_op": 1,
+        "intra_op": 1,
+        "providers": [
+          "CPUExecutionProvider"
+        ]
+      },
+      "torch_imported": false,
+      "warmup_seconds": [
+        0.029178558,
+        0.03054508,
+        0.027389815
+      ],
+      "workload": "large"
+    },
+    {
+      "checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633",
+      "compiler_imported": false,
+      "generated_source_sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0",
+      "import_seconds": 0.14930882,
+      "initialization_seconds": 0.163491467,
+      "input_file_sha256": "87663ca7fae2e87063028041182021fe8b7712330df7572aa5249c40668a292c",
+      "method": "onnx",
+      "model_input_setup_seconds": 0.014182647,
+      "onnx_sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6",
+      "order_in_pair": 0,
+      "output_sha256": "7ddcab3154b35dd35f5735809024c8e8a50fa51cba73659902d552f4fbb44eb6",
+      "output_shape": [
+        1,
+        2,
+        129,
+        161
+      ],
+      "pair": 5,
+      "peak_rss_bytes": 56098816,
+      "process_wall_seconds": 0.914137163,
+      "seconds": [
+        0.034126565,
+        0.034609225,
+        0.032996067,
+        0.033979086,
+        0.03339657,
+        0.031253358,
+        0.030654777
+      ],
+      "setup_peak_rss_bytes": 54919168,
+      "startup_peak_rss_bytes": 23330816,
+      "stderr": "",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      },
+      "threads": {
+        "execution_mode": "ExecutionMode.ORT_SEQUENTIAL",
+        "graph_optimization": "GraphOptimizationLevel.ORT_ENABLE_ALL",
+        "inter_op": 1,
+        "intra_op": 1,
+        "providers": [
+          "CPUExecutionProvider"
+        ]
+      },
+      "torch_imported": false,
+      "warmup_seconds": [
+        0.038100684,
+        0.035446407,
+        0.033894253
+      ],
+      "workload": "large"
+    },
+    {
+      "checkpoint_sha256": "d469d95dfba0cde7b832aca42ed6df5a2a79540b96edb490286fade81bfc4633",
+      "compiler_imported": false,
+      "generated_source_sha256": "65122d363ccae9953da03464ce0cfc49d5569c240d37e9aabccfed87cbcaf3a0",
+      "import_seconds": 2.677120514,
+      "initialization_seconds": 3.387290443,
+      "input_file_sha256": "87663ca7fae2e87063028041182021fe8b7712330df7572aa5249c40668a292c",
+      "method": "torch",
+      "model_input_setup_seconds": 0.710169929,
+      "onnx_sha256": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6",
+      "order_in_pair": 1,
+      "output_sha256": "e65ae19d43fad293ba169d9da9820dec4af690e9c5c6ff36125b5453bc67e1e7",
+      "output_shape": [
+        1,
+        2,
+        129,
+        161
+      ],
+      "pair": 5,
+      "peak_rss_bytes": 256999424,
+      "process_wall_seconds": 5.698056855,
+      "seconds": [
+        0.123671227,
+        0.121246892,
+        0.085324743,
+        0.108246011,
+        0.114862664,
+        0.123657139,
+        0.113905312
+      ],
+      "setup_peak_rss_bytes": 246644736,
+      "startup_peak_rss_bytes": 23330816,
+      "stderr": "[W927 01:11:28.304962043 NNPACK.cpp:62] Could not initialize NNPACK! Reason: Unsupported hardware.",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      },
+      "threads": {
+        "inter_op": 1,
+        "intra_op": 1
+      },
+      "torch_imported": true,
+      "warmup_seconds": [
+        0.138621362,
+        0.118170621,
+        0.110823916
+      ],
+      "workload": "large"
+    }
+  ],
+  "schema_version": 1,
+  "source_hashes": {
+    "experiments/benchmark_onnx_tiled.py": "26060727f4fdc06ed218860f79ed8960dbd14c79a21416878a7f7fb948881c92",
+    "experiments/compare_onnx.py": "44d06cf1c0e823c00336730fa13028ad3cffbe7ca97f27ffe1df670d25781df8",
+    "src/unet_budget/export.py": "2e8e4a288c361bf4c64488251968941809d72d07004a91fde2d274895f191567",
+    "src/unet_budget/inference.py": "e91fae724d483b3e96eb8ffbf7c7b0de1e57dcfb6605b4722d3eec7177728f58",
+    "src/unet_budget/onnx_tiled.py": "025a86d50ca88dbb20bb1432d7d2d12b0abda2fef0123f8af11a77e939cd6395"
+  },
+  "summary": [
+    {
+      "median_paired_latency_ratio": 0.27908559430874713,
+      "median_paired_rss_ratio": 0.2171483315259007,
+      "methods": {
+        "onnx": {
+          "max_seconds": 0.001301108,
+          "median_import_seconds": 0.1422251535,
+          "median_initialization_seconds": 0.1589762485,
+          "median_model_input_setup_seconds": 0.013522154,
+          "median_peak_rss_bytes": 55705600.0,
+          "median_process_median_seconds": 0.000814378,
+          "median_process_wall_seconds": 0.5967549105000001,
+          "median_seconds": 0.0008828075,
+          "min_seconds": 0.000543644
+        },
+        "torch": {
+          "max_seconds": 0.003678028,
+          "median_import_seconds": 2.679706881,
+          "median_initialization_seconds": 3.2645494845,
+          "median_model_input_setup_seconds": 0.5763888625,
+          "median_peak_rss_bytes": 256729088.0,
+          "median_process_median_seconds": 0.003208228,
+          "median_process_wall_seconds": 4.473709177,
+          "median_seconds": 0.003214705,
+          "min_seconds": 0.001828429
+        }
+      },
+      "paired_ratios": [
+        {
+          "onnx_to_torch_initialization": 0.051780477498342185,
+          "onnx_to_torch_latency": 0.2864740378749261,
+          "onnx_to_torch_peak_rss": 0.21812043127199757,
+          "pair": 0
+        },
+        {
+          "onnx_to_torch_initialization": 0.050150275463483454,
+          "onnx_to_torch_latency": 0.30355527980031577,
+          "onnx_to_torch_peak_rss": 0.21715179868750897,
+          "pair": 1
+        },
+        {
+          "onnx_to_torch_initialization": 0.046797875235584555,
+          "onnx_to_torch_latency": 0.24113091289793687,
+          "onnx_to_torch_peak_rss": 0.21714486436429245,
+          "pair": 2
+        },
+        {
+          "onnx_to_torch_initialization": 0.04522112792462728,
+          "onnx_to_torch_latency": 0.29531789910816947,
+          "onnx_to_torch_peak_rss": 0.2169266596484512,
+          "pair": 3
+        },
+        {
+          "onnx_to_torch_initialization": 0.04836231586620416,
+          "onnx_to_torch_latency": 0.2363875196508851,
+          "onnx_to_torch_peak_rss": 0.217440543601359,
+          "pair": 4
+        },
+        {
+          "onnx_to_torch_initialization": 0.050306665200304294,
+          "onnx_to_torch_latency": 0.2716971507425682,
+          "onnx_to_torch_peak_rss": 0.2170339753921772,
+          "pair": 5
+        }
+      ],
+      "slower_onnx_pairs": 0,
+      "workload": "small"
+    },
+    {
+      "median_paired_latency_ratio": 0.26931907685455164,
+      "median_paired_rss_ratio": 0.2177218558458368,
+      "methods": {
+        "onnx": {
+          "max_seconds": 0.070157079,
+          "median_import_seconds": 0.22560277899999998,
+          "median_initialization_seconds": 0.24299838350000003,
+          "median_model_input_setup_seconds": 0.014948148000000001,
+          "median_peak_rss_bytes": 55902208.0,
+          "median_process_median_seconds": 0.0064892465,
+          "median_process_wall_seconds": 1.0382175075,
+          "median_seconds": 0.006426219,
+          "min_seconds": 0.004879633
+        },
+        "torch": {
+          "max_seconds": 0.085554476,
+          "median_import_seconds": 4.897221508,
+          "median_initialization_seconds": 5.820219481500001,
+          "median_model_input_setup_seconds": 0.9229979735,
+          "median_peak_rss_bytes": 256866304.0,
+          "median_process_median_seconds": 0.024213013499999998,
+          "median_process_wall_seconds": 8.187500559,
+          "median_seconds": 0.02420216,
+          "min_seconds": 0.013090035
+        }
+      },
+      "paired_ratios": [
+        {
+          "onnx_to_torch_initialization": 0.06285006649474664,
+          "onnx_to_torch_latency": 0.3533806251115024,
+          "onnx_to_torch_peak_rss": 0.2180995907447808,
+          "pair": 0
+        },
+        {
+          "onnx_to_torch_initialization": 0.06633979412066568,
+          "onnx_to_torch_latency": 0.3107973060246166,
+          "onnx_to_torch_peak_rss": 0.21801704055908352,
+          "pair": 1
+        },
+        {
+          "onnx_to_torch_initialization": 0.04353646558727649,
+          "onnx_to_torch_latency": 0.07468910918854554,
+          "onnx_to_torch_peak_rss": 0.21732268401166963,
+          "pair": 2
+        },
+        {
+          "onnx_to_torch_initialization": 0.042908715525118934,
+          "onnx_to_torch_latency": 0.08764865351047162,
+          "onnx_to_torch_peak_rss": 0.21742667113259007,
+          "pair": 3
+        },
+        {
+          "onnx_to_torch_initialization": 0.034126571617367374,
+          "onnx_to_torch_latency": 0.29378248650880373,
+          "onnx_to_torch_peak_rss": 0.21732614864649427,
+          "pair": 4
+        },
+        {
+          "onnx_to_torch_initialization": 0.04974981485091429,
+          "onnx_to_torch_latency": 0.24485566720029955,
+          "onnx_to_torch_peak_rss": 0.21804835234979653,
+          "pair": 5
+        }
+      ],
+      "slower_onnx_pairs": 0,
+      "workload": "medium"
+    },
+    {
+      "median_paired_latency_ratio": 0.2708604966341198,
+      "median_paired_rss_ratio": 0.21846305638218305,
+      "methods": {
+        "onnx": {
+          "max_seconds": 0.035042744,
+          "median_import_seconds": 0.1461628115,
+          "median_initialization_seconds": 0.16342216650000002,
+          "median_model_input_setup_seconds": 0.0145306415,
+          "median_peak_rss_bytes": 56229888.0,
+          "median_process_median_seconds": 0.0332811735,
+          "median_process_wall_seconds": 0.9224453445,
+          "median_seconds": 0.033080922,
+          "min_seconds": 0.027691315
+        },
+        "torch": {
+          "max_seconds": 0.144268331,
+          "median_import_seconds": 2.7556614155,
+          "median_initialization_seconds": 3.375359433,
+          "median_model_input_setup_seconds": 0.6042720505,
+          "median_peak_rss_bytes": 257255424.0,
+          "median_process_median_seconds": 0.12099588950000001,
+          "median_process_wall_seconds": 5.8379330515,
+          "median_seconds": 0.123664183,
+          "min_seconds": 0.085324743
+        }
+      },
+      "paired_ratios": [
+        {
+          "onnx_to_torch_initialization": 0.04986951087586241,
+          "onnx_to_torch_latency": 0.26748675634634095,
+          "onnx_to_torch_peak_rss": 0.21947454687226492,
+          "pair": 0
+        },
+        {
+          "onnx_to_torch_initialization": 0.04663524008044574,
+          "onnx_to_torch_latency": 0.25257125043419226,
+          "onnx_to_torch_peak_rss": 0.2186892662567305,
+          "pair": 1
+        },
+        {
+          "onnx_to_torch_initialization": 0.04839891137836529,
+          "onnx_to_torch_latency": 0.2742342369218987,
+          "onnx_to_torch_peak_rss": 0.21827686227010487,
+          "pair": 2
+        },
+        {
+          "onnx_to_torch_initialization": 0.04707253106984683,
+          "onnx_to_torch_latency": 0.28138998662940296,
+          "onnx_to_torch_peak_rss": 0.21846305638218305,
+          "pair": 3
+        },
+        {
+          "onnx_to_torch_initialization": 0.04558157327604029,
+          "onnx_to_torch_latency": 0.24040532856250968,
+          "onnx_to_torch_peak_rss": 0.21846305638218305,
+          "pair": 4
+        },
+        {
+          "onnx_to_torch_initialization": 0.04826614952309834,
+          "onnx_to_torch_latency": 0.290752180360365,
+          "onnx_to_torch_peak_rss": 0.21828381996684942,
+          "pair": 5
+        }
+      ],
+      "slower_onnx_pairs": 0,
+      "workload": "large"
+    }
+  ],
+  "tolerance_failures": []
+}

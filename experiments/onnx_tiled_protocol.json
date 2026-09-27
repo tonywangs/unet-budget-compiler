@@ -1,0 +1,600 @@
+{
+  "benchmark": {
+    "blend": "gaussian",
+    "input_seed": 9001,
+    "overlap": [
+      16,
+      20
+    ],
+    "process_pairs": 6,
+    "tile": [
+      33,
+      41
+    ],
+    "timed_calls": 7,
+    "warmups": 3,
+    "workloads": [
+      {
+        "name": "small",
+        "shape": [
+          1,
+          1,
+          17,
+          23
+        ]
+      },
+      {
+        "name": "medium",
+        "shape": [
+          1,
+          1,
+          65,
+          81
+        ]
+      },
+      {
+        "name": "large",
+        "shape": [
+          1,
+          1,
+          129,
+          161
+        ]
+      }
+    ]
+  },
+  "geometry": {
+    "cases": 256,
+    "oracle_atol": 2e-05,
+    "oracle_rtol": 2e-06,
+    "seed": 20260927
+  },
+  "matrix": [
+    {
+      "blend": "constant",
+      "classes": 2,
+      "depth": 1,
+      "image": [
+        1,
+        8
+      ],
+      "input_channels": 1,
+      "input_seed": 1701,
+      "overlap": [
+        2,
+        3
+      ],
+      "tile": [
+        5,
+        7
+      ],
+      "weight_seed": 17,
+      "width": 2
+    },
+    {
+      "blend": "gaussian",
+      "classes": 2,
+      "depth": 1,
+      "image": [
+        1,
+        8
+      ],
+      "input_channels": 1,
+      "input_seed": 1701,
+      "overlap": [
+        2,
+        3
+      ],
+      "tile": [
+        5,
+        7
+      ],
+      "weight_seed": 17,
+      "width": 2
+    },
+    {
+      "blend": "constant",
+      "classes": 1,
+      "depth": 1,
+      "image": [
+        5,
+        7
+      ],
+      "input_channels": 3,
+      "input_seed": 1701,
+      "overlap": [
+        0,
+        0
+      ],
+      "tile": [
+        5,
+        7
+      ],
+      "weight_seed": 18,
+      "width": 3
+    },
+    {
+      "blend": "gaussian",
+      "classes": 1,
+      "depth": 1,
+      "image": [
+        5,
+        7
+      ],
+      "input_channels": 3,
+      "input_seed": 1701,
+      "overlap": [
+        0,
+        0
+      ],
+      "tile": [
+        5,
+        7
+      ],
+      "weight_seed": 18,
+      "width": 3
+    },
+    {
+      "blend": "constant",
+      "classes": 2,
+      "depth": 1,
+      "image": [
+        11,
+        13
+      ],
+      "input_channels": 3,
+      "input_seed": 1701,
+      "overlap": [
+        2,
+        3
+      ],
+      "tile": [
+        5,
+        7
+      ],
+      "weight_seed": 19,
+      "width": 4
+    },
+    {
+      "blend": "gaussian",
+      "classes": 2,
+      "depth": 1,
+      "image": [
+        11,
+        13
+      ],
+      "input_channels": 3,
+      "input_seed": 1701,
+      "overlap": [
+        2,
+        3
+      ],
+      "tile": [
+        5,
+        7
+      ],
+      "weight_seed": 19,
+      "width": 4
+    },
+    {
+      "blend": "constant",
+      "classes": 2,
+      "depth": 2,
+      "image": [
+        1,
+        10
+      ],
+      "input_channels": 1,
+      "input_seed": 1701,
+      "overlap": [
+        3,
+        4
+      ],
+      "tile": [
+        7,
+        9
+      ],
+      "weight_seed": 17,
+      "width": 2
+    },
+    {
+      "blend": "gaussian",
+      "classes": 2,
+      "depth": 2,
+      "image": [
+        1,
+        10
+      ],
+      "input_channels": 1,
+      "input_seed": 1701,
+      "overlap": [
+        3,
+        4
+      ],
+      "tile": [
+        7,
+        9
+      ],
+      "weight_seed": 17,
+      "width": 2
+    },
+    {
+      "blend": "constant",
+      "classes": 1,
+      "depth": 2,
+      "image": [
+        7,
+        9
+      ],
+      "input_channels": 3,
+      "input_seed": 1701,
+      "overlap": [
+        0,
+        0
+      ],
+      "tile": [
+        7,
+        9
+      ],
+      "weight_seed": 18,
+      "width": 3
+    },
+    {
+      "blend": "gaussian",
+      "classes": 1,
+      "depth": 2,
+      "image": [
+        7,
+        9
+      ],
+      "input_channels": 3,
+      "input_seed": 1701,
+      "overlap": [
+        0,
+        0
+      ],
+      "tile": [
+        7,
+        9
+      ],
+      "weight_seed": 18,
+      "width": 3
+    },
+    {
+      "blend": "constant",
+      "classes": 2,
+      "depth": 2,
+      "image": [
+        15,
+        17
+      ],
+      "input_channels": 3,
+      "input_seed": 1701,
+      "overlap": [
+        3,
+        4
+      ],
+      "tile": [
+        7,
+        9
+      ],
+      "weight_seed": 19,
+      "width": 4
+    },
+    {
+      "blend": "gaussian",
+      "classes": 2,
+      "depth": 2,
+      "image": [
+        15,
+        17
+      ],
+      "input_channels": 3,
+      "input_seed": 1701,
+      "overlap": [
+        3,
+        4
+      ],
+      "tile": [
+        7,
+        9
+      ],
+      "weight_seed": 19,
+      "width": 4
+    },
+    {
+      "blend": "constant",
+      "classes": 2,
+      "depth": 3,
+      "image": [
+        1,
+        14
+      ],
+      "input_channels": 1,
+      "input_seed": 1701,
+      "overlap": [
+        5,
+        6
+      ],
+      "tile": [
+        11,
+        13
+      ],
+      "weight_seed": 17,
+      "width": 2
+    },
+    {
+      "blend": "gaussian",
+      "classes": 2,
+      "depth": 3,
+      "image": [
+        1,
+        14
+      ],
+      "input_channels": 1,
+      "input_seed": 1701,
+      "overlap": [
+        5,
+        6
+      ],
+      "tile": [
+        11,
+        13
+      ],
+      "weight_seed": 17,
+      "width": 2
+    },
+    {
+      "blend": "constant",
+      "classes": 1,
+      "depth": 3,
+      "image": [
+        11,
+        13
+      ],
+      "input_channels": 3,
+      "input_seed": 1701,
+      "overlap": [
+        0,
+        0
+      ],
+      "tile": [
+        11,
+        13
+      ],
+      "weight_seed": 18,
+      "width": 3
+    },
+    {
+      "blend": "gaussian",
+      "classes": 1,
+      "depth": 3,
+      "image": [
+        11,
+        13
+      ],
+      "input_channels": 3,
+      "input_seed": 1701,
+      "overlap": [
+        0,
+        0
+      ],
+      "tile": [
+        11,
+        13
+      ],
+      "weight_seed": 18,
+      "width": 3
+    },
+    {
+      "blend": "constant",
+      "classes": 2,
+      "depth": 3,
+      "image": [
+        23,
+        25
+      ],
+      "input_channels": 3,
+      "input_seed": 1701,
+      "overlap": [
+        5,
+        6
+      ],
+      "tile": [
+        11,
+        13
+      ],
+      "weight_seed": 19,
+      "width": 4
+    },
+    {
+      "blend": "gaussian",
+      "classes": 2,
+      "depth": 3,
+      "image": [
+        23,
+        25
+      ],
+      "input_channels": 3,
+      "input_seed": 1701,
+      "overlap": [
+        5,
+        6
+      ],
+      "tile": [
+        11,
+        13
+      ],
+      "weight_seed": 19,
+      "width": 4
+    },
+    {
+      "blend": "constant",
+      "classes": 2,
+      "depth": 4,
+      "image": [
+        1,
+        22
+      ],
+      "input_channels": 1,
+      "input_seed": 1701,
+      "overlap": [
+        9,
+        10
+      ],
+      "tile": [
+        19,
+        21
+      ],
+      "weight_seed": 17,
+      "width": 2
+    },
+    {
+      "blend": "gaussian",
+      "classes": 2,
+      "depth": 4,
+      "image": [
+        1,
+        22
+      ],
+      "input_channels": 1,
+      "input_seed": 1701,
+      "overlap": [
+        9,
+        10
+      ],
+      "tile": [
+        19,
+        21
+      ],
+      "weight_seed": 17,
+      "width": 2
+    },
+    {
+      "blend": "constant",
+      "classes": 1,
+      "depth": 4,
+      "image": [
+        19,
+        21
+      ],
+      "input_channels": 3,
+      "input_seed": 1701,
+      "overlap": [
+        0,
+        0
+      ],
+      "tile": [
+        19,
+        21
+      ],
+      "weight_seed": 18,
+      "width": 3
+    },
+    {
+      "blend": "gaussian",
+      "classes": 1,
+      "depth": 4,
+      "image": [
+        19,
+        21
+      ],
+      "input_channels": 3,
+      "input_seed": 1701,
+      "overlap": [
+        0,
+        0
+      ],
+      "tile": [
+        19,
+        21
+      ],
+      "weight_seed": 18,
+      "width": 3
+    },
+    {
+      "blend": "constant",
+      "classes": 2,
+      "depth": 4,
+      "image": [
+        39,
+        41
+      ],
+      "input_channels": 3,
+      "input_seed": 1701,
+      "overlap": [
+        9,
+        10
+      ],
+      "tile": [
+        19,
+        21
+      ],
+      "weight_seed": 19,
+      "width": 4
+    },
+    {
+      "blend": "gaussian",
+      "classes": 2,
+      "depth": 4,
+      "image": [
+        39,
+        41
+      ],
+      "input_channels": 3,
+      "input_seed": 1701,
+      "overlap": [
+        9,
+        10
+      ],
+      "tile": [
+        19,
+        21
+      ],
+      "weight_seed": 19,
+      "width": 4
+    }
+  ],
+  "precision": "float32",
+  "schema_version": 1,
+  "threads": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "label_disagreement_fraction": 0.001,
+    "maximum_absolute_error": 0.0001,
+    "mean_absolute_error": 1e-05,
+    "rtol": 1e-05
+  },
+  "trained": {
+    "boundary_band": 2,
+    "evaluation_seed": 202,
+    "methods": [
+      {
+        "blend": "constant",
+        "overlap": [
+          0,
+          0
+        ]
+      },
+      {
+        "blend": "constant",
+        "overlap": [
+          8,
+          10
+        ]
+      },
+      {
+        "blend": "gaussian",
+        "overlap": [
+          8,
+          10
+        ]
+      }
+    ],
+    "samples": 16,
+    "tile": [
+      16,
+      20
+    ]
+  }
+}

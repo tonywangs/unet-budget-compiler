@@ -23,6 +23,9 @@ def main():
         [sys.executable, 'experiments/compare_onnx.py', '--check', 'results/onnx-comparison.json'],
         [sys.executable, 'experiments/investigate_onnx.py', '--check', 'results/onnx-numerical-investigation.json'],
         [sys.executable, 'experiments/benchmark_onnx.py', '--check', 'results/onnx-benchmark.json'],
+        [sys.executable, 'scripts/verify_onnx_tiled_isolated.py'],
+        [sys.executable, 'experiments/compare_onnx_tiled.py', '--check', 'results/onnx-tiled-comparison.json'],
+        [sys.executable, 'experiments/benchmark_onnx_tiled.py', '--check', 'results/onnx-tiled-benchmark.json'],
     ]
     output = []
     failed = False

@@ -47,6 +47,13 @@ preserves every predicted label. An additional larger benchmark input exceeds
 the frozen elementwise logit tolerance at one value; this negative result is
 preserved and investigated, not hidden by relaxing the threshold.
 
+For images larger than a fixed ONNX input, the [standalone tiled ONNX command](docs/onnx-tiled.md)
+uses the exported input as its tile size, validates bundle hashes, and stitches
+constant/Gaussian weighted logits with explicit image, output and tile-count limits.
+It requires only NumPy and ONNX Runtime at deployment. The guide includes an offline
+`65×81` example using the existing `33×41` bundle, a single verification command,
+and [runtime parity, seam errors and CPU measurements](docs/onnx-tiled-results.md).
+
 Install PyTorch separately to run the model; CPU validation here uses 2.6.0:
 
 ```sh

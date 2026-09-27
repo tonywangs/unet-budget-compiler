@@ -1,0 +1,31 @@
+{
+  "artifacts": {
+    "bundle/manifest.json": "a786e5fc6cf4a7bf90139e62e0b981527e96f983cf270e42d1219db1c52ad54b",
+    "bundle/model.onnx": "d650fbac2ffb4dbea69dddd01fbd0a1b532b37a0e6884109307dbd150149c1c6",
+    "input.npy": "5edb0e4150358883a750c5a2efe74facb557bb962ac84d1800ba4a4c85b02afe",
+    "tiled-input.npy": "803161c44a3ca2618d07534515afe24637621ce1501c77f35384876705104791"
+  },
+  "blend": "gaussian",
+  "description": "Repeat original held-out sample 2x2, crop to 65x81. Runtime demonstration; not a new independent evaluation image.",
+  "input_shape": [
+    1,
+    1,
+    65,
+    81
+  ],
+  "output_sha256": "f980b4e572d84ee826b17472112c22853f21ff5dc570435aa4b47be62879f8df",
+  "output_shape": [
+    1,
+    2,
+    65,
+    81
+  ],
+  "overlap": [
+    16,
+    20
+  ],
+  "tile": [
+    33,
+    41
+  ]
+}

@@ -1,0 +1,257 @@
+"""Standalone tiled CPU ONNX inference; dependencies: NumPy and ONNX Runtime.
+
+Copy this file anywhere; no compiler, PyTorch or bundle Python is imported.
+Accepts existing schema-1 export bundles. See docs/onnx-tiled.md for semantics.
+"""
+import argparse
+import hashlib
+import json
+import math
+from pathlib import Path
+import signal
+import sys
+
+MAX_FILE_BYTES = 10 * 1024**2
+MAX_ELEMENTS = 16_000_000
+ARTIFACTS = {'model.onnx', 'model.py', 'architecture.json', 'inference.py'}
+
+
+def integer(value, name, minimum=1):
+    if type(value) is not int or value < minimum:
+        raise ValueError(f'{name} must be an integer >= {minimum}')
+    return value
+
+
+def unique_object(pairs):
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError(f'duplicate JSON key: {key}')
+        result[key] = value
+    return result
+
+
+def bounded_read(path, limit):
+    if path.is_symlink() or not path.is_file() or not 0 < path.stat().st_size <= limit:
+        raise ValueError(f'invalid file or resource limit: {path.name}')
+    with path.open('rb') as stream:
+        data = stream.read(limit + 1)
+    if len(data) > limit:
+        raise ValueError(f'file resource limit: {path.name}')
+    return data
+
+
+def contract_shapes(manifest):
+    """Validate the supported tensor contract without allocating tensors."""
+    if (type(manifest) is not dict or type(manifest.get('schema_version')) is not int
+            or manifest.get('schema_version') != 1 or manifest.get('format') != 'unet-budget-onnx'
+            or manifest.get('precision') != 'float32' or manifest.get('opset') != 17
+            or manifest.get('provider') != 'CPUExecutionProvider'):
+        raise ValueError('unsupported manifest contract')
+    shapes = []
+    for key, name in (('input', 'image'), ('output', 'logits')):
+        c = manifest.get(key)
+        if type(c) is not dict:
+            raise ValueError('missing tensor contract')
+        shape = c.get('shape')
+        if (c.get('name') != name or c.get('dtype') != 'float32' or c.get('layout') != 'NCHW'
+                or type(shape) is not list or len(shape) != 4
+                or any(type(d) is not int or d < 1 for d in shape)
+                or shape[0] != 1 or math.prod(shape) > MAX_ELEMENTS):
+            raise ValueError('requires bounded batch-one fixed float32 NCHW contract')
+        shapes.append(tuple(shape))
+    if shapes[0][2:] != shapes[1][2:]:
+        raise ValueError('output must match tile spatial dimensions')
+    return shapes
+
+
+def load_bundle(directory, threads=1):
+    """Hash every required artifact as inert bytes, then load ONNX on CPU only.
+
+    Hashes detect corruption, not hostile replacement of a manifest and its files.
+    Only use bundles from a trusted exporter; this is not an ONNX sandbox.
+    """
+    integer(threads, 'threads')
+    if threads > 32:
+        raise ValueError('threads must be <= 32')
+    directory = Path(directory)
+    manifest = json.loads(bounded_read(directory/'manifest.json', 256 * 1024),
+                          object_pairs_hook=unique_object)
+    contract_shapes(manifest)
+    artifacts = manifest.get('artifacts')
+    if type(artifacts) is not dict or set(artifacts) != ARTIFACTS:
+        raise ValueError('unsupported artifact inventory')
+    model = None
+    for name in sorted(ARTIFACTS):
+        record = artifacts[name]
+        if (type(record) is not dict or type(record.get('bytes')) is not int
+                or not 0 < record['bytes'] <= MAX_FILE_BYTES
+                or type(record.get('sha256')) is not str or len(record['sha256']) != 64):
+            raise ValueError('invalid artifact record')
+        data = bounded_read(directory/name, MAX_FILE_BYTES)
+        if len(data) != record['bytes'] or hashlib.sha256(data).hexdigest() != record['sha256']:
+            raise ValueError(f'artifact hash or size mismatch: {name}')
+        if name == 'model.onnx':
+            model = data
+    import onnxruntime as ort
+    options = ort.SessionOptions()
+    options.intra_op_num_threads = threads
+    options.inter_op_num_threads = 1
+    options.execution_mode = ort.ExecutionMode.ORT_SEQUENTIAL
+    session = ort.InferenceSession(model, sess_options=options, providers=['CPUExecutionProvider'])
+    session.disable_fallback()
+    if session.get_providers() != ['CPUExecutionProvider']:
+        raise ValueError('unexpected execution provider')
+    for nodes, key in ((session.get_inputs(), 'input'), (session.get_outputs(), 'output')):
+        c = manifest[key]
+        if (len(nodes) != 1 or nodes[0].name != c['name'] or nodes[0].shape != c['shape']
+                or nodes[0].type != 'tensor(float)'):
+            raise ValueError('runtime interface does not match manifest')
+    return session, manifest
+
+
+def tile_plan(shape, manifest, *, overlap=(0, 0), blend='constant',
+              max_image_pixels=16_777_216, max_input_elements=16_000_000,
+              max_output_elements=16_000_000, max_tiles=65_536):
+    ins, outs = contract_shapes(manifest)
+    if (not isinstance(shape, (tuple, list)) or len(shape) != 4
+            or any(type(d) is not int or d < 1 for d in shape)
+            or tuple(shape[:2]) != ins[:2]):
+        raise ValueError('image must be positive batch-one NCHW with matching channels')
+    if (not isinstance(overlap, (tuple, list)) or len(overlap) != 2
+            or any(type(o) is not int or not 0 <= o < t for o, t in zip(overlap, ins[2:]))):
+        raise ValueError('overlap must be two integers in [0, tile side)')
+    if blend not in ('constant', 'gaussian'):
+        raise ValueError('blend must be constant or gaussian')
+    for name, value in (('max_image_pixels', max_image_pixels), ('max_input_elements', max_input_elements),
+                        ('max_output_elements', max_output_elements), ('max_tiles', max_tiles)):
+        integer(value, name)
+    _, c, h, w = shape
+    th, tw = ins[2:]
+    if h*w > max_image_pixels:
+        raise ValueError('max_image_pixels exceeded')
+    if c*h*w > max_input_elements:
+        raise ValueError('max_input_elements exceeded')
+    if outs[1]*h*w > max_output_elements:
+        raise ValueError('max_output_elements exceeded')
+    sh, sw = th-overlap[0], tw-overlap[1]
+    rows = 1 + (max(h-th, 0)+sh-1)//sh
+    cols = 1 + (max(w-tw, 0)+sw-1)//sw
+    if rows*cols > max_tiles:
+        raise ValueError('max_tiles exceeded')
+    return dict(tile_size=(th, tw), y_starts=range(0, rows*sh, sh),
+                x_starts=range(0, cols*sw, sw), tile_count=rows*cols,
+                output_shape=(1, outs[1], h, w))
+
+
+def blend_weights(tile_size, blend):
+    import numpy as np
+    th, tw = tile_size
+    if blend == 'constant':
+        return np.ones((th, tw), dtype=np.float32)
+    if blend != 'gaussian':
+        raise ValueError('unsupported blend')
+    y = (np.arange(th, dtype=np.float32)-(th-1)/2)/(th/8)
+    x = (np.arange(tw, dtype=np.float32)-(tw-1)/2)/(tw/8)
+    weights = np.exp(np.float32(-0.5)*(y[:, None]**2+x[None, :]**2))
+    return np.maximum(weights/weights.max(), np.float32(1e-6))
+
+
+def tiled_logits(session, manifest, image, *, overlap=(0, 0), blend='constant', **limits):
+    """Row-major batch-one tiles, zero edge padding, float32 weighted logits.
+
+    Output and normalization storage scale with H*W. Limits are workload guards,
+    not hard memory caps. Input must remain unchanged for the duration of a call.
+    """
+    import numpy as np
+    if not isinstance(image, np.ndarray) or image.dtype != np.float32:
+        raise ValueError('input must be a float32 NumPy array')
+    plan = tile_plan(image.shape, manifest, overlap=overlap, blend=blend, **limits)
+    _, _, h, w = image.shape
+    th, tw = plan['tile_size']
+    # Scan bounded strips before model calls; avoid an image-sized finite mask.
+    for y in range(0, h, th):
+        for x in range(0, w, tw):
+            if not np.isfinite(image[..., y:y+th, x:x+tw]).all():
+                raise ValueError('image contains nonfinite values')
+    weights = blend_weights((th, tw), blend)
+    accumulation = np.zeros(plan['output_shape'], dtype=np.float32)
+    normalization = np.zeros((h, w), dtype=np.float32)
+    tile = np.zeros(manifest['input']['shape'], dtype=np.float32)
+    with np.errstate(over='ignore', invalid='ignore', divide='ignore'):
+        for y in plan['y_starts']:
+            for x in plan['x_starts']:
+                vh, vw = min(th, h-y), min(tw, w-x)
+                tile.fill(0)
+                tile[..., :vh, :vw] = image[..., y:y+vh, x:x+vw]
+                logits, = session.run(['logits'], {'image': tile})
+                if (not isinstance(logits, np.ndarray) or logits.dtype != np.float32
+                        or list(logits.shape) != manifest['output']['shape']
+                        or not np.isfinite(logits).all()):
+                    raise ValueError('runtime returned invalid or nonfinite logits')
+                weight = weights[:vh, :vw]
+                accumulation[..., y:y+vh, x:x+vw] += logits[..., :vh, :vw]*weight
+                normalization[y:y+vh, x:x+vw] += weight
+                del logits
+        # Normalize/check strips to keep temporary masks bounded by tile width/height.
+        for y in range(0, h, th):
+            for x in range(0, w, tw):
+                norm = normalization[y:y+th, x:x+tw]
+                if not (norm > 0).all() or not np.isfinite(norm).all():
+                    raise ValueError('invalid coverage normalization')
+                block = accumulation[..., y:y+th, x:x+tw]
+                block /= norm
+                if not np.isfinite(block).all():
+                    raise ValueError('logit accumulation overflowed')
+    return accumulation
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('bundle', type=Path)
+    parser.add_argument('input', type=Path, help='preprocessed float32 batch-one NCHW .npy')
+    parser.add_argument('--output', type=Path, required=True, help='new raw-logit .npy file')
+    parser.add_argument('--overlap', type=int, nargs=2, default=(0, 0), metavar=('H', 'W'))
+    parser.add_argument('--blend', choices=('constant', 'gaussian'), default='constant')
+    parser.add_argument('--threads', type=int, default=1)
+    for name, default in (('max-image-pixels', 16_777_216), ('max-input-elements', 16_000_000),
+                          ('max-output-elements', 16_000_000), ('max-tiles', 65_536)):
+        parser.add_argument('--'+name, type=int, default=default)
+    args = parser.parse_args(argv)
+    created = False
+    image = None
+    try:
+        import numpy as np
+        if args.output.exists() or args.output.is_symlink():
+            raise ValueError('output path must not exist')
+        session, manifest = load_bundle(args.bundle, args.threads)
+        image = np.load(args.input, mmap_mode='r', allow_pickle=False)
+        logits = tiled_logits(session, manifest, image, overlap=args.overlap, blend=args.blend,
+                              max_image_pixels=args.max_image_pixels, max_input_elements=args.max_input_elements,
+                              max_output_elements=args.max_output_elements, max_tiles=args.max_tiles)
+        with args.output.open('xb') as stream:
+            created = True
+            np.save(stream, logits, allow_pickle=False)
+    except BaseException as exc:
+        if created:
+            args.output.unlink(missing_ok=True)
+        if not isinstance(exc, Exception):
+            raise
+        print(f'onnx tiled inference: {exc}', file=sys.stderr)
+        return 2
+    finally:
+        if getattr(image, '_mmap', None) is not None:
+            image._mmap.close()
+        elif hasattr(image, 'close'):
+            image.close()
+    print(f'Saved float32 raw logits {list(logits.shape)} to {args.output}')
+    return 0
+
+
+def terminate(signum, frame):
+    raise SystemExit(128 + signum)
+
+
+if __name__ == '__main__':
+    signal.signal(signal.SIGTERM, terminate)
+    raise SystemExit(main())
