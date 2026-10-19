@@ -1,0 +1,58 @@
+{
+  "image": "IMG_20250614_210835",
+  "comparison_to_torch": {
+    "torch_default": {
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0,
+      "worst_bound_ratio": 0.0,
+      "label_disagreement": 0.0,
+      "passed": true
+    },
+    "torch_mkldnn_disabled": {
+      "max_absolute_error": 3.516674041748047e-06,
+      "mean_absolute_error": 2.393546997654208e-07,
+      "worst_bound_ratio": 0.31179942130464017,
+      "label_disagreement": 0.0,
+      "passed": true
+    },
+    "onnx_default": {
+      "max_absolute_error": 1.150369644165039e-05,
+      "mean_absolute_error": 2.7282294170244273e-07,
+      "worst_bound_ratio": 1.057426721758442,
+      "label_disagreement": 0.0,
+      "passed": false
+    },
+    "onnx_optimizations_disabled": {
+      "max_absolute_error": 6.362795829772949e-06,
+      "mean_absolute_error": 2.708653212913775e-07,
+      "worst_bound_ratio": 0.6109894589862717,
+      "label_disagreement": 0.0,
+      "passed": true
+    }
+  },
+  "errors_to_float64": {
+    "torch_default": {
+      "max_absolute_error": 8.028365968970608e-06,
+      "mean_absolute_error": 2.462013744197243e-07
+    },
+    "torch_mkldnn_disabled": {
+      "max_absolute_error": 4.782352137605583e-06,
+      "mean_absolute_error": 2.1669845478114512e-07
+    },
+    "onnx_default": {
+      "max_absolute_error": 4.380256621416834e-06,
+      "mean_absolute_error": 2.406929763817331e-07
+    },
+    "onnx_optimizations_disabled": {
+      "max_absolute_error": 3.5042075263724826e-06,
+      "mean_absolute_error": 2.3186514682251478e-07
+    }
+  },
+  "provenance": {
+    "experiments/investigate_fairscan.py": "850126981c284e324d903cc07203bd1e1c6bc991bb6a2c6036f22c8383b941d0",
+    "experiments/fairscan.py": "0fae90742efb89179333e65c7ec5e2d8052f28f822a7ddf64b0d9e715ae68912",
+    "results/fairscan/weights.pt": "b90a106edd10bce1b6d785d8923a2b824b11224b5bf1541b5f23b459ac97774f",
+    "results/fairscan/bundle/model.onnx": "36f2f85e8b51bb4ab1b2fc4b3f5a8156dde193eedd36fd96428fc9906a63433d"
+  },
+  "limitations": "Float64 is a diagnostic reference, not exact arithmetic. Different kernels are not isolated individually. No production setting, weight or tolerance changed."
+}

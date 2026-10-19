@@ -1,0 +1,1035 @@
+{
+  "dataset": "FairScan v1.0",
+  "creator": "pynicolas / FairScan contributors",
+  "source_url": "https://github.com/pynicolas/fairscan-dataset/releases/download/v1.0/document-segmentation-dataset-v1.0.zip",
+  "archive_sha256": "4352b37938dddd32e7d1110cffdf89c3c38875dd1931c73db4f51c1db7c88e5d",
+  "license": "CC BY-NC-SA 4.0",
+  "selection": "First 24 train and first 8 val JPEG paths in lexical order; upstream splits retained.",
+  "preprocessing": "RGB bilinear resize to 161x129; mask grayscale nearest resize; no EXIF transpose; float32 RGB / 255; mask > 0.",
+  "records": [
+    {
+      "split": "train",
+      "id": "IMG_20250614_202602",
+      "sources": [
+        {
+          "path": "document-segmentation-dataset/train/images/IMG_20250614_202602.jpg",
+          "sha256": "a57dd7af4cdc1b756a8d48a45ce0d3f59fedc0c41244bc0656f5da3eaf3c6e46",
+          "size": [
+            1024,
+            768
+          ]
+        },
+        {
+          "path": "document-segmentation-dataset/train/masks/IMG_20250614_202602.png",
+          "sha256": "b488efb4b4edaee2d8ea3ac0872f5d3a82f7d5fbfca217f229beccd3985c48d4",
+          "size": [
+            1024,
+            768
+          ]
+        }
+      ],
+      "files": [
+        {
+          "path": "train-IMG_20250614_202602-image.png",
+          "sha256": "fb111ad2fd09a119c5aee5d058569c5186a7294a42068f39765d28661d16ac06"
+        },
+        {
+          "path": "train-IMG_20250614_202602-mask.png",
+          "sha256": "2afa2e76ec702bab525820e40db311a4b7789a02657e5fb9ac74845f39117df4"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "id": "IMG_20250614_202659",
+      "sources": [
+        {
+          "path": "document-segmentation-dataset/train/images/IMG_20250614_202659.jpg",
+          "sha256": "9a365fef6505dd71a6ac712dd7ca4d7d7d16990c317721b3611b071171c834f1",
+          "size": [
+            1024,
+            768
+          ]
+        },
+        {
+          "path": "document-segmentation-dataset/train/masks/IMG_20250614_202659.png",
+          "sha256": "678b4f2a2ee919148d1cfad25dfed80171c836506c64887c00f06d0164614c3f",
+          "size": [
+            1024,
+            768
+          ]
+        }
+      ],
+      "files": [
+        {
+          "path": "train-IMG_20250614_202659-image.png",
+          "sha256": "fe51f71a443f1f285433e1ca8d00f287b253d2ff90c3a8881b987226358d7d70"
+        },
+        {
+          "path": "train-IMG_20250614_202659-mask.png",
+          "sha256": "a2c5b9a2ba861b3a8677dd7a2bffa242b5dff1a2740e50d8262c35fd0e92b0e2"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "id": "IMG_20250614_202752",
+      "sources": [
+        {
+          "path": "document-segmentation-dataset/train/images/IMG_20250614_202752.jpg",
+          "sha256": "6128aeb1165ee5d7821ce5c1ac74757b74aecc5798b91e0c7beb5548ddbdb46d",
+          "size": [
+            1024,
+            768
+          ]
+        },
+        {
+          "path": "document-segmentation-dataset/train/masks/IMG_20250614_202752.png",
+          "sha256": "1f4de41e24ce50dfb8c9f73f66b3c963443bc8ed5446de57031087fac7b4aa31",
+          "size": [
+            1024,
+            768
+          ]
+        }
+      ],
+      "files": [
+        {
+          "path": "train-IMG_20250614_202752-image.png",
+          "sha256": "defc5487450a5abcc5d0d4ea470b0f8a89894e0380118c3cbeca0e0ccdb63d6f"
+        },
+        {
+          "path": "train-IMG_20250614_202752-mask.png",
+          "sha256": "5b9e83d386b83fec421d04227f81bf6360371adbf2e1e60ec458666364180606"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "id": "IMG_20250614_203133",
+      "sources": [
+        {
+          "path": "document-segmentation-dataset/train/images/IMG_20250614_203133.jpg",
+          "sha256": "b1d60dfee31aa01785a0cd82c5821e3eefce9a3461c527205179e8de462b107c",
+          "size": [
+            1024,
+            768
+          ]
+        },
+        {
+          "path": "document-segmentation-dataset/train/masks/IMG_20250614_203133.png",
+          "sha256": "e032e422f8d8ea71df854363f535c30191f9567f6fba76a72c3d5da0cc365b6b",
+          "size": [
+            1024,
+            768
+          ]
+        }
+      ],
+      "files": [
+        {
+          "path": "train-IMG_20250614_203133-image.png",
+          "sha256": "b1ebb74c7e8b24256250892180a214b37fc93aa02072240a304c6398063521ad"
+        },
+        {
+          "path": "train-IMG_20250614_203133-mask.png",
+          "sha256": "5073d4fc2b2ed825fd2dca8d18d559ae1f063152af69e48486d10115d997227a"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "id": "IMG_20250614_203228",
+      "sources": [
+        {
+          "path": "document-segmentation-dataset/train/images/IMG_20250614_203228.jpg",
+          "sha256": "e8b86a0db57c186bbd8d9fc768934b09f5ee994ba92be58fc801ef021911a39f",
+          "size": [
+            1024,
+            768
+          ]
+        },
+        {
+          "path": "document-segmentation-dataset/train/masks/IMG_20250614_203228.png",
+          "sha256": "066116cf5dcd32d0a72cf89becf6cbf66df27f3cac0eaf9012abfd67ad07fb85",
+          "size": [
+            1024,
+            768
+          ]
+        }
+      ],
+      "files": [
+        {
+          "path": "train-IMG_20250614_203228-image.png",
+          "sha256": "b2e3cda3082aa7113277b44d7c1a5d711e0038181cdf2a5eb135a5e912fc4e60"
+        },
+        {
+          "path": "train-IMG_20250614_203228-mask.png",
+          "sha256": "2bc173ff38b6382bab250a375ec2b4132b9cc7540f0614d356ee090ec8526f3c"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "id": "IMG_20250614_203517",
+      "sources": [
+        {
+          "path": "document-segmentation-dataset/train/images/IMG_20250614_203517.jpg",
+          "sha256": "76cd362350cbe69d83163b691069e8ca22747e08ec95e4d5efb23dfbd326fa8d",
+          "size": [
+            1024,
+            768
+          ]
+        },
+        {
+          "path": "document-segmentation-dataset/train/masks/IMG_20250614_203517.png",
+          "sha256": "b97a8a1ec8a01b09d0b00ff1df28d61bbd4623f8bc99156637a4b151858fc0d6",
+          "size": [
+            1024,
+            768
+          ]
+        }
+      ],
+      "files": [
+        {
+          "path": "train-IMG_20250614_203517-image.png",
+          "sha256": "2c7311571c6b9b7d0db67eb7b389251dfe9bce13d28ae6f27674283072c0dcf6"
+        },
+        {
+          "path": "train-IMG_20250614_203517-mask.png",
+          "sha256": "e5b2c7c959ffd07739058212764c15a0b1bda19652b839201fba4a5f7ee72f90"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "id": "IMG_20250614_203621",
+      "sources": [
+        {
+          "path": "document-segmentation-dataset/train/images/IMG_20250614_203621.jpg",
+          "sha256": "4dc727b0a6dd9868cf93cefb94933c7d34d288449da23406df838472f23ba107",
+          "size": [
+            1024,
+            768
+          ]
+        },
+        {
+          "path": "document-segmentation-dataset/train/masks/IMG_20250614_203621.png",
+          "sha256": "f0395103baa795964084166a38135e4a867ecc8f61640474d460012af30bc30e",
+          "size": [
+            1024,
+            768
+          ]
+        }
+      ],
+      "files": [
+        {
+          "path": "train-IMG_20250614_203621-image.png",
+          "sha256": "f9a3d67ae627427bc7f219cdc5244cc0b1eea39cb599946308808dbf8fe85477"
+        },
+        {
+          "path": "train-IMG_20250614_203621-mask.png",
+          "sha256": "6febe7c36dc576332fae688972569fa455f8281f5823fdf02d60403a20e46aa0"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "id": "IMG_20250614_203653",
+      "sources": [
+        {
+          "path": "document-segmentation-dataset/train/images/IMG_20250614_203653.jpg",
+          "sha256": "c75882479a8abccd511009965f661b3b62de2762de16d0933014fbd28d05f567",
+          "size": [
+            1024,
+            768
+          ]
+        },
+        {
+          "path": "document-segmentation-dataset/train/masks/IMG_20250614_203653.png",
+          "sha256": "58144e57d16127a1c7483b86beb86e0ab174dde09ec7c9693d331393d817d085",
+          "size": [
+            1024,
+            768
+          ]
+        }
+      ],
+      "files": [
+        {
+          "path": "train-IMG_20250614_203653-image.png",
+          "sha256": "58d3a2cea5aeb408127f5158533c54a12a752a29be66038a7f1703aec79884b4"
+        },
+        {
+          "path": "train-IMG_20250614_203653-mask.png",
+          "sha256": "8ef586dcccbd5d561d60fb92c7e04b23855183657ece9cf57a860aefb5c3bd63"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "id": "IMG_20250614_203809",
+      "sources": [
+        {
+          "path": "document-segmentation-dataset/train/images/IMG_20250614_203809.jpg",
+          "sha256": "2f6f531555fad9576b35ea0a69b6b699e45dcd208e6d893dd3c18635d69b5ecc",
+          "size": [
+            1024,
+            768
+          ]
+        },
+        {
+          "path": "document-segmentation-dataset/train/masks/IMG_20250614_203809.png",
+          "sha256": "68f519fa1175f9c5c71eba2ff2669607db00207eab32fbd310d51383b5a73a88",
+          "size": [
+            1024,
+            768
+          ]
+        }
+      ],
+      "files": [
+        {
+          "path": "train-IMG_20250614_203809-image.png",
+          "sha256": "62a5ef0bfb08684c978f072e24a4a4aa2eef326c18084aff11018872b9e6c9b6"
+        },
+        {
+          "path": "train-IMG_20250614_203809-mask.png",
+          "sha256": "8e2eb19432b0757dba1970bba14d8218fe04a93a14bb606c1629f0ec3c17b114"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "id": "IMG_20250614_204058",
+      "sources": [
+        {
+          "path": "document-segmentation-dataset/train/images/IMG_20250614_204058.jpg",
+          "sha256": "9ba82c71d7c17dfde43449f839757c3e552fdf1ad8faf9ca170752c280820698",
+          "size": [
+            1024,
+            768
+          ]
+        },
+        {
+          "path": "document-segmentation-dataset/train/masks/IMG_20250614_204058.png",
+          "sha256": "5d8432fe8dd31e5e9397731fd13c5ee451be477f5a08055d9d2b2c06d14c05ea",
+          "size": [
+            1024,
+            768
+          ]
+        }
+      ],
+      "files": [
+        {
+          "path": "train-IMG_20250614_204058-image.png",
+          "sha256": "4dacac8736b09b67bdba11db4ddef7857c4c8f1bba9046d8220693f83dcb57be"
+        },
+        {
+          "path": "train-IMG_20250614_204058-mask.png",
+          "sha256": "8a709236fda4a9b3df6ae9793689a295c00b8e1257306a66f000093af99b09fe"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "id": "IMG_20250614_204611",
+      "sources": [
+        {
+          "path": "document-segmentation-dataset/train/images/IMG_20250614_204611.jpg",
+          "sha256": "9a885f25fa450ebe81fdf7d5a3139a13d66685310ec5518b1fa21e176c304e3c",
+          "size": [
+            1024,
+            768
+          ]
+        },
+        {
+          "path": "document-segmentation-dataset/train/masks/IMG_20250614_204611.png",
+          "sha256": "01bf503ddd16247aa0ef2eb7766bf53d247d73f6b8ceadc524f67b61b233cb48",
+          "size": [
+            1024,
+            768
+          ]
+        }
+      ],
+      "files": [
+        {
+          "path": "train-IMG_20250614_204611-image.png",
+          "sha256": "722e08f5e7fcd1631c1b88a9bb8ee8528d57ececca32f8b554f1e93bb16eb4b6"
+        },
+        {
+          "path": "train-IMG_20250614_204611-mask.png",
+          "sha256": "a443ca17816c3d2ac3eb12fdac42252a6b761ee73c93c0e0a6b924792faa942a"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "id": "IMG_20250614_204727",
+      "sources": [
+        {
+          "path": "document-segmentation-dataset/train/images/IMG_20250614_204727.jpg",
+          "sha256": "ee81608c462981f54914457be6552ade5d7dade7db61877e834d0002a43121b3",
+          "size": [
+            1024,
+            768
+          ]
+        },
+        {
+          "path": "document-segmentation-dataset/train/masks/IMG_20250614_204727.png",
+          "sha256": "219ad3eb50e26fcbb22d4dbe14b52ed3b9712119391dc3cfa0b8fef9b5401880",
+          "size": [
+            1024,
+            768
+          ]
+        }
+      ],
+      "files": [
+        {
+          "path": "train-IMG_20250614_204727-image.png",
+          "sha256": "fd7e22c761f1519846dd592dae673e1c32f0adcac0959347d430168ee5441c7a"
+        },
+        {
+          "path": "train-IMG_20250614_204727-mask.png",
+          "sha256": "3a4023dd6312d09e8c12452371ec5080b0735acc3fed89f95b9e7bbf24e95524"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "id": "IMG_20250614_205022",
+      "sources": [
+        {
+          "path": "document-segmentation-dataset/train/images/IMG_20250614_205022.jpg",
+          "sha256": "36994a39a3360c38f1fe45d75850f6a5aac97a66f3634594285e235764a761b5",
+          "size": [
+            1024,
+            768
+          ]
+        },
+        {
+          "path": "document-segmentation-dataset/train/masks/IMG_20250614_205022.png",
+          "sha256": "37b850c1adc8908a287b04c2b07708aa71862d9f974c76cb021ca764eba62403",
+          "size": [
+            1024,
+            768
+          ]
+        }
+      ],
+      "files": [
+        {
+          "path": "train-IMG_20250614_205022-image.png",
+          "sha256": "16e29e38ddb7dfe04313834aeb977b33db60de7772f8d3e69da0e0e1ec9bb0c9"
+        },
+        {
+          "path": "train-IMG_20250614_205022-mask.png",
+          "sha256": "e5c631308c822d1327f6a19a3c87ff5100e02f6cd49036ca4eb7284cbbbaa47f"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "id": "IMG_20250614_205151",
+      "sources": [
+        {
+          "path": "document-segmentation-dataset/train/images/IMG_20250614_205151.jpg",
+          "sha256": "8545aafb15dcde54a2778588959e588cb5df809115dc23df412c42ca136b302e",
+          "size": [
+            1024,
+            768
+          ]
+        },
+        {
+          "path": "document-segmentation-dataset/train/masks/IMG_20250614_205151.png",
+          "sha256": "2b4616a1e39145dd10d24f5e69d50feb2ac16ad465bc582e73e5cdb87e3d1856",
+          "size": [
+            1024,
+            768
+          ]
+        }
+      ],
+      "files": [
+        {
+          "path": "train-IMG_20250614_205151-image.png",
+          "sha256": "dd846534309431924e53dbd714d1c842ba5982a797923a6b470325455b5f95b4"
+        },
+        {
+          "path": "train-IMG_20250614_205151-mask.png",
+          "sha256": "e5b2aaa8c105e7b41c99f4d7e004008f13c8709511d4625817135219a3a9d7d5"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "id": "IMG_20250614_205337",
+      "sources": [
+        {
+          "path": "document-segmentation-dataset/train/images/IMG_20250614_205337.jpg",
+          "sha256": "a561fb0308766fe86ec3159a15c5cb4bedb9f3167a1aea7c6016ba97e42279a4",
+          "size": [
+            1024,
+            768
+          ]
+        },
+        {
+          "path": "document-segmentation-dataset/train/masks/IMG_20250614_205337.png",
+          "sha256": "f7ec83dab3dc8e909f507b65c5fcb436b2ba913abd9813cd2d866434ba23c613",
+          "size": [
+            1024,
+            768
+          ]
+        }
+      ],
+      "files": [
+        {
+          "path": "train-IMG_20250614_205337-image.png",
+          "sha256": "74ae5b986a3b326b1bd75013c03f536a1d66e8c114b6a8e3c5c7303f20afb3ab"
+        },
+        {
+          "path": "train-IMG_20250614_205337-mask.png",
+          "sha256": "65da432f162a5d8ad053531bc29f5decb4413a59b2a281dc318ae0622c19df9e"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "id": "IMG_20250614_205449",
+      "sources": [
+        {
+          "path": "document-segmentation-dataset/train/images/IMG_20250614_205449.jpg",
+          "sha256": "f8ed368d7b8a260a902a12eee9bc95efcf15210fc13f1915605034223f2f6716",
+          "size": [
+            1024,
+            768
+          ]
+        },
+        {
+          "path": "document-segmentation-dataset/train/masks/IMG_20250614_205449.png",
+          "sha256": "67eb37cf5cee72bb0525db1729d85ebca36a44cee23a49aca8ad6fe5183d109e",
+          "size": [
+            1024,
+            768
+          ]
+        }
+      ],
+      "files": [
+        {
+          "path": "train-IMG_20250614_205449-image.png",
+          "sha256": "018745ae29e2c439bd851972f79ff45dd26868514ed6714fc31653e38d9e2798"
+        },
+        {
+          "path": "train-IMG_20250614_205449-mask.png",
+          "sha256": "2df0aa4f51b0054bc30a1fb0481267706adbb75feb435ac10640bd54ce89345f"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "id": "IMG_20250614_205623",
+      "sources": [
+        {
+          "path": "document-segmentation-dataset/train/images/IMG_20250614_205623.jpg",
+          "sha256": "26ad3397cb884bfcba6152c191c3e3f297d32faf94f106dfeed86be280dd3c22",
+          "size": [
+            1024,
+            768
+          ]
+        },
+        {
+          "path": "document-segmentation-dataset/train/masks/IMG_20250614_205623.png",
+          "sha256": "379fdd13724b0a2651ffc1328c4d0ce4316a4391136550da015ef2312f393f53",
+          "size": [
+            1024,
+            768
+          ]
+        }
+      ],
+      "files": [
+        {
+          "path": "train-IMG_20250614_205623-image.png",
+          "sha256": "ffec05a2cc6eb4e11e8ff43090376c8f0527bce329d559be3ca1dc1b4623990a"
+        },
+        {
+          "path": "train-IMG_20250614_205623-mask.png",
+          "sha256": "79f6d12417eaa3b82708b4e496a667bc1538c01dc8d82b380c7eeb543fe5a7ab"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "id": "IMG_20250614_205751",
+      "sources": [
+        {
+          "path": "document-segmentation-dataset/train/images/IMG_20250614_205751.jpg",
+          "sha256": "e47bb959d5d731e1d397a0bda0eb98fb6b155920ef86ea30c4e0be9c9102318c",
+          "size": [
+            1024,
+            768
+          ]
+        },
+        {
+          "path": "document-segmentation-dataset/train/masks/IMG_20250614_205751.png",
+          "sha256": "01b48c9c36f993abddf27cf176f0d1e5f4f4539e955a285c4d3bb6718eb0c244",
+          "size": [
+            1024,
+            768
+          ]
+        }
+      ],
+      "files": [
+        {
+          "path": "train-IMG_20250614_205751-image.png",
+          "sha256": "a328b4c5ec340088d9435afba46758168ca2cd2e07f1b347af1e2bfaad1740ed"
+        },
+        {
+          "path": "train-IMG_20250614_205751-mask.png",
+          "sha256": "ac0005e1d027a117973d431f92b37d81ec3dee36d22a64b17968ac86578a56ad"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "id": "IMG_20250614_205903",
+      "sources": [
+        {
+          "path": "document-segmentation-dataset/train/images/IMG_20250614_205903.jpg",
+          "sha256": "a443fb4e7a84fd5d4c092b26fca955665a729c90dfd76b5304cf71532812b330",
+          "size": [
+            1024,
+            768
+          ]
+        },
+        {
+          "path": "document-segmentation-dataset/train/masks/IMG_20250614_205903.png",
+          "sha256": "141d5706a512d0eee8ce1a5e74107e620fa1ea44ff86292671dd80d3c86d0426",
+          "size": [
+            1024,
+            768
+          ]
+        }
+      ],
+      "files": [
+        {
+          "path": "train-IMG_20250614_205903-image.png",
+          "sha256": "7e69e56b0392edc03a48cca9490032234d889d391f96c1ae2732d62fdfdc4031"
+        },
+        {
+          "path": "train-IMG_20250614_205903-mask.png",
+          "sha256": "14cec9cf97a290442866f97ff172e328d7e939dafde9e4f0cab65f6b2cc5c1e7"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "id": "IMG_20250614_210435",
+      "sources": [
+        {
+          "path": "document-segmentation-dataset/train/images/IMG_20250614_210435.jpg",
+          "sha256": "e7901ba5fbf83df1c9c89748ba93ff6eb7bd67384cac2b5ecabd5c18ca5628e6",
+          "size": [
+            1024,
+            768
+          ]
+        },
+        {
+          "path": "document-segmentation-dataset/train/masks/IMG_20250614_210435.png",
+          "sha256": "4ab989ab002b5aadbb9991c0b15a5fb3753dbf7e8b5a2606808a9682e14586e3",
+          "size": [
+            1024,
+            768
+          ]
+        }
+      ],
+      "files": [
+        {
+          "path": "train-IMG_20250614_210435-image.png",
+          "sha256": "3838d646ce16c7fee77df52592c833b5db10fd93a28f0414010c53d55560cc57"
+        },
+        {
+          "path": "train-IMG_20250614_210435-mask.png",
+          "sha256": "3d6fd052f304666f53e5728255e3ef3ddfa6fb0bb9f98a466b4e5aefba3d0b87"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "id": "IMG_20250614_210656",
+      "sources": [
+        {
+          "path": "document-segmentation-dataset/train/images/IMG_20250614_210656.jpg",
+          "sha256": "7b486fc1e8dcdb972e27d6174d4a2dcf6334d147322dbab6f36687fcaec7edc3",
+          "size": [
+            1024,
+            768
+          ]
+        },
+        {
+          "path": "document-segmentation-dataset/train/masks/IMG_20250614_210656.png",
+          "sha256": "0b6bc6e6b6f4c92b5b4b1cc57a3bcf3a273195eca67b2b3dedc3273030ad6c66",
+          "size": [
+            1024,
+            768
+          ]
+        }
+      ],
+      "files": [
+        {
+          "path": "train-IMG_20250614_210656-image.png",
+          "sha256": "7b699e5d3d63ab2a677bcc3337aa2778763e26ccbf1ed9e6c6ca0e4c45a06d14"
+        },
+        {
+          "path": "train-IMG_20250614_210656-mask.png",
+          "sha256": "4ffa6201eb1e3c7b62324cd697ce9ec912399ca9893dd8b86e079d5f115c1ce2"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "id": "IMG_20250614_210955",
+      "sources": [
+        {
+          "path": "document-segmentation-dataset/train/images/IMG_20250614_210955.jpg",
+          "sha256": "90e9a10d5e6e375be48a8dc9e873520b45b8f73210e886da62c2b8ca31394197",
+          "size": [
+            1024,
+            768
+          ]
+        },
+        {
+          "path": "document-segmentation-dataset/train/masks/IMG_20250614_210955.png",
+          "sha256": "30f0b1e263719815870871b0dbd739ea9f9c9a6afced7fce29c3c9fe5f08f164",
+          "size": [
+            1024,
+            768
+          ]
+        }
+      ],
+      "files": [
+        {
+          "path": "train-IMG_20250614_210955-image.png",
+          "sha256": "af50ccfb6e1ba48f6ea5a72eedfd916c3fcd46e558aa2f0dfd5ce196166e3154"
+        },
+        {
+          "path": "train-IMG_20250614_210955-mask.png",
+          "sha256": "5c8558834316a1ffc4ae1e0ddfbf542983a444f33372b0815ba02f2feb50d369"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "id": "IMG_20250614_211156",
+      "sources": [
+        {
+          "path": "document-segmentation-dataset/train/images/IMG_20250614_211156.jpg",
+          "sha256": "acae0761b69bd889f19f78153fffaa6f23b364e210ce353ab7c51d9ed24831ed",
+          "size": [
+            1024,
+            768
+          ]
+        },
+        {
+          "path": "document-segmentation-dataset/train/masks/IMG_20250614_211156.png",
+          "sha256": "1a28ed03495ba538f07bc803a48fa1cce1f7999f61b036e78b090764bf697b64",
+          "size": [
+            1024,
+            768
+          ]
+        }
+      ],
+      "files": [
+        {
+          "path": "train-IMG_20250614_211156-image.png",
+          "sha256": "103ace46cd15ccf109b29306c2828caf868389c3cbf8fa92b422321e32d1b389"
+        },
+        {
+          "path": "train-IMG_20250614_211156-mask.png",
+          "sha256": "4e0936aa19b578a2511827700f09641d6f8543d3b1d9c3f4d8c79d93b68b8527"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "id": "IMG_20250614_211427",
+      "sources": [
+        {
+          "path": "document-segmentation-dataset/train/images/IMG_20250614_211427.jpg",
+          "sha256": "1c12fc3e38ec0e4764b35d96013e07f4ec7eeeb16f1601ec22fe36cf8b33fff1",
+          "size": [
+            1024,
+            768
+          ]
+        },
+        {
+          "path": "document-segmentation-dataset/train/masks/IMG_20250614_211427.png",
+          "sha256": "0eeaa70bc61fb335e5e81f622cd8c4ad345430163b8be08dce46b88c7b514af1",
+          "size": [
+            1024,
+            768
+          ]
+        }
+      ],
+      "files": [
+        {
+          "path": "train-IMG_20250614_211427-image.png",
+          "sha256": "4c2d94d84c684441cf09cc6096d4d09a21229f7caa562935b3e4deaa46b40ee5"
+        },
+        {
+          "path": "train-IMG_20250614_211427-mask.png",
+          "sha256": "b5a041eeae341e0793497e7ae6c4f715b7746619233acc1de73357cdffd47184"
+        }
+      ]
+    },
+    {
+      "split": "val",
+      "id": "IMG_20250614_202917",
+      "sources": [
+        {
+          "path": "document-segmentation-dataset/val/images/IMG_20250614_202917.jpg",
+          "sha256": "7109946c934634b859409ed255775e02850170bdb82f26fda1214217a962afc0",
+          "size": [
+            1024,
+            768
+          ]
+        },
+        {
+          "path": "document-segmentation-dataset/val/masks/IMG_20250614_202917.png",
+          "sha256": "84bf662b6f4c80f735e3a4746f4ee4b364f4a83f6fc3794dd83b88462cba785c",
+          "size": [
+            1024,
+            768
+          ]
+        }
+      ],
+      "files": [
+        {
+          "path": "val-IMG_20250614_202917-image.png",
+          "sha256": "925a1e8b09cf7620203dbc91be76c650f358f4b13d3da38207d5ad745da037e2"
+        },
+        {
+          "path": "val-IMG_20250614_202917-mask.png",
+          "sha256": "365d9936ba6291421d26b206859aef184977cc185b4c9b0eab965341585ef5d5"
+        }
+      ]
+    },
+    {
+      "split": "val",
+      "id": "IMG_20250614_202945",
+      "sources": [
+        {
+          "path": "document-segmentation-dataset/val/images/IMG_20250614_202945.jpg",
+          "sha256": "3d0ae1b8ae81cc50dd4eda7ba48001ca9797a8e9892ab230c0efaf36a128a442",
+          "size": [
+            1024,
+            768
+          ]
+        },
+        {
+          "path": "document-segmentation-dataset/val/masks/IMG_20250614_202945.png",
+          "sha256": "7ca9517611c0eb7cc1a031259ec316368c9617548c8f8f5d8055ff4b8a1ce95c",
+          "size": [
+            1024,
+            768
+          ]
+        }
+      ],
+      "files": [
+        {
+          "path": "val-IMG_20250614_202945-image.png",
+          "sha256": "08327909164f6cdd3df7f9e4f471d55dcc577257d8a1c5609b5f003a4ca1bda2"
+        },
+        {
+          "path": "val-IMG_20250614_202945-mask.png",
+          "sha256": "fc5ad5a93e8e7ebab9923922f6543c4c69a915b4d5b623ffe933ec3703394f63"
+        }
+      ]
+    },
+    {
+      "split": "val",
+      "id": "IMG_20250614_203923",
+      "sources": [
+        {
+          "path": "document-segmentation-dataset/val/images/IMG_20250614_203923.jpg",
+          "sha256": "3a123de0291d13154de114efcf8040fe0850192ef2ddfbc4ee9fbc367d2b717c",
+          "size": [
+            1024,
+            768
+          ]
+        },
+        {
+          "path": "document-segmentation-dataset/val/masks/IMG_20250614_203923.png",
+          "sha256": "da884504ce485a1a768714254dbae2107bf7faf6f71aed86dbb3799aa149254e",
+          "size": [
+            1024,
+            768
+          ]
+        }
+      ],
+      "files": [
+        {
+          "path": "val-IMG_20250614_203923-image.png",
+          "sha256": "55d2dd29785e431e2f1e8c9cd47b216604a6b16fc528ae0eb5791d65f282ecb9"
+        },
+        {
+          "path": "val-IMG_20250614_203923-mask.png",
+          "sha256": "457b3981c70ee58d76b18b901d49a86f6ed512e5c314c15142d9a4f9771d8603"
+        }
+      ]
+    },
+    {
+      "split": "val",
+      "id": "IMG_20250614_204311",
+      "sources": [
+        {
+          "path": "document-segmentation-dataset/val/images/IMG_20250614_204311.jpg",
+          "sha256": "82ded3f9ea41c1aca0a32a2a27b80aebe528157bc7632be2dda9a7d34ccde111",
+          "size": [
+            1024,
+            768
+          ]
+        },
+        {
+          "path": "document-segmentation-dataset/val/masks/IMG_20250614_204311.png",
+          "sha256": "3e5faa48d0690ed37a4da3572c5434015f6f399e9af7f6ea964f9436243bcebb",
+          "size": [
+            1024,
+            768
+          ]
+        }
+      ],
+      "files": [
+        {
+          "path": "val-IMG_20250614_204311-image.png",
+          "sha256": "337938306a7a9617202c44a5e0aad7647b68efa3623631e46cad0a1d4e4edcae"
+        },
+        {
+          "path": "val-IMG_20250614_204311-mask.png",
+          "sha256": "6542bbcf3c243b6edafd05b52e85f6d100a7caaea9973c7f27fd5abf37824ef8"
+        }
+      ]
+    },
+    {
+      "split": "val",
+      "id": "IMG_20250614_204442",
+      "sources": [
+        {
+          "path": "document-segmentation-dataset/val/images/IMG_20250614_204442.jpg",
+          "sha256": "fb8bcb188af4ba0b5fd32d741e553850e41b9bf68875229a260a0f80d79a2f66",
+          "size": [
+            1024,
+            768
+          ]
+        },
+        {
+          "path": "document-segmentation-dataset/val/masks/IMG_20250614_204442.png",
+          "sha256": "c8dac526589cea8e361fb7a5878b0627497e7125371ac7245d258b99cbdc66b2",
+          "size": [
+            1024,
+            768
+          ]
+        }
+      ],
+      "files": [
+        {
+          "path": "val-IMG_20250614_204442-image.png",
+          "sha256": "e9e7dbc0d3e64fe916cc8c22596a962b687aa90d50da11120a4884a5bb277b28"
+        },
+        {
+          "path": "val-IMG_20250614_204442-mask.png",
+          "sha256": "53f384322c09a66fe875158b32c7d6bb33a8f37e4d21f6c1e444602afbe88aba"
+        }
+      ]
+    },
+    {
+      "split": "val",
+      "id": "IMG_20250614_204822",
+      "sources": [
+        {
+          "path": "document-segmentation-dataset/val/images/IMG_20250614_204822.jpg",
+          "sha256": "ba82d334110b2c7a3047bdb3436c3b4002a8794e7577335b3bfabe06cb49ebf7",
+          "size": [
+            1024,
+            768
+          ]
+        },
+        {
+          "path": "document-segmentation-dataset/val/masks/IMG_20250614_204822.png",
+          "sha256": "c2482cab91b2f6457db0ca31ee3d6bad9fbac111ff253e7db98843809ebd6363",
+          "size": [
+            1024,
+            768
+          ]
+        }
+      ],
+      "files": [
+        {
+          "path": "val-IMG_20250614_204822-image.png",
+          "sha256": "bc0702fd134f574e9b70bebdd704786dc0198c2e9a51e509b2283ebc40686861"
+        },
+        {
+          "path": "val-IMG_20250614_204822-mask.png",
+          "sha256": "d1f03bb00593d5ef9ee4c7ea2c4607b4835d75d58b6d327cb87c2fa72046d3d5"
+        }
+      ]
+    },
+    {
+      "split": "val",
+      "id": "IMG_20250614_210804",
+      "sources": [
+        {
+          "path": "document-segmentation-dataset/val/images/IMG_20250614_210804.jpg",
+          "sha256": "7939183e4a07430742a55bfc94e36c9e213e5c681bfb0dfc64ca37d590e9febd",
+          "size": [
+            1024,
+            768
+          ]
+        },
+        {
+          "path": "document-segmentation-dataset/val/masks/IMG_20250614_210804.png",
+          "sha256": "8f6e9cd753d542c201d901602c3df2865e53cb749ad03eddc83c7550a5015a02",
+          "size": [
+            1024,
+            768
+          ]
+        }
+      ],
+      "files": [
+        {
+          "path": "val-IMG_20250614_210804-image.png",
+          "sha256": "73ee87a9ba503a5f2028d787da8e079cb00dfc9e5f51d11709b3ab67c4ef538a"
+        },
+        {
+          "path": "val-IMG_20250614_210804-mask.png",
+          "sha256": "f91d15e1d1c52e282e1ec7542f52f41f389cd48f8726d83da3d8b6d3dc8c109d"
+        }
+      ]
+    },
+    {
+      "split": "val",
+      "id": "IMG_20250614_210835",
+      "sources": [
+        {
+          "path": "document-segmentation-dataset/val/images/IMG_20250614_210835.jpg",
+          "sha256": "85930098e687896c397ab66825c1a6c8e16d8ee38e39cf4a332f145ceed67a43",
+          "size": [
+            1024,
+            768
+          ]
+        },
+        {
+          "path": "document-segmentation-dataset/val/masks/IMG_20250614_210835.png",
+          "sha256": "57cfa65cf03986898aba55e3900e38b0e2da39c221db51940a0f220c1cee789c",
+          "size": [
+            1024,
+            768
+          ]
+        }
+      ],
+      "files": [
+        {
+          "path": "val-IMG_20250614_210835-image.png",
+          "sha256": "3cf31788e35a9350c77d063f8d37a5255a2845b0f2c1dd5453600aa26d1dc53b"
+        },
+        {
+          "path": "val-IMG_20250614_210835-mask.png",
+          "sha256": "3851228e33c32dd8fce81a1b0cfc0ff1018f00abcfa4b0bab27d4de4a7fec2a4"
+        }
+      ]
+    }
+  ]
+}

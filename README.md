@@ -6,6 +6,13 @@ selects the **largest listed base width that fits a parameter budget** within on
 explicitly defined 2D U-Net family. It does not search for the most accurate model
 or optimize latency, activation memory, or training cost.
 
+For an end-to-end real-data workflow, see the [FairScan document-photo demo](docs/fairscan.md):
+compile a budgeted model, train/evaluate on licensed photographs and manual masks,
+export the saved weights, then run standalone ONNX tiles on a larger image.
+The guide includes a visible image-and-mask example, reproducible inputs and
+CPU measurements, and preserves an initial failed training run. FairScan assets
+are CC BY-NC-SA 4.0; the small experiment does not establish production accuracy.
+
 ## Install and use
 
 Python 3.10 or newer is required. In a virtual environment:

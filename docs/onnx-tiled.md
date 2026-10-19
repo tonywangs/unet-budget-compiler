@@ -72,6 +72,11 @@ dynamic shapes, quantization or non-CPU providers are supported by this command.
 Unrecognized CLI settings are rejected. Spatially downsampled outputs, non-float32
 arrays, empty arrays, nonfinite inputs/outputs and batches other than one are rejected.
 
+For a larger **real photograph** with a trained RGB model, see the
+[FairScan launch and image-and-mask demo](fairscan.md). Its overlapping Gaussian
+workflow passes the frozen runtime tolerance on eight validation images; the
+guide also retains a no-overlap tolerance failure and failed initial training run.
+
 Overlap cannot reconstruct context missing outside a tile. Pooling restarts at
 each tile origin, decoder resizing depends on tile dimensions, and padding small
 images can alter intermediate features. Thus tiled predictions need not match

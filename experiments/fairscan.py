@@ -1,0 +1,234 @@
+"""Train once on real licensed photos; replay tiled deployment without retraining."""
+import argparse
+import hashlib
+import importlib.metadata
+import json
+import platform
+from pathlib import Path
+import subprocess
+import sys
+import tempfile
+import time
+
+import numpy as np
+from PIL import Image, ImageDraw
+import torch
+from torch.nn import functional as F
+
+from unet_budget import compile_spec
+from unet_budget.export import export_model
+from unet_budget.inference import tiled_logits as torch_tiled
+from unet_budget.onnx_tiled import load_bundle, tiled_logits
+
+ROOT = Path(__file__).resolve().parents[1]
+DATA = ROOT / 'examples/fairscan-data'
+PROTOCOL = ROOT / 'experiments/fairscan_v2_protocol.json'
+SPEC = ROOT / 'examples/fairscan-v2.json'
+P = json.loads(PROTOCOL.read_text())
+
+
+def sha(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def dataset():
+    manifest = json.loads((DATA / 'manifest.json').read_text())
+    splits = {'train': [], 'val': []}
+    identities = {'train': set(), 'val': set()}
+    for record in manifest['records']:
+        for f in record['files']:
+            if sha(DATA / f['path']) != f['sha256']:
+                raise ValueError(f"dataset hash mismatch: {f['path']}")
+        with Image.open(DATA / record['files'][0]['path']) as im:
+            x = np.asarray(im.convert('RGB'), dtype=np.float32).transpose(2, 0, 1) / 255
+        with Image.open(DATA / record['files'][1]['path']) as im:
+            y = (np.asarray(im) > 0).astype(np.int64)
+        assert x.shape == (3, 129, 161) and y.shape == (129, 161)
+        splits[record['split']].append((record['id'], torch.from_numpy(x.copy()), torch.from_numpy(y.copy())))
+        identities[record['split']].add(record['sources'][0]['sha256'])
+    assert len(splits['train']) == 24 and len(splits['val']) == 8
+    assert not identities['train'] & identities['val']
+    return splits
+
+
+def make_model():
+    code, report = compile_spec(json.loads(SPEC.read_text()))
+    namespace = {}
+    exec(compile(code, '<fairscan-unet>', 'exec'), namespace)
+    return namespace['UNet'](), report
+
+
+def scores(pred, truth):
+    intersection = int(((pred == 1) & (truth == 1)).sum())
+    union = int(((pred == 1) | (truth == 1)).sum())
+    total = int((pred == 1).sum() + (truth == 1).sum())
+    return dict(foreground_dice=2 * intersection / max(total, 1),
+                foreground_iou=intersection / max(union, 1), pixel_accuracy=float((pred == truth).mean()))
+
+
+def compare(reference, actual):
+    error = np.abs(actual.astype(np.float64) - reference.astype(np.float64))
+    bound = P['atol'] + P['rtol'] * np.abs(reference)
+    result = dict(max_absolute_error=float(error.max()), mean_absolute_error=float(error.mean()),
+                  worst_bound_ratio=float((error / bound).max()),
+                  label_disagreement=float((reference.argmax(1) != actual.argmax(1)).mean()))
+    result['passed'] = bool(np.all(error <= bound) and result['max_absolute_error'] <= P['max_absolute_error']
+                            and result['mean_absolute_error'] <= P['mean_absolute_error']
+                            and result['label_disagreement'] <= P['label_disagreement'])
+    return result
+
+
+def train(model, samples):
+    optimizer = torch.optim.Adam(model.parameters(), lr=P['learning_rate'])
+    generator = torch.Generator().manual_seed(P['crop_seed'])
+    losses = []
+    start = time.perf_counter()
+    model.train()
+    for epoch in range(P['epochs']):
+        crops = []
+        for _, image, target in samples:
+            for _ in range(P['crops_per_image_per_epoch']):
+                y = int(torch.randint(0, 129-P['tile'][0]+1, (), generator=generator))
+                x = int(torch.randint(0, 161-P['tile'][1]+1, (), generator=generator))
+                crops.append((image[:, y:y+65, x:x+81], target[y:y+65, x:x+81]))
+        order = torch.randperm(len(crops), generator=generator).tolist()
+        loss_sum = 0.0
+        for offset in range(0, len(order), P['batch_size']):
+            batch = [crops[i] for i in order[offset:offset+P['batch_size']]]
+            images = torch.stack([c[0] for c in batch])
+            targets = torch.stack([c[1] for c in batch])
+            optimizer.zero_grad(set_to_none=True)
+            loss = F.cross_entropy(model(images), targets)
+            if not torch.isfinite(loss):
+                raise ValueError('nonfinite training loss')
+            loss.backward()
+            optimizer.step()
+            loss_sum += float(loss.detach()) * len(batch)
+        losses.append(loss_sum / len(crops))
+        print(f'epoch {epoch+1}: loss={losses[-1]:.6f}', flush=True)
+    return dict(epoch_mean_cross_entropy=losses, elapsed_seconds=time.perf_counter()-start,
+                optimizer_steps=P['epochs'] * len(crops) // P['batch_size'])
+
+
+def demo(path, image, truth, prediction):
+    canvas = Image.new('RGB', (161*3, 153), 'white')
+    panels = [Image.fromarray(np.uint8(np.clip(image.transpose(1, 2, 0)*255, 0, 255))),
+              Image.fromarray(np.uint8(truth*255)).convert('RGB'),
+              Image.fromarray(np.uint8(prediction*255)).convert('RGB')]
+    draw = ImageDraw.Draw(canvas)
+    for i, (panel, title) in enumerate(zip(panels, ['Real photograph', 'Annotated mask', 'Tiled ONNX prediction'])):
+        canvas.paste(panel, (161*i, 24))
+        draw.text((161*i+3, 5), title, fill='black')
+    canvas.save(path)
+
+
+def evaluate(model, samples, output, write):
+    session, contract = load_bundle(output / 'bundle', threads=1)
+    rows, predictions, truths, full_predictions = [], [], [], []
+    timings = {'torch_ms': [], 'onnx_ms': []}
+    model.eval()
+    for index, (identity, image, target) in enumerate(samples):
+        x = image.unsqueeze(0).numpy()
+        truth = target.numpy()[None]
+        with torch.inference_mode():
+            full = model(torch.from_numpy(x)).numpy()
+        for blend, overlap in [('constant', [0, 0]), ('constant', P['overlap']), ('gaussian', P['overlap'])]:
+            with torch.inference_mode():
+                reference = torch_tiled(model, torch.from_numpy(x), tile_size=P['tile'],
+                                        overlap=overlap, blend=blend, tile_batch_size=1).numpy()
+            actual = tiled_logits(session, contract, x, overlap=overlap, blend=blend)
+            assert actual.shape == (1, 2, 129, 161)
+            rows.append(dict(id=identity, blend=blend, overlap=overlap, parity=compare(reference, actual),
+                             metrics=scores(actual.argmax(1), truth),
+                             tiled_vs_full=dict(max_absolute_error=float(np.abs(actual-full).max()),
+                                                label_disagreement=float((actual.argmax(1) != full.argmax(1)).mean()))))
+        # Last result is the predeclared Gaussian-overlap deployment method.
+        predictions.append(actual.argmax(1))
+        full_predictions.append(full.argmax(1))
+        truths.append(truth)
+        if index == 0:
+            if write:
+                np.save(output / 'input.npy', x, allow_pickle=False)
+                np.save(output / 'logits.npy', actual, allow_pickle=False)
+                np.save(output / 'target.npy', truth, allow_pickle=False)
+                demo(output / 'demo.png', x[0], truth[0], actual.argmax(1)[0])
+            else:
+                np.testing.assert_array_equal(np.load(output / 'input.npy'), x)
+                np.testing.assert_array_equal(np.load(output / 'target.npy'), truth)
+                assert compare(np.load(output / 'logits.npy'), actual)['passed']
+            # Warmups, then alternate complete API calls; excludes IO and session/model initialization.
+            for repeat in range(P['timing_warmups'] + P['timing_repeats']):
+                for runtime in (['torch', 'onnx'] if repeat % 2 == 0 else ['onnx', 'torch']):
+                    start = time.perf_counter_ns()
+                    if runtime == 'torch':
+                        with torch.inference_mode():
+                            torch_tiled(model, torch.from_numpy(x), tile_size=P['tile'],
+                                        overlap=P['overlap'], blend=P['blend'], tile_batch_size=1)
+                    else:
+                        tiled_logits(session, contract, x, overlap=P['overlap'], blend=P['blend'])
+                    elapsed = (time.perf_counter_ns()-start)/1e6
+                    if repeat >= P['timing_warmups']:
+                        timings[runtime+'_ms'].append(elapsed)
+    truth = np.concatenate(truths)
+    return dict(cases=rows, aggregate_gaussian=scores(np.concatenate(predictions), truth),
+                aggregate_full_image=scores(np.concatenate(full_predictions), truth),
+                background_baseline=scores(np.zeros_like(truth), truth),
+                foreground_baseline=scores(np.ones_like(truth), truth), timing=timings)
+
+
+def provenance():
+    paths = [SPEC, PROTOCOL, DATA / 'manifest.json', DATA / 'LICENSE.txt', Path(__file__),
+             ROOT / 'experiments/prepare_fairscan.py',
+             *sorted((ROOT / 'src/unet_budget').glob('*.py'))]
+    return {str(p.relative_to(ROOT)): sha(p) for p in paths}
+
+
+def run(output, check=False):
+    torch.set_num_threads(1)
+    torch.set_num_interop_threads(1)
+    torch.use_deterministic_algorithms(True)
+    torch.manual_seed(P['model_seed'])
+    samples = dataset()
+    model, architecture = make_model()
+    if check:
+        saved = json.loads((output / 'results.json').read_text())
+        assert saved['provenance'] == provenance(), 'source or input provenance changed'
+        for name, digest in saved['artifacts'].items():
+            assert sha(output / name) == digest, f'artifact mismatch: {name}'
+        model.load_state_dict(torch.load(output / 'weights.pt', weights_only=True, map_location='cpu'))
+    else:
+        output.mkdir(parents=True, exist_ok=False)
+        training = train(model, samples['train'])
+        torch.save(model.state_dict(), output / 'weights.pt')
+        export_model(json.loads(SPEC.read_text()), output / 'weights.pt', [1, 3, *P['tile']], output / 'bundle')
+    result = evaluate(model, samples['val'], output, not check)
+    result['provenance'] = provenance()
+    result['parameters'] = sum(p.numel() for p in model.parameters())
+    assert result['parameters'] <= json.loads(SPEC.read_text())['max_parameters']
+    result['environment'] = dict(python=platform.python_version(), platform=platform.platform(),
+                                  cpu=platform.processor(), threads=1,
+                                  packages={p: importlib.metadata.version(p) for p in ['torch', 'numpy', 'onnx', 'onnxruntime', 'Pillow']})
+    with tempfile.TemporaryDirectory(prefix='fairscan-cli-') as temp:
+        path = Path(temp) / 'cli.npy'
+        subprocess.run([sys.executable, str(ROOT / 'src/unet_budget/onnx_tiled.py'), str(output / 'bundle'),
+                        str(output / 'input.npy'), '--output', str(path), '--overlap', '32', '40',
+                        '--blend', 'gaussian', '--threads', '1'], check=True)
+        assert compare(np.load(output / 'logits.npy'), np.load(path))['passed']
+    if check:
+        for key in ['cases', 'aggregate_gaussian', 'aggregate_full_image', 'background_baseline', 'foreground_baseline', 'parameters']:
+            assert result[key] == saved[key], f'changed numerical evidence: {key}'
+    else:
+        result['training'] = training
+        result['artifacts'] = {str(p.relative_to(output)): sha(p) for p in sorted(output.rglob('*')) if p.is_file()}
+        (output / 'results.json').write_text(json.dumps(result, indent=2) + '\n')
+    print(json.dumps({k: result[k] for k in ['parameters', 'aggregate_gaussian', 'aggregate_full_image', 'background_baseline', 'foreground_baseline', 'timing']}, indent=2))
+    if not all(case['parity']['passed'] for case in result['cases']):
+        raise AssertionError('runtime tolerance failed; results retained')
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--output', type=Path, default=ROOT / 'results/fairscan')
+    parser.add_argument('--check', action='store_true', help='replay saved model and evidence; never retrain')
+    args = parser.parse_args()
+    run(args.output.resolve(), args.check)

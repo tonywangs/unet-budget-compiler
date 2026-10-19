@@ -1,0 +1,21 @@
+{
+  "model_seed": 303,
+  "crop_seed": 404,
+  "epochs": 30,
+  "batch_size": 8,
+  "crops_per_image_per_epoch": 4,
+  "learning_rate": 0.003,
+  "optimizer": "Adam",
+  "tile": [65, 81],
+  "overlap": [32, 40],
+  "blend": "gaussian",
+  "threads": 1,
+  "atol": 0.00001,
+  "rtol": 0.00001,
+  "max_absolute_error": 0.0001,
+  "mean_absolute_error": 0.00001,
+  "label_disagreement": 0.001,
+  "timing_warmups": 2,
+  "timing_repeats": 7,
+  "selection": "Fixed before evaluation; no accuracy target or validation-based model selection."
+}
